@@ -4,6 +4,27 @@
  * Theme Functions
  */
 
+require get_template_directory() . '/puc/plugin-update-checker.php';
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$themeUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/amarasa/complete-mortgage-theme', // GitHub repository URL
+    get_template_directory(), // Path to the theme
+    'complete-mortgage-theme' // Theme directory name
+);
+
+// Enable branch tracking (optional, defaults to `main` if omitted)
+$themeUpdateChecker->setBranch('main');
+
+// Prevent caching issues
+add_filter('site_transient_update_themes', function ($transient) use ($themeUpdateChecker) {
+    if (!empty($transient) && is_object($transient)) {
+        delete_site_transient('update_themes');
+    }
+    return $transient;
+});
+
 function complete_mortgage_enqueue_assets()
 {
     // Enqueue Styles
