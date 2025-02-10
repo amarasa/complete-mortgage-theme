@@ -46,7 +46,7 @@ function complete_mortgage_enqueue_assets()
         'complete-mortgage-style',
         get_stylesheet_directory_uri() . "/style.css",
         [],
-        '1.0.1',
+        '1.0.2',
         'all'
     );
 
