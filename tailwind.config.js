@@ -10,6 +10,13 @@ const brandConfig = {
 	},
 };
 
+const screenSizes = {
+	sm: "640px",
+	md: "768px",
+	lg: "1024px",
+	xl: "1280px",
+};
+
 module.exports = {
 	content: [
 		"./**/*.php", // Scan all PHP files in the theme
@@ -35,14 +42,9 @@ module.exports = {
 			colors: brandConfig.colors,
 			fontFamily: brandConfig.fontFamily,
 		},
+		screens: screenSizes, // ✅ Correct way to define screens
 		container: {
-			center: true,
-			screens: {
-				sm: "640px",
-				md: "768px",
-				lg: "1024px",
-				xl: "1280px",
-			},
+			center: true, // ✅ Uses `theme.screens` automatically
 		},
 	},
 	plugins: [
