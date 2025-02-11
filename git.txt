@@ -5,4 +5,3 @@
 5. git commit -m "your commit message"
 6. git pull --rebase origin main
 7. git push -u origin main
-8. :-)
