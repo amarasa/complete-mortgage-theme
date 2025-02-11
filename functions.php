@@ -46,7 +46,7 @@ function complete_mortgage_enqueue_assets()
         'complete-mortgage-style',
         get_stylesheet_directory_uri() . "/style.css",
         [],
-        '1.0.4',
+        '1.0.5',
         'all'
     );
 
@@ -55,7 +55,7 @@ function complete_mortgage_enqueue_assets()
         'complete-mortgage-core',
         get_template_directory_uri() . '/js/core.js',
         ['jquery'],
-        '1.0.4',
+        '1.0.5',
         true
     );
 }
