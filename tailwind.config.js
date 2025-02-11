@@ -1,3 +1,11 @@
+const brandConfig = {
+	colors: {
+		primary: "#1E40AF", // Branding Option #1 - Primary Color
+		secondary: "#0F172A", // Branding Option #1 - Secondary Color
+		tertiary: "#EAB308", // Branding Option #1 - Tertiary Color
+	},
+};
+
 module.exports = {
 	content: [
 		"./**/*.php", // Scan all PHP files in the theme
@@ -21,10 +29,9 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				"error-red": "#d42d0d",
-				"light-grey": "rgba(67, 67, 70, 0.1)",
-				"primary-color": "#1E73BE",
-				"secondary-color": "#0e4c82",
+				primary: brandConfig.colors.primary,
+				secondary: brandConfig.colors.secondary,
+				tertiary: brandConfig.colors.tertiary,
 			},
 		},
 		container: {
@@ -37,5 +44,16 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		require("@tailwindcss/line-clamp"),
+		require("tailwindcss-animate"),
+		require("tailwindcss-elevation")(["responsive"]),
+	],
+	/*
+		Docs: 
+
+		Animate: https://github.com/jamiebuilds/tailwindcss-animate
+		Elevation: https://github.com/jonaskay/tailwindcss-elevation
+		Line Clamp: https://tailwindcss.com/docs/line-clamp
+	*/
 };

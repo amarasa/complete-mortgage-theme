@@ -28,6 +28,9 @@
 		"tailwindcss-important": "^1.0.0"
 	},
 	"dependencies": {
-		"aos": "^2.3.4"
+		"@tailwindcss/line-clamp": "^0.4.4",
+		"aos": "^2.3.4",
+		"tailwindcss-animate": "^1.0.7",
+		"tailwindcss-elevation": "^2.0.0"
 	}
 }
