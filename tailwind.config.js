@@ -11,10 +11,13 @@ const brandConfig = {
 };
 
 const screenSizes = {
-	sm: "640px",
-	md: "768px",
-	lg: "1024px",
-	xl: "1280px",
+	xs: "480px", // (Optional) Very small phones
+	sm: "640px", // Small devices
+	md: "768px", // Tablets
+	lg: "1024px", // Laptops
+	xl: "1280px", // Large desktops
+	"2xl": "1536px", // Wide screens
+	"3xl": "1920px", // (Optional) Ultra-wide monitors
 };
 
 module.exports = {
