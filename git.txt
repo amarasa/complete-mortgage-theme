@@ -1,0 +1,8 @@
+1. git init
+2. git remote add origin https://github.com/amarasa/complete-mortgage-theme.git
+3. git remote -v (to verify that the repo is added back in locally)
+4. git add .
+5. git commit -m "your commit message"
+6. git pull --rebase origin main
+7. git push -u origin main
+8. :-)
