@@ -4,6 +4,10 @@ const brandConfig = {
 		secondary: "#0F172A", // Branding Option #1 - Secondary Color
 		tertiary: "#EAB308", // Branding Option #1 - Tertiary Color
 	},
+	fontFamily: {
+		heading: ["Poppins", "sans-serif"],
+		body: ["Inter", "sans-serif"],
+	},
 };
 
 module.exports = {
@@ -28,11 +32,8 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			colors: {
-				primary: brandConfig.colors.primary,
-				secondary: brandConfig.colors.secondary,
-				tertiary: brandConfig.colors.tertiary,
-			},
+			colors: brandConfig.colors,
+			fontFamily: brandConfig.fontFamily,
 		},
 		container: {
 			center: true,
