@@ -3,14 +3,26 @@ require get_template_directory() . '/puc/plugin-update-checker.php';
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
+// Build the update checker with your licensing system API endpoint.
 $themeUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://github.com/amarasa/complete-mortgage-theme', // GitHub repository URL
+    'http://206.189.194.86/api/license/verify', // Licensing API endpoint
     get_template_directory(), // Path to the theme
     'complete-mortgage-theme' // Theme directory name
 );
 
+// Add the query args to include the license key and other parameters.
+$themeUpdateChecker->addQueryArgFilter(function (array $queryArgs) {
+    // Retrieve the license key (adjust the option name if needed).
+    //$license_key = get_option('complete_mortgage_theme_license_key', '');
+    $license_key = '1298e3da-a40e-498d-bc7e-feb6c867ae65';
+    $queryArgs['license_key'] = $license_key;
+    $queryArgs['theme_slug']   = 'complete-mortgage-theme';
+    $queryArgs['domain']       = home_url();
+    return $queryArgs;
+});
+
 // Enable branch tracking (optional, defaults to `main` if omitted)
-$themeUpdateChecker->setBranch('main');
+//$themeUpdateChecker->setBranch('main');
 
 function include_all_lib_files($dir)
 {
@@ -73,3 +85,5 @@ function complete_mortgage_theme_setup()
     ]);
 }
 add_action('after_setup_theme', 'complete_mortgage_theme_setup');
+
+

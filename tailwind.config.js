@@ -51,9 +51,12 @@ module.exports = {
 		},
 	},
 	plugins: [
+		require("tailwindcss"),
+		require("autoprefixer"),
 		require("@tailwindcss/line-clamp"),
 		require("tailwindcss-animate"),
 		require("tailwindcss-elevation")(["responsive"]),
+		require("equalize-heights"),
 	],
 	/*
 		Docs: 

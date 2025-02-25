@@ -10,24 +10,97 @@
 
             </article>
 
-            <article>
-                <time>Mar 10, 2020</time>
-                <h2>Boost your conversion rate</h2>
-                <p class="line-clamp-2">
-                    Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut
-                    sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur fugiat
-                    dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis deserunt
-                    ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit mollit officia ad enim sit consectetur
-                    enim.
-                </p>
-            </article>
+            <div class="container mx-auto p-6">
+                <!-- Use a grid to layout 3 columns on medium+ screens -->
+                <div class="team grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            <button class="elevation-1">Button</button>
-        <?php endwhile;
-    else : ?>
-        <p class="text-center text-gray-600">No content found.</p>
+                    <!-- Column 1 -->
+                    <div class="team-members eh-members bg-gray-50 shadow p-4">
+                        <img src="https://placehold.co/300x200" alt="Team Member 1" class="w-full mb-4">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Aliquam erat volutpat.
+                        </p>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="team-members eh-team bg-gray-50 shadow p-4">
+                        <img src="https://placehold.co/300x250" alt="Team Member 2" class="w-full mb-4">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in metus a dolor fermentum varius. Integer eu justo id nibh ornare sagittis.
+                        </p>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="team-members eh-members bg-gray-50 shadow p-4">
+                        <img src="https://placehold.co/300x150" alt="Team Member 3" class="w-full mb-4">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="container mx-auto p-6">
+                    <!-- Use a grid to layout 3 columns on medium+ screens -->
+                    <div class="team grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                        <!-- Column 1 -->
+                        <div class="team-members eh-team bg-gray-50 shadow p-4">
+                            <img src="https://placehold.co/300x200" alt="Team Member 1" class="w-full mb-4">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Aliquam erat volutpat.
+                            </p>
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div class="team-members eh-team bg-gray-50 shadow p-4">
+                            <img src="https://placehold.co/300x250" alt="Team Member 2" class="w-full mb-4">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in metus a dolor fermentum varius. Integer eu justo id nibh ornare sagittis.
+                            </p>
+                        </div>
+
+                        <!-- Column 3 -->
+                        <div class="team-members eh-team bg-gray-50 shadow p-4">
+                            <img src="https://placehold.co/300x150" alt="Team Member 3" class="w-full mb-4">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non purus at lacus ullamcorper fermentum sit amet et quam.
+                            </p>
+                        </div>
+
+                    </div>
+
+                <?php endwhile;
+        else : ?>
+                <p class="text-center text-gray-600">No content found.</p>
 
 
-    <?php endif; ?>
+            <?php endif; ?>
 </main>
 <?php footer_hub_get_custom_footer(); ?>
