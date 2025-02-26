@@ -16,8 +16,6 @@ const screenSizes = {
 	md: "768px", // Tablets
 	lg: "1024px", // Laptops
 	xl: "1280px", // Large desktops
-	"2xl": "1536px", // Wide screens
-	"3xl": "1920px", // (Optional) Ultra-wide monitors
 };
 
 module.exports = {
@@ -39,6 +37,9 @@ module.exports = {
 
 		"../../plugins/kal_testimonials_for_loan_officers/**/*.php",
 		"../../plugins/kal_testimonials_for_loan_officers/**/*.{js,css,html}",
+
+		"../../plugins/querycraft/**/*.php",
+		"../../plugins/querycraft/**/*.{js,css,html}",
 	],
 	theme: {
 		extend: {
@@ -54,6 +55,7 @@ module.exports = {
 		require("@tailwindcss/line-clamp"),
 		require("tailwindcss-animate"),
 		require("tailwindcss-elevation")(["responsive"]),
+		require("equalize-heights"),
 	],
 	/*
 		Docs: 

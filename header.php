@@ -9,17 +9,22 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="bg-gray-900 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="<?php echo home_url(); ?>" class="text-2xl font-bold">
-                <?php bloginfo('name'); ?>
-            </a>
-            <nav>
-                <?php wp_nav_menu([
-                    'theme_location' => 'primary',
-                    'container' => '',
-                    'menu_class' => 'flex space-x-4'
-                ]); ?>
-            </nav>
+    <header class="px-10 py-6">
+        <div class="grid grid-cols-12 gap-x-8 items-center">
+            <div class="col-span-9 md:col-span-5 lg:col-span-3">
+                <?php
+                $custom_logo_id = get_theme_mod('custom_logo');
+                $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+
+                if (has_custom_logo()) {
+                    echo '<a href="' . get_bloginfo('url') . '"><img src="' . esc_url($logo[0]) . '" alt="' . esc_attr(get_bloginfo('name')) . '"></a>';
+                } else {
+                    echo '<a href="' . get_bloginfo('url') . '">' . get_bloginfo('name') . '</a>';
+                }
+                ?>
+            </div>
+            <div class="col-span-3 md:col-span-7 lg:col-span-9">
+                MENU HERE
+            </div>
         </div>
     </header>

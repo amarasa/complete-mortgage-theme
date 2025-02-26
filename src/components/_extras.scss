@@ -1,0 +1,30 @@
+.cards {
+	@apply grid grid-cols-12 gap-8;
+}
+ul,
+ol {
+	list-style-position: outside;
+	margin-left: 2rem;
+	margin-bottom: 4rem;
+
+	li {
+		margin-bottom: 1rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+ul {
+	list-style: disc;
+}
+ol {
+	list-style: numeric;
+}
+p {
+	margin: 2rem 0;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}

@@ -30,6 +30,7 @@
 	"dependencies": {
 		"@tailwindcss/line-clamp": "^0.4.4",
 		"aos": "^2.3.4",
+		"equalize-heights": "^1.0.0",
 		"tailwindcss-animate": "^1.0.7",
 		"tailwindcss-elevation": "^2.0.0"
 	}
