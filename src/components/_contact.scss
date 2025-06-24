@@ -1,0 +1,25 @@
+.contact-branches {
+	ul {
+		@apply ml-0 list-none font-bold;
+
+		li {
+			@apply mb-3;
+		}
+		a {
+			@apply text-secondary;
+
+			&:after {
+				font-family: "FontAwesome", sans-serif;
+				content: "\f061";
+				@apply ml-3 left-0 relative transition-all duration-300 ease-in-out;
+			}
+			&:hover {
+				@apply text-tertiary;
+
+				&:after {
+					@apply left-2;
+				}
+			}
+		}
+	}
+}
