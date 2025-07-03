@@ -1,0 +1,5 @@
+.editor-styles-wrapper .container,
+.editor-styles-wrapper .narrow-container {
+	border: 1px solid #000;
+	padding: 15px;
+}

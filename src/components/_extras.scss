@@ -1,0 +1,128 @@
+.cards {
+	@apply grid grid-cols-12 gap-8;
+}
+body {
+	@apply text-lg font-body text-[#515151];
+	-webkit-font-smoothing: antialiased;
+}
+ul,
+ol {
+	@apply list-outside ml-8 mb-12 pr-8;
+
+	li {
+		@apply mb-5;
+
+		&:last-child {
+			@apply mb-0;
+		}
+		&::marker {
+			@apply text-primary font-bold;
+		}
+	}
+}
+ul {
+	@apply list-disc;
+}
+ol {
+	@apply list-decimal;
+}
+p {
+	@apply my-5;
+}
+img {
+	@apply max-w-full h-auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-bold font-heading leading-tight text-primary;
+}
+h1 {
+	@apply text-4xl leading-10 md:text-[50px] md:leading-[54px];
+}
+h2 {
+	@apply text-[32px] leading-9 md:text-[45px] md:leading-[50px];
+}
+h3 {
+	@apply text-3xl leading-10 md:text-[32px] md:leading-9;
+}
+h4 {
+	@apply text-2xl leading-7;
+}
+h5 {
+	@apply text-[20px] md:text-[26px];
+}
+h6 {
+	@apply text-lg leading-5;
+}
+.button,
+.wp-block-button__link {
+	@apply bg-primary hover:bg-secondary block lg:inline-block transition-all duration-300 ease-in-out font-bold rounded-md text-white hover:text-white py-4 px-7 text-center;
+}
+.button.button-white {
+	@apply bg-white !text-primary hover:bg-secondary hover:!text-white;
+}
+.bold-links a {
+	@apply font-bold;
+}
+a:not(header a, footer a) {
+	@apply text-primary hover:text-secondary duration-300 ease-in-out transition-all;
+}
+.eyebrow {
+	@apply text-sm md:text-base text-secondary uppercase tracking-widest mb-2;
+}
+hr,
+hr.wp-block-separator {
+	@apply border-0 h-[1px] bg-[#d8d8d8] my-8 md:my-10 lg:my-12;
+}
+.wp-block-spacer {
+	@media (max-width: 640px) {
+		height: 50px !important;
+	}
+}
+ul.checklist {
+	@apply list-none ml-0 font-semibold;
+
+	li {
+		&:before {
+			font-family: "FontAwesome", sans-serif;
+			content: "\f00c";
+			@apply mr-4 text-secondary;
+		}
+	}
+}
+.arrow-link {
+	&:after {
+		font-family: "FontAwesome", sans-serif;
+		content: "\f061";
+		@apply ml-2 relative left-0 transition-all duration-300 ease-in-out;
+	}
+	&:hover {
+		&:after {
+			@apply left-2;
+		}
+	}
+}
+.wp-block-pullquote {
+	@apply text-left border-l-4 border-primary border-solid py-4 pl-8 italic;
+
+	cite {
+		@apply not-italic text-lg font-bold text-secondary uppercase tracking-widest;
+	}
+}
+@media (max-width: 767px) {
+	.wp-block-table {
+		overflow-x: auto !important;
+		width: 100% !important;
+		margin: 1.5rem 0 !important;
+	}
+	.wp-block-table .has-fixed-layout td,
+	.wp-block-table .has-fixed-layout th {
+		word-wrap: normal !important;
+		word-break: normal !important;
+		width: 100% !important;
+	}
+}
