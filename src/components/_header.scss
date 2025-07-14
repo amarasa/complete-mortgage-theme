@@ -1,0 +1,163 @@
+.header-alert-bar {
+	p {
+		@apply my-2;
+	}
+	a {
+		@apply font-bold text-white hover:text-white hover:opacity-70 transition-all duration-300 ease-in-out;
+	}
+}
+.top-header-menu,
+.header-desktop-menu {
+	ul {
+		@apply list-none text-base flex gap-x-8 items-center justify-end mb-0 font-bold text-primary;
+
+		li:not(.header-button) {
+			@apply relative mb-0 hidden lg:block;
+
+			a {
+				&:hover {
+					@apply text-secondary;
+				}
+			}
+		}
+		li.menu-item-has-children {
+			& > a {
+				@apply inline-block duration-300 ease-in-out transition-all;
+
+				&:after {
+					content: "\f0d7";
+					font-family: "Font Awesome 6 Free", sans-serif;
+					@apply pl-2;
+				}
+
+				&:hover {
+					&:after {
+						@apply text-secondary;
+					}
+				}
+			}
+
+			&.clicked > a:after {
+				@apply text-secondary;
+			}
+		}
+	}
+	.sub-menu {
+		@apply hidden absolute bg-primary left-0 top-full translate-x-0 ml-0 z-50 py-2 pr-0;
+
+		li {
+			@apply w-full;
+
+			a {
+				@apply text-white block px-4 py-2 whitespace-nowrap duration-300 ease-in-out transition-all;
+
+				&:hover {
+					@apply text-white opacity-80 !important;
+				}
+			}
+		}
+	}
+	.header-button {
+		a {
+			@extend .button;
+			@apply hidden sm:block bg-secondary hover:bg-primary;
+		}
+	}
+}
+.open-menu-button,
+.close-menu-button {
+	@apply cursor-pointer;
+}
+.top-header-menu {
+	a {
+		@apply text-white hover:opacity-70 hover:text-white !important;
+	}
+}
+#menu-mobile-menu {
+	padding-right: 0;
+}
+#mobile-menu {
+	@apply hidden w-full fixed top-0 pt-[100px] px-8 text-white bg-primary h-full;
+	z-index: 999999;
+
+	.menu {
+		a {
+			@apply text-white;
+		}
+	}
+	.header-button {
+		a {
+			@extend .button;
+			@apply bg-white text-primary hover:bg-secondary w-full;
+		}
+	}
+}
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+	list-style: none;
+	display: block;
+	position: relative;
+}
+#cssmenu {
+	width: 100%;
+}
+#cssmenu ul ul {
+	@apply hidden ml-0 mt-8 pl-4;
+
+	li {
+		@apply mb-2;
+
+		a {
+			@apply text-white opacity-80 hover:opacity-100 transition-all duration-300;
+		}
+	}
+}
+#cssmenu > ul > li > a {
+	cursor: pointer;
+	z-index: 2;
+	text-decoration: none;
+}
+#cssmenu ul ul li a {
+	cursor: pointer;
+	z-index: 1;
+	text-decoration: none;
+}
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+	@apply ml-0 list-none block relative font-bold;
+}
+#cssmenu {
+	@apply w-full;
+
+	.has-sub {
+		& > a {
+			@apply flex items-center justify-between w-full;
+
+			&:after {
+				content: "\f055";
+				font-family: "FontAwesome", sans-serif;
+				@apply absolute right-5 top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out;
+			}
+		}
+	}
+	.open {
+		& > a {
+			&:after {
+				@apply rotate-45 right-5;
+			}
+		}
+	}
+}
+#cssmenu ul ul {
+	@apply hidden ml-0 mt-8;
+}
+#cssmenu > ul > li > a {
+	@apply cursor-pointer z-10 no-underline;
+}
+#cssmenu ul ul li a {
+	@apply cursor-pointer z-0 no-underline;
+}
