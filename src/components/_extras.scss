@@ -38,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-bold font-heading leading-tight text-primary;
+	@apply font-bold font-heading leading-tight text-primary !mb-8;
 }
 h1 {
 	@apply text-4xl leading-10 md:text-[50px] md:leading-[54px];

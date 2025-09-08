@@ -44,7 +44,7 @@ form {
 	}
 	input:not(input[type="radio"], input[type="checkbox"]),
 	textarea {
-		@apply border-solid focus:outline-none focus:border-secondary border-[1px] border-[#8e8e95] h-[56px] rounded-[4px] text-lg !important;
+		@apply border-solid focus:outline-none focus:border-secondary !border-[1px] border-[#8e8e95] h-[56px] rounded-[4px] text-lg !important;
 	}
 	.gform-page-footer {
 		@apply gap-x-8 sm:flex-nowrap !important;
@@ -58,7 +58,7 @@ form {
 	}
 	input[type="button"],
 	input[type="submit"] {
-		@apply w-full bg-secondary shadow-none outline-none border-0 hover:bg-primary text-lg text-white font-bold !important;
+		@apply w-full bg-secondary shadow-none outline-none border-0 hover:bg-primary text-lg text-white font-bold border-none !important;
 	}
 	input[type="button"].gform_previous_button {
 		@apply bg-primary hover:bg-secondary !important;
@@ -96,7 +96,7 @@ form {
 	}
 }
 form.horizontal-form {
-	@apply lg:flex gap-x-8 items-end justify-between;
+	@apply lg:flex gap-x-4 items-end justify-between;
 
 	.gform_body {
 		@apply w-full;
@@ -108,6 +108,9 @@ form.horizontal-form {
 		.gfield {
 			@apply flex-grow !important;
 		}
+	}
+	input[type="text"] {
+		@apply border-[1px] !important;
 	}
 
 	.validation_message {

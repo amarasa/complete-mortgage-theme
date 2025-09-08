@@ -62,9 +62,26 @@ header_hub_get_custom_header(); ?>
                             <a href="<?php echo get_field('linkedin'); ?>" target="_blank"><i class="fab fa-linkedin-in !text-[#007ebb] hover:!text-tertiary transition-all duration-300 ease-in-out"><span class="sr-only">LinkedIn</span></i></a>
                         </div>
                     <?php } ?>
+                    <?php if (get_field('instagram')) { ?>
+                        <a href="<?php echo get_field('instagram'); ?>" target="_blank" class="transition-all duration-300">
+                            <i class="fab fa-instagram bg-clip-text text-transparent transition-all duration-300 ease-in-out hover:!text-tertiary"
+                                style="background-image: linear-gradient(to left,
+       #feda75,
+       #fa7e1e,
+       #d62976,
+       #962fbf,
+       #4f5bd5
+   );">
+                                <span class="sr-only">Instagram</span>
+                            </i>
+
+                        </a>
+                    <?php } ?>
                     <?php if (get_field('youtube')) { ?>
                         <div>
-                            <a href="<?php echo get_field('youtube'); ?>" target="_blank"><i class="fab fa-youtube !text-[#cd201f] hover:!text-tertiary transition-all duration-300 ease-in-out"><span class="sr-only">YouTube</span></i></a>
+                            <a href="<?php echo get_field('youtube'); ?>" target="_blank"><i class="fab fa-youtube !text-[#cd201f] hover:!text-tertiary transition-all duration-300 ease-in-out"><span class="sr-only">YouTube</span></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
                         </div>
                     <?php } ?>
                 </div>
