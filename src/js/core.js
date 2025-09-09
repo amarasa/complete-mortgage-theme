@@ -9,53 +9,83 @@ window.equalizeHeightsOptions = {
 import "equalize-heights/runtime";
 
 jQuery(document).ready(function ($) {
-	// Debug: Check menu structure
+	// Debug
 	console.log(
 		"Desktop menu items with children:",
 		$(".header-desktop-menu .menu li.menu-item-has-children").length
 	);
 	console.log("Mobile menu items with sub:", $("#cssmenu li.has-sub").length);
 
-	// Desktop Drop Down Click Instead of Hover
-	$(".header-desktop-menu .menu li.menu-item-has-children > a").click(
-		function (e) {
-			console.log("Desktop menu item clicked");
-			var $menuItem = $(this).parent("li");
-			var $subMenu = $menuItem.find(".sub-menu");
+	// Helper: close all submenus
+	function closeAll() {
+		$(".sub-menu").slideUp();
+		$("li.menu-item-has-children")
+			.removeClass("open")
+			.find("> a")
+			.attr("aria-expanded", "false");
+	}
 
-			console.log("Menu item:", $menuItem);
-			console.log("Sub menu:", $subMenu);
+	// Toggle handler for anchors that have a submenu
+	$(
+		"#menu-primary-menu li.menu-item-has-children > a, #menu-top-menu li.menu-item-has-children > a"
+	).on("click", function (e) {
+		e.preventDefault(); // stop navigation
+		e.stopPropagation(); // don't bubble to document
 
-			// Close other open sub-menus
-			$(".header-desktop-menu .menu li.menu-item-has-children")
-				.not($menuItem)
-				.find(".sub-menu")
-				.slideUp();
-			$(".header-desktop-menu .menu li.menu-item-has-children")
-				.not($menuItem)
-				.removeClass("clicked");
+		const $li = $(this).parent("li");
 
-			// Toggle current sub-menu
-			$subMenu.slideToggle();
-			$menuItem.toggleClass("clicked");
-
-			e.preventDefault();
-			e.stopPropagation();
+		// Close the other menu's submenus first
+		if ($li.closest("#menu-primary-menu").length) {
+			$("#menu-top-menu .sub-menu")
+				.slideUp()
+				.parent()
+				.removeClass("open")
+				.find("> a")
+				.attr("aria-expanded", "false");
+		} else {
+			$("#menu-primary-menu .sub-menu")
+				.slideUp()
+				.parent()
+				.removeClass("open")
+				.find("> a")
+				.attr("aria-expanded", "false");
 		}
-	);
-	$(document).on("click", function (event) {
-		// Check if the click was outside of any menu item with children
-		var $clickedElement = $(event.target);
-		var $menuContainer = $(".header-desktop-menu");
 
-		// If the clicked element is not inside the menu container
-		if (!$clickedElement.closest($menuContainer).length) {
-			$(".header-desktop-menu .sub-menu").slideUp();
-			$(
-				".header-desktop-menu .menu li.menu-item-has-children"
-			).removeClass("clicked");
-		}
+		// Toggle this one and close siblings
+		const $submenu = $li.children(".sub-menu");
+		$li.toggleClass("open")
+			.siblings()
+			.removeClass("open")
+			.children(".sub-menu")
+			.slideUp()
+			.parent()
+			.find("> a")
+			.attr("aria-expanded", "false");
+
+		$submenu.stop(true, true).slideToggle();
+		$(this).attr("aria-expanded", $li.hasClass("open") ? "true" : "false");
 	});
+
+	// Click outside closes everything
+	$(document).on("click", function () {
+		closeAll();
+	});
+
+	// (Nice to have) keyboard accessibility: open/close on Enter/Space
+	$(
+		"#menu-primary-menu li.menu-item-has-children > a, #menu-top-menu li.menu-item-has-children > a"
+	)
+		.attr({
+			"aria-haspopup": "true",
+			"aria-expanded": "false",
+			role: "button",
+		})
+		.on("keydown", function (e) {
+			if (e.key === "Enter" || e.key === " ") {
+				e.preventDefault();
+				$(this).trigger("click");
+			}
+		});
 
 	// Mobile Menu
 	$(".open-menu-button").click(function () {

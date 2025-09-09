@@ -9,7 +9,7 @@
 .top-header-menu,
 .header-desktop-menu {
 	ul {
-		@apply list-none text-base flex gap-x-8 items-center justify-end mb-0 font-bold text-primary;
+		@apply list-none text-base flex gap-x-8 items-center justify-end mb-0 font-bold text-primary text-left;
 
 		li:not(.header-button) {
 			@apply relative mb-0 hidden lg:block;
