@@ -1,5 +1,5 @@
 <?php
-define("COMPLETE_THEME_VERSION", "2.0");
+define("COMPLETE_THEME_VERSION", "2.0.2");
 
 require get_template_directory() . '/puc/plugin-update-checker.php';
 
