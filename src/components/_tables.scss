@@ -75,6 +75,7 @@ table.responsive-table th {
 		display: block;
 		font-size: 0.8em;
 		text-align: right;
+		margin-left: 1em;
 	}
 
 	table.responsive-table td::before {
@@ -82,6 +83,7 @@ table.responsive-table th {
 		float: left;
 		font-weight: bold;
 		text-transform: uppercase;
+		margin-right: 1em;
 	}
 
 	table.responsive-table td:last-child {

@@ -1,9 +1,15 @@
 <?php
+
+/**
+ * Markdown -> HTML (subset) with tables. No external libs.
+ * Supports: headings, bold/italic, links (with optional title), inline + fenced code,
+ * lists, quotes, hr, paragraphs, and pipe tables with responsive data-labels.
+ */
 function vv_markdown_light($md)
 {
-    if (! is_string($md) || $md === '') return '';
+    if (!is_string($md) || $md === '') return '';
 
-    // Normalize
+    // Normalize line endings
     $md = str_replace(["\r\n", "\r"], "\n", $md);
 
     // ---------- Helpers ----------
@@ -18,6 +24,34 @@ function vv_markdown_light($md)
         $s = preg_replace('/\s+/u', ' ', $s);
         return $s;
     };
+    // Inline Markdown (links/bold/italic/inline-code) for table cells & headers
+    $parse_inline = function ($text) {
+        if ($text === '') return '';
+
+        // Inline code: `code`
+        $text = preg_replace_callback('/`([^`\n]+)`/', function ($m) {
+            $code = htmlspecialchars($m[1], ENT_QUOTES, 'UTF-8');
+            return "<code>{$code}</code>";
+        }, $text);
+
+        // Links: [text](url "optional title") — allow space after ]
+        $text = preg_replace_callback('/\[(.+?)\]\s*\((\S+?)(?:\s+"(.*?)")?\)/', function ($m) {
+            $t = $m[1];
+            $url = esc_url($m[2]);
+            $title = isset($m[3]) ? ' title="' . esc_attr($m[3]) . '"' : '';
+            return '<a href="' . $url . '"' . $title . '>' . $t . '</a>';
+        }, $text);
+
+        // Bold
+        $text = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $text);
+        $text = preg_replace('/__(.+?)__/s',     '<strong>$1</strong>', $text);
+
+        // Italic (simple)
+        $text = preg_replace('/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/s', '<em>$1</em>', $text);
+        $text = preg_replace('/(?<!_)_(?!_)(.+?)(?<!_)_(?!_)/s',       '<em>$1</em>', $text);
+
+        return $text;
+    };
 
     // ---------- 1) Protect fenced code blocks ----------
     $code_placeholders = [];
@@ -30,23 +64,28 @@ function vv_markdown_light($md)
     }, $md);
 
     // ---------- 2) Block-level transforms ----------
+    // hr
     $md = preg_replace('/^(?:\*{3,}|-{3,}|_{3,})\s*$/m', "<hr />", $md);
 
+    // blockquotes
     $md = preg_replace_callback('/(?:^> ?.*(?:\n|$))+?/m', function ($m) {
         $block = preg_replace('/^> ?/m', '', rtrim($m[0]));
         return "\n<blockquote>\n{$block}\n</blockquote>\n";
     }, $md);
 
+    // unordered lists
     $md = preg_replace_callback('/(^[-+*] +.+(?:\n[-+*] +.+)*)/m', function ($m) {
         $items = preg_replace('/^[-+*] +(.+)$/m', '<li>$1</li>', $m[1]);
         return "<ul>\n{$items}\n</ul>";
     }, $md);
 
+    // ordered lists
     $md = preg_replace_callback('/(^\d+\. +.+(?:\n\d+\. +.+)*)/m', function ($m) {
         $items = preg_replace('/^\d+\. +(.+)$/m', '<li>$1</li>', $m[1]);
         return "<ol>\n{$items}\n</ol>";
     }, $md);
 
+    // ATX headings
     $md = preg_replace('/^###### +(.+)$/m', '<h6>$1</h6>', $md);
     $md = preg_replace('/^##### +(.+)$/m',  '<h5>$1</h5>', $md);
     $md = preg_replace('/^#### +(.+)$/m',   '<h4>$1</h4>', $md);
@@ -57,7 +96,8 @@ function vv_markdown_light($md)
     // ---------- 3) Tables (pipe syntax) ----------
     $md = preg_replace_callback(
         '/(?:^|\n)(\|?.+\|.*)\n(\|? *:?-{3,}:? *(?:\| *:?-{3,}:? *)+\|?)\n((?:\|?.+\|.*(?:\n|$))+)/m',
-        function ($m) use ($slugify, $clean_label) {
+        function ($m) use ($slugify, $clean_label, $parse_inline) {
+            // Split a pipe row into trimmed cells
             $split = function ($line) {
                 $line = trim($line);
                 if (substr($line, 0, 1) === '|') $line = substr($line, 1);
@@ -75,6 +115,7 @@ function vv_markdown_light($md)
             $bodyRows = preg_split('/\n/', $bodyRaw);
             $cols     = count($headers);
 
+            // Alignment from divider
             $aligns = [];
             foreach ($divider as $d) {
                 $d = preg_replace('/\s+/', '', $d);
@@ -86,6 +127,7 @@ function vv_markdown_light($md)
                 $aligns[] = '';
             }
 
+            // Header labels & keys
             $header_labels = [];
             $header_keys   = [];
             for ($i = 0; $i < $cols; $i++) {
@@ -94,13 +136,17 @@ function vv_markdown_light($md)
                 $header_keys[$i]   = $slugify($h);
             }
 
+            // thead
             $thead = "<thead>\n<tr>";
             for ($i = 0; $i < $cols; $i++) {
                 $style = $aligns[$i] ? ' style="text-align:' . $aligns[$i] . '"' : '';
-                $thead .= '<th data-label="' . esc_attr($header_labels[$i]) . '" data-key="' . esc_attr($header_keys[$i]) . '"' . $style . '>' . $headers[$i] . '</th>';
+                $thead .= '<th data-label="' . esc_attr($header_labels[$i]) . '" data-key="' . esc_attr($header_keys[$i]) . '"' . $style . '>'
+                    . $parse_inline($headers[$i])
+                    . '</th>';
             }
             $thead .= "</tr>\n</thead>";
 
+            // tbody
             $tbody = "<tbody>\n";
             foreach ($bodyRows as $row) {
                 if (trim($row) === '') continue;
@@ -110,7 +156,9 @@ function vv_markdown_light($md)
                 for ($i = 0; $i < $cols; $i++) {
                     $c = isset($cells[$i]) ? $cells[$i] : '';
                     $style = $aligns[$i] ? ' style="text-align:' . $aligns[$i] . '"' : '';
-                    $tbody .= '<td data-label="' . esc_attr($header_labels[$i]) . '"' . $style . '>' . $c . '</td>';
+                    $tbody .= '<td data-label="' . esc_attr($header_labels[$i]) . '"' . $style . '>'
+                        . $parse_inline($c)
+                        . '</td>';
                 }
                 $tbody .= "</tr>\n";
             }
@@ -121,7 +169,7 @@ function vv_markdown_light($md)
         $md
     );
 
-    // ---------- 4) Inline transforms ----------
+    // ---------- 4) Inline transforms for non-table content ----------
     $inline_placeholders = [];
     $md = preg_replace_callback('/`([^`\n]+)`/', function ($m) use (&$inline_placeholders) {
         $code = htmlspecialchars($m[1], ENT_QUOTES, 'UTF-8');
@@ -130,12 +178,15 @@ function vv_markdown_light($md)
         return $ph;
     }, $md);
 
-    $md = preg_replace_callback('/\[(.+?)\]\((\S+?)\)/', function ($m) {
-        $text = $m[1];
-        $url  = esc_url($m[2]);
-        return '<a href="' . $url . '">' . $text . '</a>';
+    // Links — allow space after ]
+    $md = preg_replace_callback('/\[(.+?)\]\s*\((\S+?)(?:\s+"(.*?)")?\)/', function ($m) {
+        $text  = $m[1];
+        $url   = esc_url($m[2]);
+        $title = isset($m[3]) ? ' title="' . esc_attr($m[3]) . '"' : '';
+        return '<a href="' . $url . '"' . $title . '>' . $text . '</a>';
     }, $md);
 
+    // Bold & italic
     $md = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $md);
     $md = preg_replace('/__(.+?)__/s',     '<strong>$1</strong>', $md);
     $md = preg_replace('/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/s', '<em>$1</em>', $md);
