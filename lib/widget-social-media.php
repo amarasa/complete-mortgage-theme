@@ -18,11 +18,14 @@ class Social_Media_Widget extends WP_Widget
         echo '<div class="social-icons">';
         foreach ($instance as $key => $url) {
             if (!empty($url)) {
+                $icon_class = ($key === 'twitter') ? 'fab fa-x-' . esc_attr($key) : 'fab fa-' . esc_attr($key);
                 echo '<a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <i class="fab fa-' . esc_attr($key) . '"></i>
-                      </a>';
+                <i class="' . $icon_class . '"></i>
+              </a>';
             }
         }
+        echo '</div>';
+
         echo '</div>';
 
         echo $args['after_widget'];

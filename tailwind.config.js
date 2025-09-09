@@ -3,6 +3,7 @@ const brandConfig = {
 		primary: "#003b7e", // Branding Option #1 - Primary Color
 		secondary: "#0066db", // Branding Option #1 - Secondary Color
 		tertiary: "#012c65", // Branding Option #1 - Tertiary Color
+		muted: "#f5f7fa", // Added so `to-muted` works
 		topGradient: "rgba(0,102,219,0.1)",
 		bottomGradient: "rgba(255,255,255,0)",
 		topFooter: "#515151",
@@ -63,5 +64,12 @@ module.exports = {
 				},
 			});
 		},
+	],
+
+	safelist: [
+		"bg-gradient-to-l",
+		"to-muted",
+		"from-primary/20",
+		"from-secondary/20",
 	],
 };

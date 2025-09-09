@@ -110,5 +110,4 @@
     </div>
 </section>
 
-
 <?php footer_hub_get_custom_footer(); ?>
