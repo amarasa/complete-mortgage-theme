@@ -120,7 +120,7 @@
                         <?php } ?>
                         <?php if (get_field('twitter')) { ?>
                             <a href="<?php echo get_field('twitter'); ?>" target="_blank">
-                                <i class="fab fa-twitter"><span class="sr-only"><?php the_title(); ?> on Twitter</span></i>
+                                <i class="fab fa-x-twitter"><span class="sr-only"><?php the_title(); ?> on Twitter</span></i>
                             </a>
                         <?php } ?>
                         <?php if (get_field('instagram')) { ?>

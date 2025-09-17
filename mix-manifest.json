@@ -1,9 +1,8 @@
 {
     "/js/core.js": "/js/core.js",
+    "/dist-custom-plugins/querycraft.css": "/dist-custom-plugins/querycraft.css",
     "/dist-custom-plugins/kal_testimonials_for_loan_officers.css": "/dist-custom-plugins/kal_testimonials_for_loan_officers.css",
     "/dist-custom-plugins/kaleidico-custom-calculators.css": "/dist-custom-plugins/kaleidico-custom-calculators.css",
-    "/dist-custom-plugins/complete-mortgage-blocks-and-post-types.css": "/dist-custom-plugins/complete-mortgage-blocks-and-post-types.css",
     "/dist-custom-plugins/social-share.css": "/dist-custom-plugins/social-share.css",
-    "/style.css": "/style.css",
-    "/dist-custom-plugins/querycraft.css": "/dist-custom-plugins/querycraft.css"
+    "/style.css": "/style.css"
 }
