@@ -4,14 +4,5 @@
 	}
 }
 .single article a {
-	@apply font-bold text-secondary hover:text-primary transition-all duration-300 ease-in-out underline;
-}
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6,
-.prose table {
-	@apply mb-5;
+	@apply font-bold text-secondary hover:text-tertiary transition-all duration-300 ease-in-out underline;
 }

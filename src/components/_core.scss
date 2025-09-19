@@ -7,10 +7,10 @@ body {
 }
 ul,
 ol {
-	@apply list-outside ml-8 mb-12 pr-8;
+	@apply list-outside ml-8 mb-8 pr-8;
 
 	li {
-		@apply mb-5;
+		@apply mb-8;
 
 		&:last-child {
 			@apply mb-0;
@@ -27,7 +27,7 @@ ol {
 	@apply list-decimal;
 }
 p {
-	@apply my-5;
+	@apply my-8 !important;
 }
 img {
 	@apply max-w-full h-auto;
@@ -38,33 +38,23 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-bold font-heading leading-tight text-primary !mb-4;
-}
-:not(.cmt-block) h1,
-:not(.cmt-block) h2,
-:not(.cmt-block) h3,
-:not(.cmt-block) h4,
-:not(.cmt-block) h5,
-:not(.cmt-block) h6 {
-	@apply mt-8;
+	@apply font-bold font-heading text-primary !mb-8;
 }
 h1 {
-	@apply text-4xl leading-10 md:text-[50px] md:leading-[54px];
+	@apply text-[30px] leading-[35px] md:text-[40px] md:leading-[45px];
 }
 h2 {
-	@apply text-[32px] leading-9 md:text-[45px] md:leading-[50px];
+	@apply text-[32px] leading-[35px] md:text-[35px] md:leading-[40px];
 }
 h3 {
-	@apply text-3xl leading-10 md:text-[32px] md:leading-9;
+	@apply text-[25px] leading-[30px] md:text-[30px] md:leading-[35px];
 }
 h4 {
-	@apply text-2xl leading-7;
+	@apply text-[20px] leading-[25px] md:text-[25px] md:leading-[30px];
 }
-h5 {
-	@apply text-[20px] md:text-[26px];
-}
+h5,
 h6 {
-	@apply text-lg leading-5;
+	@apply text-[19px] leading-[25px];
 }
 .button,
 .wp-block-button__link {
@@ -80,7 +70,7 @@ a:not(header a, footer a) {
 	@apply text-primary hover:text-secondary duration-300 ease-in-out transition-all;
 }
 .eyebrow {
-	@apply text-sm md:text-base text-secondary uppercase tracking-widest mb-2;
+	@apply text-sm md:text-base text-secondary uppercase tracking-widest !my-2;
 }
 hr,
 hr.wp-block-separator {

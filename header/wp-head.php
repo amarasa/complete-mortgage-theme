@@ -8,17 +8,18 @@
 
     <!-- DNS Prefetch & Preconnect for Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
 
     <!-- Preload critical Google Fonts CSS -->
     <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
+        href="//fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
         as="style"
         onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <noscript>
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap">
+            href="//fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap">
     </noscript>
 
     <!-- Delayed Google Tag Manager (fires on LCP) -->

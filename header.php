@@ -6,15 +6,6 @@
         <?php echo get_field('alert_bar_content', 'option'); ?>
     </section>
 <?php } ?>
-<?php
-$menu = wp_get_nav_menu_object('Top Menu');
-$menu_items = wp_get_nav_menu_items($menu->term_id);
-
-if (!empty($menu_items)) { ?>
-    <div class="top-header-menu bg-primary px-8 py-4 text-right hidden lg:block">
-        <?php wp_nav_menu(array('menu' => 'Top Menu')); ?>
-    </div>
-<?php } ?>
 <div class="relative">
     <header class="px-8 py-6">
         <div class="grid grid-cols-12 lg:gap-x-8 items-center">
@@ -30,6 +21,15 @@ if (!empty($menu_items)) { ?>
                 </div>
             </div>
             <div class="col-span-6 lg:col-span-9">
+                <?php
+                $menu = wp_get_nav_menu_object('Top Menu');
+                $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+                if (!empty($menu_items)) { ?>
+                    <div class="top-header-menu pl-8 py-4 text-right hidden lg:block">
+                        <?php wp_nav_menu(array('menu' => 'Top Menu')); ?>
+                    </div>
+                <?php } ?>
                 <div class="flex items-center gap-x-4 justify-end">
                     <div class="header-desktop-menu">
                         <?php wp_nav_menu(array('menu' => 'Primary Menu')); ?>

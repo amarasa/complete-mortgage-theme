@@ -12,7 +12,7 @@
 @tailwind utilities;
 @tailwind variants;
 
-@import "components/extras";
+@import "components/core";
 @import "components/header";
 @import "components/contact";
 @import "components/single";
@@ -21,3 +21,4 @@
 @import "components/forms";
 @import "components/calculators";
 @import "components/tables";
+@import "components/sliders";
