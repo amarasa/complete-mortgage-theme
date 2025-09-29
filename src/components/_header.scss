@@ -168,3 +168,8 @@
 	right: 0 !important;
 	width: auto !important;
 }
+header .custom-logo {
+	@media (max-width: 575px) {
+		max-width: 150px !important;
+	}
+}

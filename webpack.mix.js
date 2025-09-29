@@ -27,7 +27,7 @@ mix.options({
 			autoprefixer: {},
 		},
 	},
-});
+}).disableNotifications();
 if (!mix.inProduction()) {
 	mix.webpackConfig({ devtool: "inline-source-map" });
 }
@@ -44,6 +44,11 @@ mix.webpackConfig({
 		],
 	},
 	plugins: [],
+	stats: {
+		// Reduce console output
+		children: false,
+		modules: false,
+	},
 });
 
 // Define plugin builds for all 5 plugins

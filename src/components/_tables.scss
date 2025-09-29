@@ -74,16 +74,15 @@ table.responsive-table th {
 		border-bottom: 1px solid #ccc;
 		display: block;
 		font-size: 0.8em;
-		text-align: right;
-		margin-left: 1em;
+		text-align: center;
 	}
 
 	table.responsive-table td::before {
 		content: attr(data-label);
-		float: left;
+		display: block;
 		font-weight: bold;
 		text-transform: uppercase;
-		margin-right: 1em;
+		text-align: center;
 	}
 
 	table.responsive-table td:last-child {
