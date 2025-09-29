@@ -60,3 +60,14 @@ function complete_theme_register_sidebars()
 
 // Hook the rivercity_register_sidebars function to the "widgets_init" action.
 add_action("widgets_init", "complete_theme_register_sidebars");
+add_action('admin_menu', function () {
+    add_menu_page(
+        'Widgets', // Page title
+        'Widgets', // Menu title
+        'edit_theme_options', // Capability
+        'widgets.php', // Menu slug (use the built-in widgets.php)
+        '', // Function (leave empty to use default)
+        'dashicons-screenoptions', // Icon
+        60 // Position
+    );
+});
