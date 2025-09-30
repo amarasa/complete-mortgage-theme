@@ -1,5 +1,5 @@
 <?php
-define("COMPLETE_THEME_VERSION", "2.81");
+define("COMPLETE_THEME_VERSION", "2.83");
 
 require get_template_directory() . '/puc/plugin-update-checker.php';
 
@@ -7,25 +7,23 @@ use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 // 🛠 Initialize PUC Update Checker
 $themeUpdateChecker = PucFactory::buildUpdateChecker(
-    'http://206.189.194.86/api/license/verify', // API Endpoint
+    'https://github.com/amarasa/complete-mortgage-theme', // GitHub Repository
     get_template_directory(), // Theme path
     'complete-mortgage-theme' // Theme slug
 );
 
-// :arrows_counterclockwise: Add query args like license key & domain
-$themeUpdateChecker->addQueryArgFilter(function (array $queryArgs) {
-    $license_key = get_option('complete_mortgage_theme_license_key', '');
-    if (!empty($license_key)) {
-        $queryArgs['license_key'] = $license_key;
-    }
-    $queryArgs['plugin_slug'] = 'complete-mortgage-theme'; // Ensure it's correct
-    $queryArgs['domain'] = home_url();
-    return $queryArgs;
-});
-
 // :arrows_counterclockwise: Clear update transients & force an update check (Remove this after verifying)
 delete_site_transient('update_themes');
 $themeUpdateChecker->checkForUpdates();
+
+// :broom: Cleanup legacy license data
+function complete_mortgage_theme_cleanup_legacy_license_data()
+{
+    // Remove any leftover license-related options
+    delete_option('complete_mortgage_theme_license_key');
+    delete_transient('complete_mortgage_theme_license_valid');
+}
+add_action('after_setup_theme', 'complete_mortgage_theme_cleanup_legacy_license_data');
 
 //-----------
 
