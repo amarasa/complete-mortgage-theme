@@ -1,9 +1,11 @@
 .top-footer {
 	.menu {
 		@apply list-none ml-0;
-
+		li {
+			@apply mb-3;
+		}
 		a {
-			@apply text-white hover:opacity-70 text-base font-bold transition-all duration-300 ease-in-out;
+			@apply text-white hover:opacity-70 text-base font-bold transition-all duration-300 ease-in-out block mb-0;
 		}
 	}
 	.footer-column-5 {
@@ -17,6 +19,11 @@
 		a {
 			@apply hover:opacity-70 duration-300 ease-in-out transition-all text-white;
 		}
+	}
+}
+.footer-col-5 {
+	p {
+		margin-top: 1em !important;
 	}
 }
 .bottom-footer {

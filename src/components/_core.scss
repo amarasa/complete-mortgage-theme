@@ -5,6 +5,9 @@ body {
 	@apply text-lg font-body text-[#515151];
 	-webkit-font-smoothing: antialiased;
 }
+section {
+	overflow-x: hidden;
+}
 ul,
 ol {
 	@apply list-outside ml-8 mb-8 pr-8;
