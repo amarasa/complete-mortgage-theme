@@ -15,11 +15,11 @@
 @tailwind utilities;
 @tailwind variants;
 
-@import "components/extras";
-@import "components/header";
-@import "components/contact";
-@import "components/single";
-@import "components/footer";
+@import "scss/core";
+@import "scss/header";
+@import "scss/contact";
+@import "scss/single";
+@import "scss/footer";
 
-@import "components/forms";
-@import "components/calculators";
+@import "scss/forms";
+@import "scss/calculators";

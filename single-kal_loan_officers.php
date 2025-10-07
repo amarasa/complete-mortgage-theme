@@ -123,6 +123,16 @@
                                 <i class="fab fa-x-twitter"><span class="sr-only"><?php the_title(); ?> on Twitter</span></i>
                             </a>
                         <?php } ?>
+                        <?php if (get_field('instagram')) { ?>
+                            <a href="<?php echo get_field('instagram'); ?>" target="_blank">
+                                <i class="fab fa-instagram"><span class="sr-only"><?php the_title(); ?> on Instagram</span></i>
+                            </a>
+                        <?php } ?>
+                        <?php if (get_field('youtube')) { ?>
+                            <a href="<?php echo get_field('youtube'); ?>" target="_blank">
+                                <i class="fab fa-youtube"><span class="sr-only"><?php the_title(); ?> on YouTube</span></i>
+                            </a>
+                        <?php } ?>
                     </div>
                 <?php } ?>
             </div>
