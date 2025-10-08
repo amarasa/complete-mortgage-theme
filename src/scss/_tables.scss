@@ -1,0 +1,91 @@
+table.responsive-table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+	text-align: left;
+	@apply my-5;
+}
+
+table.responsive-table tr {
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	padding: 0.35em;
+
+	&:nth-child(2n) {
+		background-color: #fff;
+	}
+}
+
+table.responsive-table th,
+table.responsive-table td {
+	padding: 0.625em;
+	text-align: left;
+
+	@media (min-width: 768px) {
+		border-right: 1px solid #ccc;
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+table.responsive-table th {
+	font-size: 0.85em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	@apply bg-primary text-white;
+}
+
+@media screen and (max-width: 768px) {
+	table.responsive-table {
+		border: 0;
+	}
+
+	table.responsive-table caption {
+		font-size: 1.3em;
+	}
+
+	table.responsive-table thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+
+	table.responsive-table tr {
+		border-bottom: 3px solid #ccc;
+		display: block;
+		margin-bottom: 0.625em;
+	}
+
+	table.responsive-table td {
+		border-bottom: 1px solid #ccc;
+		display: block;
+		font-size: 0.8em;
+		text-align: center;
+	}
+
+	table.responsive-table td::before {
+		content: attr(data-label);
+		display: block;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	table.responsive-table td:last-child {
+		border-bottom: 0;
+	}
+}

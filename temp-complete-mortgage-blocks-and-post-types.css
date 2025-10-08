@@ -39,6 +39,8 @@
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/media-left-content-right/media-left-content-right.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/meet-the-team/meet-the-team-editor.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/meet-the-team/meet-the-team.css";
+@import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/mission-statement/mission-statement-editor.css";
+@import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/mission-statement/mission-statement.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/narrow-container/narrow-container-editor.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/narrow-container/narrow-container.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/newsletter/newsletter-editor.css";
@@ -49,10 +51,14 @@
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/product-cards/product-cards.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/recent-posts/recent-posts-editor.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/recent-posts/recent-posts.css";
+@import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/responsive-table/responsive-table-editor.css";
+@import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/responsive-table/responsive-table.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/specializations/specializations-editor.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/specializations/specializations.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/statistics/statistics-editor.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/statistics/statistics.css";
+@import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/trusted-by/trusted-by-editor.css";
+@import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/trusted-by/trusted-by.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/two-column-informational-block/two-column-informational-block-editor.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/two-column-informational-block/two-column-informational-block.css";
 @import "../../plugins/complete-mortgage-blocks-and-post-types/blocks/two-column-product-block/two-column-product-block-editor.css";
