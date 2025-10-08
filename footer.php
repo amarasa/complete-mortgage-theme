@@ -65,6 +65,12 @@
     </div>
 </footer>
 <?php wp_footer(); ?>
+<script>
+    jQuery("a[href ^= 'tel']").html(function(i, html) {
+        return "<span data-calltrk-noswap>" + html + "</span>";
+    });
+</script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 </body>
 
 </html>

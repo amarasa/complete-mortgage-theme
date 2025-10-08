@@ -9,6 +9,8 @@
 <?php
 $menu = wp_get_nav_menu_object('Top Menu');
 $menu_items = wp_get_nav_menu_items($menu->term_id);
+$mobile_logo_id = get_theme_mod('mobile_logo');
+$mobile_logo    = wp_get_attachment_image_url($mobile_logo_id, 'large');
 
 ?>
 <div class="relative">
@@ -50,9 +52,25 @@ $menu_items = wp_get_nav_menu_items($menu->term_id);
 </div>
 
 <div id="mobile-menu" class="lg:hidden">
-    <div class="close-menu-button lg:hidden text-right  mb-8">
-        <i class="fa-solid fa-close text-3xl text-white"></i>
+    <div class="container">
+        <div class="grid grid-cols-12 items-center mb-8">
+            <div class="col-span-6">
+                <div class="mobile-menu-logo">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
+                        <?php if ($mobile_logo) : ?>
+                            <img src="<?php echo esc_url($mobile_logo); ?>" alt="<?php bloginfo('name'); ?>" class="logo-mobile">
+                        <?php endif; ?>
+                    </a>
+                </div>
+            </div>
+            <div class="col-span-6">
+                <div class="close-menu-button lg:hidden text-right">
+                    <i class="fa-solid fa-close text-3xl text-white"></i>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <?php
     wp_nav_menu(array(
