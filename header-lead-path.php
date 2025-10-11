@@ -2,7 +2,7 @@
 
 <div class="relative">
     <header class="px-8 py-6 border-b-[1px]">
-        <div class="header-logo mx-auto text-center max-w-[400px]">
+        <div class="header-logo transition-all duration-300 ease-in-out hover:opacity-70 mx-auto text-center max-w-[400px]">
             <?php
             if (function_exists('the_custom_logo')) {
                 the_custom_logo();

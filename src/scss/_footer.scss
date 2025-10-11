@@ -10,6 +10,13 @@
 		.textwidget {
 			@apply text-white text-base;
 		}
+		a {
+			@apply transition-all duration-300 ease-in-out font-bold;
+
+			&:hover {
+				@apply opacity-70;
+			}
+		}
 	}
 	.social-icons {
 		@apply flex gap-x-3 pb-8;
@@ -17,6 +24,9 @@
 		a {
 			@apply hover:opacity-70 duration-300 ease-in-out transition-all text-white;
 		}
+	}
+	li {
+		@apply mb-4 lg:mb-2;
 	}
 }
 .bottom-footer {
@@ -37,7 +47,7 @@
 }
 .legal-footer {
 	.menu {
-		@apply sm:flex gap-x-2 ml-0 list-none text-white font-semibold mb-0 mt-5;
+		@apply sm:flex gap-x-2 ml-0 list-none text-white font-semibold mb-0 mt-5 justify-center;
 
 		li {
 			@apply flex gap-x-2 mb-2 sm:mb-0;

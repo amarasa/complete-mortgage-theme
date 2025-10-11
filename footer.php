@@ -2,7 +2,7 @@
     <?php
     // Define the widget areas
     $footer_columns = ['footer-col-1', 'footer-col-2', 'footer-col-3', 'footer-col-4', 'footer-col-5']; ?>
-    <div class="top-footer bg-topFooter pt-14 pb-12">
+    <div class="top-footer bg-topFooter pt-8">
         <div class="container px-8">
             <div class="grid grid-cols-10 sm:gap-x-8">
                 <?php foreach ($footer_columns as $footer_col) {
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="bottom-footer bg-bottomFooter pt-7 pb-10">
+    <div class="bottom-footer bg-bottomFooter py-4">
         <div class="container px-8">
             <div class="grid grid-cols-12 md:gap-x-8">
                 <div class="col-span-12 md:col-span-6 lg:col-span-4">

@@ -17,7 +17,7 @@ $mobile_logo    = wp_get_attachment_image_url($mobile_logo_id, 'large');
     <header class="px-8 py-6">
         <div class="grid grid-cols-12 lg:gap-x-8 items-center">
             <div class="col-span-6 lg:col-span-3">
-                <div class="header-logo">
+                <div class="header-logo transition-all duration-300 ease-in-out hover:opacity-70">
                     <?php
                     if (function_exists('the_custom_logo')) {
                         the_custom_logo();

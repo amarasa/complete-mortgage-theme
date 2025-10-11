@@ -1,13 +1,13 @@
 const brandConfig = {
 	colors: {
-		primary: "#003b7e", // Branding Option #1 - Primary Color
-		secondary: "#0066db", // Branding Option #1 - Secondary Color
-		tertiary: "#012c65", // Branding Option #1 - Tertiary Color
+		primary: "rgb(45, 23, 110)", // Branding Option #1 - Primary Color
+		secondary: "rgb(100,47,209)", // Branding Option #1 - Secondary Color
+		tertiary: "rgb(206, 183, 246)", // Branding Option #1 - Tertiary Color
 		grey: "#ededed",
-		topGradient: "rgba(0,102,219,0.1)",
+		topGradient: "rgba(206,183,246,0.3)",
 		bottomGradient: "rgba(255,255,255,0)",
-		topFooter: "#515151",
-		bottomFooter: "#2d3034",
+		topFooter: "rgb(45, 23, 110)",
+		bottomFooter: "rgb(45, 23, 110)",
 	},
 	fontFamily: {
 		heading: ["Poppins", "sans-serif"],

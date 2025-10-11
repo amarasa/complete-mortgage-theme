@@ -82,7 +82,8 @@
                             <?php if (has_post_thumbnail()): ?>
                                 <a href="<?php the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"
                                         alt="<?php the_title_attribute(); ?>"
-                                        class="w-full h-full object-cover rounded-lg"></a>
+                                        class="w-full h-full object-cover rounded-lg">
+                                </a>
                             <?php elseif ($fallback_image_url): ?>
                                 <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url($fallback_image_url); ?>"
                                         alt="Fallback Image"

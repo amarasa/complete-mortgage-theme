@@ -1,5 +1,9 @@
 .lead-path {
 	.gf_progressbar_wrapper {
+		position: absolute;
+		left: 0;
+		width: 100%;
+
 		.gf_progressbar_title {
 			@apply sr-only;
 		}
