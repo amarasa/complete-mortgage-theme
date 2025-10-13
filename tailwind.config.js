@@ -29,6 +29,8 @@ module.exports = {
 		"./src/**/*.{js,css,html}",
 		"./js/**/*.js",
 		"./*.php",
+		// Ensure Tailwind scans classes used inside the custom blocks plugin
+		"../../plugins/complete-mortgage-blocks/**/*.{php,js,jsx,ts,tsx,css,html}",
 		"../../plugins/kal-social-share/**/*.{php,js,css,html}",
 		"../../plugins/complete-mortgage-blocks-and-post-types/**/*.{php,js,css,html}",
 		"../../plugins/kaleidico-custom-calculators/**/*.{php,js,css,html}",
