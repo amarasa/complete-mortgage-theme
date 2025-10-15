@@ -23,3 +23,13 @@
 		}
 	}
 }
+.contact-phone,
+.contact-email {
+	a {
+		@apply font-bold duration-300 transition-all ease-in-out;
+
+		&:hover {
+			@apply text-primary;
+		}
+	}
+}

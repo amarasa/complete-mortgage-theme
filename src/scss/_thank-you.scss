@@ -1,3 +1,7 @@
 .thank-you-content a {
-	font-weight: bold;
+	@apply font-bold text-secondary duration-300 ease-in-out transition-all;
+
+	&:hover {
+		@apply text-primary;
+	}
 }
