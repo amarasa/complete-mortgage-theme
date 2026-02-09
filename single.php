@@ -111,5 +111,41 @@
     </div>
 </section>
 
+<?php
+// Article Schema - for SEO rich results
+$article_schema = [
+    "@context" => "https://schema.org",
+    "@type" => "Article",
+    "headline" => get_the_title(),
+    "description" => has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30),
+    "image" => get_the_post_thumbnail_url(get_the_ID(), 'full') ?: '',
+    "datePublished" => get_the_date('c'),
+    "dateModified" => get_the_modified_date('c'),
+    "author" => [
+        "@type" => "Person",
+        "name" => get_the_author()
+    ],
+    "publisher" => [
+        "@type" => "Organization",
+        "name" => get_bloginfo('name'),
+        "logo" => [
+            "@type" => "ImageObject",
+            "url" => get_site_icon_url()
+        ]
+    ],
+    "mainEntityOfPage" => [
+        "@type" => "WebPage",
+        "@id" => get_permalink()
+    ]
+];
+
+// Remove empty values
+$article_schema = array_filter($article_schema, function($value) {
+    return !empty($value);
+});
+?>
+<script type="application/ld+json">
+<?php echo wp_json_encode($article_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
+</script>
 
 <?php footer_hub_get_custom_footer(); ?>

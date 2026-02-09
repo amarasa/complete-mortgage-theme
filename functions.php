@@ -1,5 +1,5 @@
 <?php
-define("COMPLETE_THEME_VERSION", "2.99.7");
+define("COMPLETE_THEME_VERSION", "2.99.8");
 
 require get_template_directory() . '/puc/plugin-update-checker.php';
 
@@ -32,6 +32,7 @@ if (is_dir($lib_dir)) {
     include_all_lib_files($lib_dir);
 }
 add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
 
 function complete_mortgage_enqueue_assets()
 {

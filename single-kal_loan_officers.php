@@ -145,4 +145,51 @@
     <?php the_content(); ?>
 </section>
 
+<?php
+// Person Schema for Loan Officer - SEO rich results
+$person_schema = [
+    "@context" => "https://schema.org",
+    "@type" => "Person",
+    "name" => get_the_title(),
+    "jobTitle" => get_field('title') ?: "Loan Officer",
+    "description" => wp_strip_all_tags(get_field('biography') ?: ''),
+    "image" => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+    "email" => get_field('email_address'),
+    "telephone" => get_field('phone_number') ?: get_field('cell'),
+    "url" => get_permalink(),
+    "worksFor" => [
+        "@type" => "Organization",
+        "name" => get_bloginfo('name'),
+        "url" => home_url()
+    ],
+    "sameAs" => array_values(array_filter([
+        get_field('linkedin'),
+        get_field('facebook'),
+        get_field('twitter'),
+        get_field('instagram'),
+        get_field('youtube')
+    ]))
+];
+
+// Add identifier for NMLS number if available
+if (get_field('nmls_number')) {
+    $person_schema['identifier'] = [
+        "@type" => "PropertyValue",
+        "propertyID" => "NMLS",
+        "value" => get_field('nmls_number')
+    ];
+}
+
+// Remove empty values
+$person_schema = array_filter($person_schema, function($v) {
+    if (is_array($v)) {
+        return !empty(array_filter($v));
+    }
+    return !empty($v);
+});
+?>
+<script type="application/ld+json">
+<?php echo wp_json_encode($person_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
+</script>
+
 <?php footer_hub_get_custom_footer(); ?>
