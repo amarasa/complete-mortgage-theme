@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
 	// Debug
 	console.log(
 		"Desktop menu items with children:",
-		$(".header-desktop-menu .menu li.menu-item-has-children").length
+		$(".header-desktop-menu .menu li.menu-item-has-children").length,
 	);
 	console.log("Mobile menu items with sub:", $("#cssmenu li.has-sub").length);
 
@@ -25,16 +25,13 @@ jQuery(document).ready(function ($) {
 			.attr("aria-expanded", "false");
 	}
 
-	// Toggle handler for anchors that have a submenu
-	$(
-		"#menu-primary-menu li.menu-item-has-children > a, #menu-top-menu li.menu-item-has-children > a"
-	).on("click", function (e) {
-		e.preventDefault(); // stop navigation
-		e.stopPropagation(); // don't bubble to document
+	// Menu interaction: use hover on pointer-capable devices, keep click for touch
+	const $menuAnchors = $(
+		"#menu-primary-menu li.menu-item-has-children > a, #menu-top-menu li.menu-item-has-children > a",
+	);
 
-		const $li = $(this).parent("li");
-
-		// Close the other menu's submenus first
+	function openSubmenu($li) {
+		// Close other menu's submenus
 		if ($li.closest("#menu-primary-menu").length) {
 			$("#menu-top-menu .sub-menu")
 				.slideUp()
@@ -51,41 +48,108 @@ jQuery(document).ready(function ($) {
 				.attr("aria-expanded", "false");
 		}
 
-		// Toggle this one and close siblings
-		const $submenu = $li.children(".sub-menu");
-		$li.toggleClass("open")
-			.siblings()
-			.removeClass("open")
-			.children(".sub-menu")
-			.slideUp()
-			.parent()
-			.find("> a")
-			.attr("aria-expanded", "false");
+		$li.addClass("open");
+		$li.children(".sub-menu").stop(true, true).slideDown();
+		$li.find("> a").attr("aria-expanded", "true");
+	}
 
-		$submenu.stop(true, true).slideToggle();
-		$(this).attr("aria-expanded", $li.hasClass("open") ? "true" : "false");
-	});
+	function closeSubmenu($li) {
+		$li.removeClass("open");
+		$li.children(".sub-menu").stop(true, true).slideUp();
+		$li.find("> a").attr("aria-expanded", "false");
+	}
+
+	// Decide interaction based on hover capability
+	const canHover =
+		window.matchMedia && window.matchMedia("(hover: hover)").matches;
+
+	if (canHover) {
+		// Desktop: open on hover, close on mouseleave
+		$(
+			"#menu-primary-menu li.menu-item-has-children, #menu-top-menu li.menu-item-has-children",
+		).hover(
+			function () {
+				openSubmenu($(this));
+			},
+			function () {
+				closeSubmenu($(this));
+			},
+		);
+
+		// Clicks should follow the link — ensure anchors are marked for accessibility
+		$menuAnchors.attr({
+			"aria-haspopup": "true",
+			"aria-expanded": "false",
+			role: "button",
+		});
+
+		// Keyboard: toggle on Enter/Space
+		$menuAnchors.on("keydown", function (e) {
+			if (e.key === "Enter" || e.key === " ") {
+				e.preventDefault();
+				const $li = $(this).parent("li");
+				if ($li.hasClass("open")) {
+					closeSubmenu($li);
+				} else {
+					openSubmenu($li);
+				}
+			}
+		});
+	} else {
+		// Touch devices: keep click-to-toggle behavior
+		$menuAnchors.on("click", function (e) {
+			e.preventDefault(); // stop navigation
+			e.stopPropagation(); // don't bubble to document
+
+			const $li = $(this).parent("li");
+
+			// Toggle this one and close siblings
+			const $submenu = $li.children(".sub-menu");
+			$li.toggleClass("open")
+				.siblings()
+				.removeClass("open")
+				.children(".sub-menu")
+				.slideUp()
+				.parent()
+				.find("> a")
+				.attr("aria-expanded", "false");
+
+			// Close the other menu's submenus first
+			if ($li.closest("#menu-primary-menu").length) {
+				$("#menu-top-menu .sub-menu")
+					.slideUp()
+					.parent()
+					.removeClass("open")
+					.find("> a")
+					.attr("aria-expanded", "false");
+			} else {
+				$("#menu-primary-menu .sub-menu")
+					.slideUp()
+					.parent()
+					.removeClass("open")
+					.find("> a")
+					.attr("aria-expanded", "false");
+			}
+
+			$submenu.stop(true, true).slideToggle();
+			$(this).attr(
+				"aria-expanded",
+				$li.hasClass("open") ? "true" : "false",
+			);
+		});
+
+		// Accessibility attributes for anchors
+		$menuAnchors.attr({
+			"aria-haspopup": "true",
+			"aria-expanded": "false",
+			role: "button",
+		});
+	}
 
 	// Click outside closes everything
 	$(document).on("click", function () {
 		closeAll();
 	});
-
-	// (Nice to have) keyboard accessibility: open/close on Enter/Space
-	$(
-		"#menu-primary-menu li.menu-item-has-children > a, #menu-top-menu li.menu-item-has-children > a"
-	)
-		.attr({
-			"aria-haspopup": "true",
-			"aria-expanded": "false",
-			role: "button",
-		})
-		.on("keydown", function (e) {
-			if (e.key === "Enter" || e.key === " ") {
-				e.preventDefault();
-				$(this).trigger("click");
-			}
-		});
 
 	// Mobile Menu
 	$(".open-menu-button").click(function () {
@@ -168,7 +232,7 @@ jQuery(document).ready(function ($) {
 						e,
 						t,
 						n,
-						o
+						o,
 					);
 				}
 				return n[a].exports;
@@ -204,7 +268,7 @@ jQuery(document).ready(function ($) {
 									e,
 									t.bubbles,
 									t.cancelable,
-									t.detail
+									t.detail,
 								),
 								(o = n.preventDefault),
 								(n.preventDefault = function () {
@@ -217,7 +281,7 @@ jQuery(document).ready(function ($) {
 												get: function () {
 													return !0;
 												},
-											}
+											},
 										);
 									} catch (e) {
 										this.defaultPrevented = !0;
@@ -226,8 +290,8 @@ jQuery(document).ready(function ($) {
 								n
 							);
 						};
-						(i.prototype = window.Event.prototype),
-							(window.CustomEvent = i);
+						((i.prototype = window.Event.prototype),
+							(window.CustomEvent = i));
 					}
 				},
 				{},
@@ -238,7 +302,7 @@ jQuery(document).ready(function ($) {
 					function o(e, t) {
 						if (void 0 === e || null === e)
 							throw new TypeError(
-								"Cannot convert first argument to object"
+								"Cannot convert first argument to object",
 							);
 						for (
 							var n = Object(e), o = 1;
@@ -257,7 +321,7 @@ jQuery(document).ready(function ($) {
 									var u = r[a],
 										d = Object.getOwnPropertyDescriptor(
 											i,
-											u
+											u,
 										);
 									void 0 !== d &&
 										d.enumerable &&
@@ -307,7 +371,7 @@ jQuery(document).ready(function ($) {
 					function o(e, t) {
 						if (!(e instanceof t))
 							throw new TypeError(
-								"Cannot call a class as a function"
+								"Cannot call a class as a function",
 							);
 					}
 					Object.defineProperty(n, "__esModule", { value: !0 });
@@ -315,14 +379,14 @@ jQuery(document).ready(function ($) {
 						function e(e, t) {
 							for (var n = 0; n < t.length; n++) {
 								var o = t[n];
-								(o.enumerable = o.enumerable || !1),
+								((o.enumerable = o.enumerable || !1),
 									(o.configurable = !0),
 									"value" in o && (o.writable = !0),
-									Object.defineProperty(e, o.key, o);
+									Object.defineProperty(e, o.key, o));
 							}
 						}
 						return function (t, n, o) {
-							return n && e(t.prototype, n), o && e(t, o), t;
+							return (n && e(t.prototype, n), o && e(t, o), t);
 						};
 					})();
 					e("custom-event-polyfill");
@@ -416,49 +480,49 @@ jQuery(document).ready(function ($) {
 										(0, r.append)(c, d);
 										var v = document.getElementById(a),
 											m = v.querySelector(
-												".js-modal-video-dismiss-btn"
+												".js-modal-video-dismiss-btn",
 											),
 											p = void 0,
 											b = function () {
-												clearTimeout(p),
+												(clearTimeout(p),
 													(p = setTimeout(
 														function () {
 															var e =
 																	i.getWidthFulfillAspectRatio(
 																		u.ratio,
 																		window.innerHeight,
-																		window.innerWidth
+																		window.innerWidth,
 																	),
 																t =
 																	document.getElementById(
 																		"modal-video-inner-" +
-																			a
+																			a,
 																	);
 															t.style.maxWidth !==
 																e &&
 																(t.style.maxWidth =
 																	e);
 														},
-														10
-													));
+														10,
+													)));
 											};
-										v.focus(),
+										(v.focus(),
 											v.addEventListener(
 												"click",
 												function () {
-													(0, r.addClass)(
+													((0, r.addClass)(
 														v,
-														s.modalVideoClose
+														s.modalVideoClose,
 													),
 														window.removeEventListener(
 															"resize",
-															b
+															b,
 														),
 														setTimeout(function () {
-															(0, r.remove)(v),
-																e.focus();
-														}, f);
-												}
+															((0, r.remove)(v),
+																e.focus());
+														}, f));
+												},
 											),
 											v.addEventListener(
 												"keydown",
@@ -470,24 +534,24 @@ jQuery(document).ready(function ($) {
 															? m.focus()
 															: (v.setAttribute(
 																	"aria-label",
-																	""
-															  ),
-															  v.focus()));
-												}
+																	"",
+																),
+																v.focus()));
+												},
 											),
 											window.addEventListener(
 												"resize",
-												b
+												b,
 											),
 											m.addEventListener(
 												"click",
 												function () {
 													(0, r.triggerEvent)(
 														v,
-														"click"
+														"click",
 													);
-												}
-											);
+												},
+											));
 									});
 								});
 							}
@@ -526,7 +590,7 @@ jQuery(document).ready(function ($) {
 															"=" +
 															e[n] +
 															"&";
-													}
+													},
 												),
 												console.log(t),
 												t.substr(0, t.length - 1)
@@ -539,18 +603,21 @@ jQuery(document).ready(function ($) {
 											return "youtube" === t
 												? this.getYoutubeUrl(
 														e.youtube,
-														n
-												  )
+														n,
+													)
 												: "vimeo" === t
-												? this.getVimeoUrl(e.vimeo, n)
-												: "facebook" === t
-												? this.getFacebookUrl(
-														e.facebook,
-														n
-												  )
-												: "custom" === t
-												? e.url
-												: "";
+													? this.getVimeoUrl(
+															e.vimeo,
+															n,
+														)
+													: "facebook" === t
+														? this.getFacebookUrl(
+																e.facebook,
+																n,
+															)
+														: "custom" === t
+															? e.url
+															: "";
 										},
 									},
 									{
@@ -632,7 +699,7 @@ jQuery(document).ready(function ($) {
 								e
 							);
 						})();
-					(n.default = u), (t.exports = n.default);
+					((n.default = u), (t.exports = n.default));
 				},
 				{
 					"../lib/util": 6,
@@ -651,7 +718,7 @@ jQuery(document).ready(function ($) {
 				function (e, t, n) {
 					"use strict";
 					Object.defineProperty(n, "__esModule", { value: !0 });
-					(n.append = function (e, t) {
+					((n.append = function (e, t) {
 						var n = document.createElement("div");
 						for (n.innerHTML = t; n.children.length > 0; )
 							e.appendChild(n.children[0]);
@@ -672,18 +739,18 @@ jQuery(document).ready(function ($) {
 						}),
 						(n.triggerEvent = function (e, t, n) {
 							var o = void 0;
-							window.CustomEvent
+							(window.CustomEvent
 								? (o = new CustomEvent(t, { cancelable: !0 }))
 								: ((o = document.createEvent("CustomEvent")),
-								  o.initCustomEvent(t, !1, !1, n)),
-								e.dispatchEvent(o);
-						});
+									o.initCustomEvent(t, !1, !1, n)),
+								e.dispatchEvent(o));
+						}));
 				},
 				{},
 			],
 		},
 		{},
-		[3]
+		[3],
 	);
 	$(".js-modal-btn").modalVideo();
 });
