@@ -4,6 +4,19 @@ const glob = require("glob");
 const path = require("path");
 const fs = require("fs");
 
+// Suppress webpack-notifier spawn errors on macOS (error -86)
+const originalConsoleError = console.error;
+console.error = function (...args) {
+	const message = args.join(" ");
+	if (message && message.includes("spawn Unknown system error -86")) {
+		return; // Silently suppress this error
+	}
+	if (message && message.includes("[webpack-cli] Error: spawn")) {
+		return; // Silently suppress webpack spawn errors
+	}
+	return originalConsoleError.apply(console, args);
+};
+
 require("mix-tailwindcss");
 // require("laravel-mix-polyfill");
 
@@ -22,12 +35,17 @@ mix.tailwind();
 // });
 mix.options({
 	processCssUrls: false,
+	notifications: false,
 	postcss: {
 		plugins: {
 			autoprefixer: {},
 		},
 	},
 });
+
+// Explicitly disable notifications to prevent macOS spawn error -86
+mix.disableNotifications();
+
 if (!mix.inProduction()) {
 	mix.webpackConfig({ devtool: "inline-source-map" });
 }
@@ -119,12 +137,12 @@ if (!process.argv.includes("--watch") && !process.argv.includes("--hot")) {
 				if (err) {
 					if (err.code === "ENOENT") {
 						console.log(
-							`Temp file ${tempFile} not found, skipping deletion.`
+							`Temp file ${tempFile} not found, skipping deletion.`,
 						);
 					} else {
 						console.error(
 							`Error deleting temp file ${tempFile}:`,
-							err
+							err,
 						);
 					}
 				} else {
