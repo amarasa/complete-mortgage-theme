@@ -1,0 +1,24 @@
+{
+    "name": "acf/cms-two-column-informational-block",
+    "title": "Two Column Informational Block",
+    "description": "This is an informaiton block with 2 columns and CTA on the right",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./two-column-informational-block-editor.css"
+    ],
+    "script": "file:./two-column-informational-block.js",
+    "icon": "format-image",
+    "keywords": [
+        "two column information",
+        "info",
+        "information"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "two-column-informational-block.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

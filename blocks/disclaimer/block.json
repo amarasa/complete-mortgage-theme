@@ -1,0 +1,22 @@
+{
+    "name": "acf/cms-disclaimer",
+    "title": "Disclaimer",
+    "description": "A block for disclaimer copy",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./disclaimer-editor.css"
+    ],
+    "script": "file:./disclaimer.js",
+    "icon": "format-image",
+    "keywords": [
+        "disclaimer"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "disclaimer.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

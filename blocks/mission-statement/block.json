@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-mission-statement",
+    "title": "Mission Statement",
+    "description": "A mission statement block featuring optional overlap, WYSIWYG editor and optional headline and buttons.",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./mission-statement-editor.css"
+    ],
+    "script": "file:./mission-statement.js",
+    "icon": "format-image",
+    "keywords": [
+        "mission statement",
+        "apply now"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "mission-statement.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

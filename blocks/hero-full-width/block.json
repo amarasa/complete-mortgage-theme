@@ -1,0 +1,18 @@
+{
+	"name": "acf/cms-hero-full-width",
+	"title": "Hero Full Width",
+	"description": "A hero block that is full width",
+	"category": "Complete Marketing",
+	"editorStyle": ["file:./hero-full-width-editor.css"],
+	"script": "file:./hero-full-width.js",
+	"icon": "format-image",
+	"keywords": ["hero", "full width"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "hero-full-width.php"
+	},
+	"supports": {
+		"anchor": "true"
+	},
+	"align": "full"
+}

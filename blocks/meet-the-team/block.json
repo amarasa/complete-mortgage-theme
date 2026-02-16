@@ -1,0 +1,25 @@
+{
+    "name": "acf/cms-meet-the-team",
+    "title": "Meet the Team",
+    "description": "A block for displaying team members",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./meet-the-team-editor.css"
+    ],
+    "script": "file:./meet-the-team.js",
+    "icon": "format-image",
+    "keywords": [
+        "team",
+        "bio",
+        "meet the team",
+        "staff"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "meet-the-team.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

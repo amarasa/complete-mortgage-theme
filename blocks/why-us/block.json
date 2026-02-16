@@ -1,0 +1,22 @@
+{
+    "name": "acf/cms-why-us",
+    "title": "Why Us",
+    "description": "A why us block",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./why-us-editor.css"
+    ],
+    "script": "file:./why-us.js",
+    "icon": "format-image",
+    "keywords": [
+        "why us"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "why-us.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

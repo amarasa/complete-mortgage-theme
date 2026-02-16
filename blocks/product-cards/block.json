@@ -1,0 +1,24 @@
+{
+    "name": "acf/cms-product-cards",
+    "title": "Product Cards",
+    "description": "4 column product cards",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./product-cards-editor.css"
+    ],
+    "script": "file:./product-cards.js",
+    "icon": "format-image",
+    "keywords": [
+        "products",
+        "cards",
+        "product"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "product-cards.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

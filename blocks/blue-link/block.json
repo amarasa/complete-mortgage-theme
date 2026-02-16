@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-blue-link",
+    "title": "Blue Link",
+    "description": "A block that creates a blue link",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./blue-link-editor.css"
+    ],
+    "script": "file:./blue-link.js",
+    "icon": "format-image",
+    "keywords": [
+        "blue link",
+        "link"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "blue-link.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

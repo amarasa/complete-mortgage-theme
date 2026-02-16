@@ -1,0 +1,24 @@
+{
+    "name": "acf/cms-trusted-by",
+    "title": "Trusted By",
+    "description": "Trusted By logos and possible slider if more than 4 logos",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./trusted-by-editor.css"
+    ],
+    "script": "file:./trusted-by.js",
+    "icon": "format-image",
+    "keywords": [
+        "trusted",
+        "trust",
+        "slider"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "trusted-by.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

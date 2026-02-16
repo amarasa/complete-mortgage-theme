@@ -24,23 +24,33 @@ function include_all_lib_files($dir)
     }
 }
 
-// Define the path to the `lib` directory
-$lib_dir = get_template_directory() . '/lib';
-
-// Ensure directory exists before including files
-if (is_dir($lib_dir)) {
-    include_all_lib_files($lib_dir);
+// Include lib and cpt directories
+foreach (['/lib', '/cpt'] as $inc_dir) {
+    $dir_path = get_template_directory() . $inc_dir;
+    if (is_dir($dir_path)) {
+        include_all_lib_files($dir_path);
+    }
 }
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 
 function complete_mortgage_enqueue_assets()
 {
+    // Enqueue Brand Styles (from uploads directory)
+    $upload_dir = wp_upload_dir();
+    wp_enqueue_style(
+        'complete-mortgage-brand',
+        $upload_dir['baseurl'] . '/brand.css',
+        [],
+        COMPLETE_THEME_VERSION,
+        'all'
+    );
+
     // Enqueue Styles
     wp_enqueue_style(
         'complete-mortgage-style',
-        get_stylesheet_directory_uri() . "/style.css",
-        [],
+        get_stylesheet_directory_uri() . "/dist/style.css",
+        ['complete-mortgage-brand'],
         COMPLETE_THEME_VERSION,
         'all'
     );
@@ -48,7 +58,7 @@ function complete_mortgage_enqueue_assets()
     // Enqueue Scripts
     wp_enqueue_script(
         'complete-mortgage-core',
-        get_template_directory_uri() . '/js/core.js',
+        get_template_directory_uri() . '/dist/js/core.js',
         ['jquery'],
         COMPLETE_THEME_VERSION,
         true

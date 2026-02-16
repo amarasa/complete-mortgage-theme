@@ -1,0 +1,7 @@
+.how-it-works.bg-primary a:not(.button) {
+	color: white !important;
+}
+
+.how-it-works.bg-primary a:not(.button):hover {
+	opacity: 0.6;
+}

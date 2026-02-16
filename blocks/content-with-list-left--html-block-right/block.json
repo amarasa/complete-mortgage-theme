@@ -1,0 +1,20 @@
+{
+	"name": "acf/cms-content-with-list-left--html-block-right",
+	"title": "Content with List Left - HTML Block Right",
+	"description": "Content with List Left - HTML Block Right",
+	"category": "Complete Marketing",
+	"editorStyle": [
+		"file:./content-with-list-left--html-block-right-editor.css"
+	],
+	"script": "file:./content-with-list-left--html-block-right.js",
+	"icon": "format-image",
+	"keywords": ["html", "list"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "content-with-list-left--html-block-right.php"
+	},
+	"supports": {
+		"anchor": "true"
+	},
+	"align": "full"
+}

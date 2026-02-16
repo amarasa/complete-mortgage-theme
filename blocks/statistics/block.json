@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-statistics",
+    "title": "Statistics",
+    "description": "A block showing stats",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./statistics-editor.css"
+    ],
+    "script": "file:./statistics.js",
+    "icon": "format-image",
+    "keywords": [
+        "stats",
+        "statistics"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "statistics.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

@@ -1,0 +1,32 @@
+.product-image {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.image-rounded {
+	border-radius: 20px;
+	/* Adjust for more rounding */
+}
+
+.image-squared {
+	border-radius: 0;
+}
+
+.image-left .image-column {
+	order: -1;
+}
+
+.image-right .image-column {
+	order: 1;
+}
+
+.hero-with-squared-image.bg-primary a:not(.button),
+.hero-with-squared-image.bg-secondary a:not(.button) {
+	color: white !important;
+}
+
+.hero-with-squared-image.bg-primary a:not(.button):hover,
+.hero-with-squared-image.bg-secondary a:not(.button):hover {
+	opacity: 0.6;
+}

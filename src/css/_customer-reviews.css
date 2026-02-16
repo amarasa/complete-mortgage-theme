@@ -1,0 +1,6 @@
+.wprs_rd_more {
+	@apply text-secondary! duration-300! ease-in-out! transition-all!;
+}
+.wprs_rd_more:hover {
+	@apply text-primary!;
+}

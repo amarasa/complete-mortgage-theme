@@ -1,0 +1,8 @@
+@media (max-width: theme(screens.md)) {
+	.hero-full-width-content .flex {
+		flex-direction: column;
+	}
+	.hero-full-width-content .flex a {
+		width: 100%;
+	}
+}

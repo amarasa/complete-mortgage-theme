@@ -1,0 +1,18 @@
+{
+	"name": "acf/cms-hero-with-circular-image",
+	"title": "Hero with Circular Image",
+	"description": "A hero block that has a circular image",
+	"category": "Complete Marketing",
+	"editorStyle": ["file:./hero-with-circular-image-editor.css"],
+	"script": "file:./hero-with-circular-image.js",
+	"icon": "format-image",
+	"keywords": ["hero", "circle image"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "hero-with-circular-image.php"
+	},
+	"supports": {
+		"anchor": "true"
+	},
+	"align": "full"
+}

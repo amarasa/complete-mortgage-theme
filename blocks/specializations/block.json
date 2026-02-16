@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-specializations",
+    "title": "Specializations",
+    "description": "Background image with dark overlay along with headline, description, specializations with icons and 2 CTA buttons",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./specializations-editor.css"
+    ],
+    "script": "file:./specializations.js",
+    "icon": "star-filled",
+    "keywords": [
+        "specializations",
+        "specs"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "specializations.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

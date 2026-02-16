@@ -1,0 +1,24 @@
+{
+    "name": "acf/cms-info-cards-with-icons",
+    "title": "Info Cards with Icons",
+    "description": "Info Cards with Icons",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./info-cards-with-icons-editor.css"
+    ],
+    "script": "file:./info-cards-with-icons.js",
+    "icon": "format-image",
+    "keywords": [
+        "icons",
+        "info cards",
+        "cards"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "info-cards-with-icons.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

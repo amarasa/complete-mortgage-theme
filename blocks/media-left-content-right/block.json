@@ -1,0 +1,18 @@
+{
+	"name": "acf/cms-media-left-content-right",
+	"title": "Media Left - Content Right",
+	"description": "Image or Video in Left Column - Content on right column",
+	"category": "Complete Marketing",
+	"editorStyle": ["file:./media-left-content-right-editor.css"],
+	"script": "file:./media-left-content-right.js",
+	"icon": "format-image",
+	"keywords": ["media left", "content right", "image", "video"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "media-left-content-right.php"
+	},
+	"supports": {
+		"anchor": "true"
+	},
+	"align": "full"
+}

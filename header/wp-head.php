@@ -10,15 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload critical Google Fonts CSS -->
+    <!-- Preload critical Google Fonts CSS (from brand.css) -->
+    <?php $brand_font_url = cms_get_brand_font_url(); ?>
+    <?php if ($brand_font_url) : ?>
     <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
+        href="<?php echo esc_url($brand_font_url); ?>"
         as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap">
+            href="<?php echo esc_url($brand_font_url); ?>">
     </noscript>
+    <?php endif; ?>
 
     <!-- Delayed Google Tag Manager (fires on LCP) -->
     <script>

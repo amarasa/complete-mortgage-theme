@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-apply-online",
+    "title": "Apply Online",
+    "description": "A block that will display the Apply Online form",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./apply-online-editor.css"
+    ],
+    "script": "file:./apply-online.js",
+    "icon": "format-image",
+    "keywords": [
+        "apply online",
+        "apply"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "apply-online.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

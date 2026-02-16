@@ -1,0 +1,25 @@
+{
+    "name": "acf/cms-interactive-map",
+    "title": "Interactive Map",
+    "description": "A block that allows you to load up states into an interactive map",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./interactive-map-editor.css"
+    ],
+    "script": "file:./interactive-map.js",
+    "icon": "format-image",
+    "keywords": [
+        "map",
+        "interactive map",
+        "states",
+        "locations"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "interactive-map.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

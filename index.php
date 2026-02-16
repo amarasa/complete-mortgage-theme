@@ -29,19 +29,27 @@
                         <!-- Featured Image or Fallback -->
                         <div class="w-full h-64 mb-2">
                             <?php if (has_post_thumbnail()): ?>
-                                <a href="<?php the_permalink(); ?>" class="relative">
-                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out"></div>
-                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"
-                                        alt="<?php the_title_attribute(); ?>"
-                                        class="w-full h-full object-cover rounded-lg">
+                                <a href="<?php the_permalink(); ?>" class="group relative block h-full">
+                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 group-hover:opacity-40 transition-all duration-300 ease-in-out z-10"></div>
+                                    <span class="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                        <span class="bg-white text-secondary font-semibold px-6 py-2 rounded-lg">Read More</span>
+                                    </span>
+                                    <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large', false, [
+                                        'class' => 'w-full h-full object-cover rounded-lg',
+                                        'loading' => 'lazy',
+                                    ]); ?>
                                 </a>
                             <?php elseif ($fallback_image_url): ?>
-                                <a href="<?php the_permalink(); ?>" class="relative">
-                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out"></div>
-                                    <img src="<?php echo esc_url($fallback_image_url); ?>"
-                                        alt="Fallback Image"
-                                        class="w-full h-full object-cover rounded-lg"
-                                        style="object-position: <?php echo esc_attr($fallback_position); ?>;">
+                                <a href="<?php the_permalink(); ?>" class="group relative block h-full">
+                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 group-hover:opacity-40 transition-all duration-300 ease-in-out z-10"></div>
+                                    <span class="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                        <span class="bg-white text-secondary font-semibold px-6 py-2 rounded-lg">Read More</span>
+                                    </span>
+                                    <?php echo wp_get_attachment_image($fallback_image['id'], 'large', false, [
+                                        'class' => 'w-full h-full object-cover rounded-lg',
+                                        'style' => 'object-position: ' . esc_attr($fallback_position) . ';',
+                                        'loading' => 'lazy',
+                                    ]); ?>
                                 </a>
                             <?php endif; ?>
                         </div>

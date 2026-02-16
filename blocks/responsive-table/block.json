@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-responsive-table",
+    "title": "Responsive Table",
+    "description": "A responsive table",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./responsive-table-editor.css"
+    ],
+    "script": "file:./responsive-table.js",
+    "icon": "editor-table",
+    "keywords": [
+        "table",
+        "responsive"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "responsive-table.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

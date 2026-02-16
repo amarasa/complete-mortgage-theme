@@ -1,0 +1,18 @@
+{
+	"name": "acf/cms-big-block-cta",
+	"title": "Big Block CTA",
+	"description": "A big block CTA",
+	"category": "Complete Marketing",
+	"editorStyle": ["file:./big-block-cta-editor.css"],
+	"script": "file:./big-block-cta.js",
+	"icon": "format-image",
+	"keywords": ["CTA", "big block cta"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "big-block-cta.php"
+	},
+	"supports": {
+		"anchor": "true"
+	},
+	"align": "full"
+}

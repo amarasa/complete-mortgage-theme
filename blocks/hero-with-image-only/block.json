@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-hero-with-image-only",
+    "title": "Hero with Image Only",
+    "description": "A hero block that is just a background image",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./hero-with-image-only-editor.css"
+    ],
+    "script": "file:./hero-with-image-only.js",
+    "icon": "format-image",
+    "keywords": [
+        "hero",
+        "hero image only"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "hero-with-image-only.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

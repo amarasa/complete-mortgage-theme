@@ -1,0 +1,24 @@
+{
+    "name": "acf/cms-newsletter",
+    "title": "Newsletter",
+    "description": "A block for a newsletter signup",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./newsletter-editor.css"
+    ],
+    "script": "file:./newsletter.js",
+    "icon": "format-image",
+    "keywords": [
+        "newsletter",
+        "mailing list",
+        "email"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "newsletter.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

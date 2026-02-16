@@ -3,8 +3,8 @@
 function enqueue_custom_plugin_styles()
 {
     // Get the absolute path and URL to the custom plugins directory.
-    $plugin_css_dir = get_template_directory() . '/dist-custom-plugins/';
-    $plugin_css_url = get_template_directory_uri() . '/dist-custom-plugins/';
+    $plugin_css_dir = get_template_directory() . '/dist/dist-custom-plugins/';
+    $plugin_css_url = get_template_directory_uri() . '/dist/dist-custom-plugins/';
 
     // Loop through all .css files in the directory.
     foreach (glob($plugin_css_dir . '*.css') as $css_file) {

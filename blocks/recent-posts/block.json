@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-recent-posts",
+    "title": "Recent Posts",
+    "description": "A block that shows recent posts",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./recent-posts-editor.css"
+    ],
+    "script": "file:./recent-posts.js",
+    "icon": "format-image",
+    "keywords": [
+        "recent posts",
+        "posts"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "recent-posts.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

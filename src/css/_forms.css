@@ -1,0 +1,123 @@
+.lead-path {
+	.gf_progressbar_wrapper {
+		position: absolute;
+		left: 0;
+		width: 100%;
+
+		.gf_progressbar_title {
+			@apply sr-only;
+		}
+		.gf_progressbar_percentage {
+			border-radius: 0 !important;
+			@apply relative bg-secondary!;
+
+			span {
+				@apply block h-full w-full text-right relative top-4 pl-4 pr-0 pb-8 text-xs font-bold text-primary!;
+			}
+		}
+		.gf_progressbar {
+			@apply bg-transparent;
+		}
+	}
+
+	.lead-path-disclaimer {
+		a {
+			@apply text-secondary hover:text-tertiary;
+		}
+	}
+	.gform-body {
+		@apply pt-20 pb-4 max-w-[580px] px-8 mx-auto;
+	}
+	.lead-path-disclaimer {
+		@apply max-w-[580px] px-8 mx-auto;
+	}
+}
+form {
+	.question {
+		@apply text-3xl font-bold text-primary;
+	}
+	label,
+	legend {
+		@apply block font-bold! text-secondary! tracking-widest! uppercase!;
+	}
+	.hidden-label {
+		label,
+		legend {
+			@apply sr-only!;
+		}
+	}
+	input:not(input[type="radio"], input[type="checkbox"]),
+	textarea {
+		@apply border-solid! focus:outline-none! focus:border-secondary! border-[1px]! border-[#8e8e95]! h-[56px]! rounded-[4px]! text-lg!;
+	}
+	.gform-page-footer {
+		@apply gap-x-8! sm:flex-nowrap!;
+	}
+	.gform_previous_button {
+		@apply order-2! sm:order-1!;
+	}
+	input[type="submit"],
+	.gform_next_button {
+		@apply order-1! sm:order-2!;
+	}
+	input[type="button"],
+	input[type="submit"] {
+		@apply w-full! bg-secondary! shadow-none! outline-none! border-0! hover:bg-primary! text-lg! text-white! font-bold!;
+	}
+	input[type="button"].gform_previous_button {
+		@apply bg-primary! hover:bg-secondary!;
+	}
+	.gfield_radio,
+	.gchoice {
+		@apply block! relative!;
+
+		input[type="checkbox"],
+		input[type="radio"] {
+			@apply absolute top-1/2 -translate-y-1/2 z-40 left-3 text-secondary border-2 border-secondary rounded-md focus:outline-none;
+		}
+		input[type="checkbox"] {
+			@apply top-[42%];
+		}
+	}
+	.gfield_checkbox {
+		gap: 0px !important;
+	}
+	input[type="radio"] + label,
+	input[type="checkbox"] + label {
+		position: relative;
+		@apply border-[1px]! block! border-solid! rounded-md! border-[#8e8e95]! ml-0! w-full! h-[56px]! py-4! pl-10! mb-3! text-base! relative! capitalize! font-normal! tracking-normal! text-[#515151]! transition-all! duration-300! ease-in-out! hover:bg-[#efefef]! cursor-pointer!;
+	}
+	input[type="radio"]:checked + label,
+	input[type="checkbox"]:checked + label {
+		@apply bg-[#eee]!;
+		content: "";
+	}
+	input[type="radio"] {
+		@apply rounded-full!;
+	}
+	.gform-field-label--type-sub {
+		@apply capitalize! font-normal! tracking-normal! text-[#515151]!;
+	}
+}
+form.horizontal-form {
+	@apply lg:flex gap-x-8 items-end justify-between;
+
+	.gform_body {
+		@apply w-full;
+	}
+	.gform_fields {
+		@apply lg:flex! flex-grow!;
+		row-gap: 10px !important;
+
+		.gfield {
+			@apply flex-grow!;
+		}
+	}
+
+	.validation_message {
+		@apply lg:absolute;
+	}
+}
+.gform_validation_errors {
+	@apply hidden!;
+}

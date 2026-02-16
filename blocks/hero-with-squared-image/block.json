@@ -1,0 +1,18 @@
+{
+	"name": "acf/cms-hero-with-squared-image",
+	"title": "Hero with Squared Image",
+	"description": "A hero block that has a squared image",
+	"category": "Complete Marketing",
+	"editorStyle": ["file:./hero-with-squared-image-editor.css"],
+	"script": "file:./hero-with-squared-image.js",
+	"icon": "format-image",
+	"keywords": ["hero", "square hero"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "hero-with-squared-image.php"
+	},
+	"supports": {
+		"anchor": "true"
+	},
+	"align": "full"
+}

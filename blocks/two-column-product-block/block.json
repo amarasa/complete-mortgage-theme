@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-two-column-product-block",
+    "title": "Two Column Product Block",
+    "description": "A two column block for products",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./two-column-product-block-editor.css"
+    ],
+    "script": "file:./two-column-product-block.js",
+    "icon": "format-image",
+    "keywords": [
+        "product",
+        "two column product"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "two-column-product-block.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

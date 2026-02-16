@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-option-cards",
+    "title": "Option Cards",
+    "description": "A block that gives you option cards",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./option-cards-editor.css"
+    ],
+    "script": "file:./option-cards.js",
+    "icon": "format-image",
+    "keywords": [
+        "options",
+        "option cards"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "option-cards.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

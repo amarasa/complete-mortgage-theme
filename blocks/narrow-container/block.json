@@ -1,0 +1,15 @@
+{
+	"name": "acf/cms-narrow-container",
+	"title": "Narrow Container",
+	"description": "A narrow container, mostly for lead paths",
+	"category": "Complete Marketing",
+	"editorStyle": ["file:./narrow-container-editor.css"],
+	"script": "file:./narrow-container.js",
+	"icon": "",
+	"keywords": ["narrow", "container"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "narrow-container.php"
+	},
+	"align": "full"
+}

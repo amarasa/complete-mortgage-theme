@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-customer-reviews",
+    "title": "Customer Reviews",
+    "description": "A block displaying a customer reviews slider",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./customer-reviews-editor.css"
+    ],
+    "script": "file:./customer-reviews.js",
+    "icon": "format-image",
+    "keywords": [
+        "reviews",
+        "customer reviews"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "customer-reviews.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

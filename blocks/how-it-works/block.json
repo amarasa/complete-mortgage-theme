@@ -1,0 +1,22 @@
+{
+    "name": "acf/cms-how-it-works",
+    "title": "How it Works",
+    "description": "A block to display how something works",
+    "category": "Complete Marketing",
+    "editorStyle": [
+        "file:./how-it-works-editor.css"
+    ],
+    "script": "file:./how-it-works.js",
+    "icon": "format-image",
+    "keywords": [
+        "how it works"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "how-it-works.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full"
+}

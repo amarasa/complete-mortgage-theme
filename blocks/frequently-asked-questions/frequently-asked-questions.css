@@ -1,0 +1,49 @@
+.faq-accordion {
+	border-bottom: 1px solid #c6c6cd;
+}
+.faq-accordion .a-btn {
+	cursor: pointer;
+	border-top: 1px solid #c6c6cd;
+	padding: 23px 27px 27px 0;
+	font-size: 18px;
+	line-height: 27px;
+	font-weight: 600;
+	display: flex;
+	gap: 16px;
+}
+.faq-accordion .a-btn:before {
+	content: "\f055";
+	font-family: "FontAwesome", sans-serif;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	height: fit-content;
+}
+.faq-accordion .a-container .a-panel {
+	width: 100%;
+	color: rgb(67, 67, 70);
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	opacity: 0;
+	height: auto;
+	max-height: 0;
+	overflow: hidden;
+	padding: 0px 36px;
+	line-height: normal;
+	font-size: 16px;
+}
+
+/* Panel style when active */
+.faq-accordion .a-container.active .a-panel {
+	opacity: 1;
+	height: auto;
+	max-height: 9000px;
+}
+.faq-accordion .a-container.active .a-btn:before {
+	-webkit-transition: all 0.3s ease-in-out;
+	transform: rotate(45deg);
+	height: fit-content;
+}
+
+.faq-accordion p {
+	@apply mt-0 mb-5;
+}
