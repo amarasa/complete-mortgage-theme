@@ -98,12 +98,12 @@ $team_members = new WP_Query($query_args);
                 ?>
                     <div class="md:w-1/3 lg:w-[20%] mb-12">
                         <?php if ($clickable): ?><a href="<?php echo esc_url($profile_url); ?>" class="block relative"><?php endif; ?>
-                            <div class="w-full relative pb-[90%] overflow-hidden <?php echo esc_attr($corners); ?>">
+                            <div class="w-full relative aspect-[4/4] overflow-hidden <?php echo esc_attr($corners); ?>">
                                 <img src="<?php echo esc_url($image); ?>"
-                                     alt="<?php echo esc_attr($first_name . ' ' . $last_name); ?>"
-                                     class="absolute inset-0 w-full h-full object-cover"
-                                     loading="lazy"
-                                     decoding="async">
+                                    alt="<?php echo esc_attr($first_name . ' ' . $last_name); ?>"
+                                    class="absolute inset-0 w-full !h-full object-cover object-top"
+                                    loading="lazy"
+                                    decoding="async">
                                 <div class="bg-black absolute inset-0 <?php echo esc_attr($corners); ?> opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out"></div>
                             </div>
                             <?php if ($clickable): ?>
@@ -151,9 +151,9 @@ $team_members = new WP_Query($query_args);
                     "itemListElement" => $schema_members
                 ];
             ?>
-            <script type="application/ld+json">
-            <?php echo wp_json_encode($team_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
-            </script>
+                <script type="application/ld+json">
+                    <?php echo wp_json_encode($team_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
+                </script>
             <?php endif; ?>
 
             <?php wp_reset_postdata(); ?>

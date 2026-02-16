@@ -9,19 +9,32 @@ if (!empty($block['anchor']))   $id_attr = ' id="' . esc_attr($block['anchor']) 
 $is_slider        = get_field('enable_slider_version');
 $enable_bg_color  = get_field('enable_grey_background_color');
 $background_image = get_field('background_image');
-$bg_url           = $background_image ? $background_image['url'] : '';
+$bg_id            = 0;
+
+if (is_array($background_image)) {
+    $bg_id = $background_image['ID'] ?? $background_image['id'] ?? 0;
+} elseif (is_numeric($background_image)) {
+    $bg_id = (int) $background_image;
+}
+
+$bg_url = $bg_id ? wp_get_attachment_url($bg_id) : '';
 $top_gradient_overlay = get_field('top_gradient_overlay');
 $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
 ?>
 <span class="bg-grey sr-only border-primary"></span>
-<section class="trusted-by cmt-block relative px-8 <?php echo esc_attr($classes); ?> pt-12 pb-16 <?php echo $enable_bg_color ? 'bg-grey' : ''; ?>" <?php echo $id_attr; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
+<section class="trusted-by cmt-block relative px-8 <?php echo esc_attr($classes); ?> pt-12 pb-16 <?php echo $enable_bg_color ? 'bg-grey' : ''; ?> <?php echo $bg_url ? 'max-h-[500px] overflow-hidden' : ''; ?>" <?php echo $id_attr; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <?php if ($bg_url) { ?>
         <?php if (get_field('enable_background_image_with_gradient')) { ?>
             <div class="trusted-by-gradient-background absolute z-20 h-full w-full left-0 top-0" style="background:
     linear-gradient(to bottom, <?php echo $top_gradient_overlay; ?>, rgba(0,0,0,0)) top,
     linear-gradient(to top, <?php echo $bottom_gradient_overlay; ?>, rgba(0,0,0,0)) bottom;"></div>
-            <div class="trusted-by-background-image absolute inset-0"
-                style="background-image:url('<?php echo esc_url($bg_url); ?>');background-size:cover;background-repeat:no-repeat;background-position:center center;">
+            <div class="trusted-by-background-image absolute inset-0 h-[500px]">
+                <?php echo wp_get_attachment_image($bg_id, 'full', false, [
+                    'class'    => 'w-full h-full object-cover object-center',
+                    'sizes'    => '100vw',
+                    'loading'  => 'lazy',
+                    'decoding' => 'async',
+                ]); ?>
             </div>
             <div class="trusted-by-background-image-overlay absolute z-10 inset-0"
                 style="background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);">
@@ -34,11 +47,11 @@ $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
             <div class="grid grid-cols-12">
                 <div class="col-span-12 lg:col-span-8 lg:col-start-3">
                     <?php if ($headline = get_field('headline')): ?>
-                        <h2 class="!mb-0 text-center <?php if ($bg_url) { ?>text-white<?php } ?>"><?php echo esc_html($headline); ?></h2>
+                        <h2 class="!mb-0 text-center <?php if ($bg_url) { ?>!text-white<?php } ?>"><?php echo esc_html($headline); ?></h2>
                     <?php endif; ?>
 
                     <?php if ($desc = get_field('description')): ?>
-                        <p class="mb-8 text-center <?php if ($bg_url) { ?>text-white<?php } ?>"><?php echo wp_kses_post($desc); ?></p>
+                        <p class="mb-8 text-center <?php if ($bg_url) { ?>!text-white<?php } ?>"><?php echo wp_kses_post($desc); ?></p>
                     <?php endif; ?>
 
                     <?php if ($is_slider): ?>

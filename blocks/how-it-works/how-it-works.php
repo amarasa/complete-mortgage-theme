@@ -36,7 +36,7 @@ if (!$background_switch) {
     $section_classes .= " text-white bg-primary";
 }
 
-$headline_class = !$background_switch ? 'text-white' : '';
+$headline_class = !$background_switch ? '!text-white' : '';
 $icon_class     = !$background_switch ? 'bg-white text-primary' : 'bg-primary text-white';
 $button_class   = !$background_switch ? 'button-white !no-underline' : '';
 ?>

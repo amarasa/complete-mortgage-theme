@@ -32,7 +32,7 @@ $buttons = get_field('buttons');
             </div>
         <?php } ?>
         <?php if ($buttons) { ?>
-            <div class="md:flex mg:gap-x-4 justify-center">
+            <div class="md:flex md:gap-x-4 justify-center">
                 <?php
                 while (have_rows('buttons')) : the_row();
                 ?>

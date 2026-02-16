@@ -121,3 +121,9 @@ form.horizontal-form {
 .gform_validation_errors {
 	@apply hidden!;
 }
+.gform-theme--framework .gf_progressbar .percentbar_blue {
+	@apply bg-secondary!;
+}
+.gform-theme--framework {
+	--gf-ctrl-choice-check-color: var(--color-secondary) !important;
+}

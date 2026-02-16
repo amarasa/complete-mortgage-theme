@@ -26,7 +26,7 @@ if (!empty($block['anchor'])) {
         $blueLinkTarget = !empty($blue_link['target']) ? $blue_link['target'] : '_self';
     ?>
 
-        <a class="mb-8 block text-[20px] font-bold text-[blue] hover:text-[purple] underline tracking-tight"
+        <a class="blue-link-anchor mb-8 block text-[20px] font-bold underline tracking-tight"
             href="<?php echo esc_url($blueLinkUrl); ?>"
             target="<?php echo esc_attr($blueLinkTarget); ?>">
             <?php echo esc_html($blueLinkTitle); ?>

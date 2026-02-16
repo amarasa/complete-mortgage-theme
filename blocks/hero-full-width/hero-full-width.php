@@ -43,7 +43,7 @@ if (have_rows('background_images')) {
 <section class="hero-full-width relative w-full h-full overflow-hidden <?php echo $default_background_color; ?> <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <?php if ($hero_image_id) {
         echo wp_get_attachment_image($hero_image_id, 'full', false, [
-            'class'         => 'hero-full-width-bg absolute inset-0 w-full h-full object-cover z-0',
+            'class'         => 'hero-full-width-bg absolute inset-0 w-full !h-full object-cover object-center z-0',
             'sizes'         => '100vw',
             'loading'       => 'eager',
             'fetchpriority' => 'high',
@@ -51,30 +51,34 @@ if (have_rows('background_images')) {
             'alt'           => '',
         ]);
     } ?>
-    <?php if ($turn_on_overlay) { ?>
-        <div class="hero-full-width-overlay z-10 opacity-70 absolute h-full w-full" style="background: linear-gradient(to bottom,  <?php echo esc_attr($top_gradient_overlay); ?> 0%,<?php echo esc_attr($bottom_gradient_overlay); ?> 100%);">
-        </div>
+    <?php if ($hero_image_id) { ?>
+        <div class="hero-full-width-overlay z-10 absolute h-full w-full" style="background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);"></div>
     <?php } ?>
     <?php
     // Text and button colors based on background
-    switch ($default_background_color) {
-        case 'bg-primary':
-            $content_text_color = '!text-white';
-            $button_bg_class = '!bg-secondary';
-            break;
-        case 'bg-secondary':
-            $content_text_color = '!text-white';
-            $button_bg_class = '!bg-primary';
-            break;
-        case 'bg-grey':
-        case 'bg-white':
-            $content_text_color = '!text-primary';
-            $button_bg_class = '!bg-primary';
-            break;
-        default:
-            $content_text_color = 'text-white';
-            $button_bg_class = '';
-            break;
+    if ($hero_image_id) {
+        $content_text_color = '!text-white';
+        $button_bg_class = '!bg-secondary';
+    } else {
+        switch ($default_background_color) {
+            case 'bg-primary':
+                $content_text_color = '!text-white';
+                $button_bg_class = '!bg-secondary';
+                break;
+            case 'bg-secondary':
+                $content_text_color = '!text-white';
+                $button_bg_class = '!bg-primary';
+                break;
+            case 'bg-grey':
+            case 'bg-white':
+                $content_text_color = '!text-primary';
+                $button_bg_class = '!bg-primary';
+                break;
+            default:
+                $content_text_color = '!text-white';
+                $button_bg_class = '';
+                break;
+        }
     }
     ?>
     <div class="hero-full-width-content relative px-8 z-20 <?php echo $content_text_color; ?> mx-auto text-center container py-16 lg:pt-[130px] lg:pb-[105px]">

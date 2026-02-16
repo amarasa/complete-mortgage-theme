@@ -2,7 +2,7 @@
     <?php
     // Define the widget areas
     $footer_columns = ['footer-col-1', 'footer-col-2', 'footer-col-3', 'footer-col-4', 'footer-col-5']; ?>
-    <div class="top-footer bg-topFooter pt-8">
+    <div class="top-footer pt-8 bg-top-footer text-white">
         <div class="container px-8">
             <div class="grid grid-cols-10 sm:gap-x-8">
                 <?php foreach ($footer_columns as $footer_col) {
@@ -17,10 +17,6 @@
                 }
                 ?>
             </div>
-        </div>
-    </div>
-    <div class="bottom-footer bg-bottomFooter py-4">
-        <div class="container px-8">
             <div class="grid grid-cols-12 md:gap-x-8">
                 <div class="col-span-12 md:col-span-6 lg:col-span-4">
                     <?php if (is_active_sidebar('bottom-footer-left-column')) { ?>
@@ -42,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div class="legal-footer bg-bottomFooter text-xs text-[#c7c7c7]">
+    <div class="legal-footer bg-bottom-footer text-xs text-white">
         <div class="container px-8">
             <div class="grid grid-cols-12 xl:gap-x-8">
                 <div class="col-span-12 xl:col-span-4">

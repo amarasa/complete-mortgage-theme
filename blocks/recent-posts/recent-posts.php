@@ -56,6 +56,11 @@ if ($post_display_type === 1 && !empty($hand_selected_posts)) {
 
 // Query posts
 $recent_posts = new WP_Query($query_args);
+
+// DEBUG — remove after testing
+if (current_user_can('administrator')) {
+    echo '<!-- recent-posts debug: found_posts=' . $recent_posts->found_posts . ' post_display_type=' . $post_display_type . ' query=' . esc_html(print_r($query_args, true)) . ' -->';
+}
 ?>
 
 <section class="recent-posts <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
@@ -102,12 +107,15 @@ $recent_posts = new WP_Query($query_args);
                 ?>
                     <div class="bg-white rounded-lg overflow-hidden">
                         <!-- Featured Image or Fallback -->
-                        <div class="w-full h-64 mb-2">
+                        <div class="w-full h-[280px] mb-2">
                             <?php if (has_post_thumbnail()): ?>
-                                <a href="<?php the_permalink(); ?>" class="relative block !no-underline !font-normal">
-                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out z-10"></div>
+                                <a href="<?php the_permalink(); ?>" class="group relative block h-full !no-underline !font-normal">
+                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 group-hover:opacity-40 transition-all duration-300 ease-in-out z-10"></div>
+                                    <span class="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                        <span class="bg-white text-secondary font-semibold px-6 py-2 rounded-lg">Read More</span>
+                                    </span>
                                     <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large', false, [
-                                        'class' => 'w-full h-full object-cover rounded-lg',
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
                                         'alt' => get_the_title(),
                                         'loading' => 'lazy',
                                         'decoding' => 'async',
@@ -115,14 +123,17 @@ $recent_posts = new WP_Query($query_args);
                                     ]); ?>
                                 </a>
                             <?php elseif ($fallback_image_url): ?>
-                                <a href="<?php the_permalink(); ?>" class="relative block !no-underline !font-normal">
-                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out z-10"></div>
-                                    <img src="<?php echo esc_url($fallback_image_url); ?>"
-                                        alt="<?php echo esc_attr(get_the_title()); ?>"
-                                        class="w-full h-full object-cover rounded-lg"
-                                        loading="lazy"
-                                        decoding="async"
-                                        style="object-position: <?php echo esc_attr($fallback_position); ?>;">
+                                <a href="<?php the_permalink(); ?>" class="group relative block h-full !no-underline !font-normal">
+                                    <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 group-hover:opacity-40 transition-all duration-300 ease-in-out z-10"></div>
+                                    <span class="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                        <span class="bg-white text-secondary font-semibold px-6 py-2 rounded-lg">Read More</span>
+                                    </span>
+                                    <?php echo wp_get_attachment_image($fallback_image['id'], 'large', false, [
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
+                                        'style' => 'object-position: ' . esc_attr($fallback_position) . ';',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async',
+                                    ]); ?>
                                 </a>
                             <?php endif; ?>
                         </div>

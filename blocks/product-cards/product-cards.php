@@ -98,12 +98,12 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                                      decoding="async">
                             <?php } ?>
                         </div>
-                        <div class="eh-productcardcontent product-card-content border-[1px] border-solid border-[#c6c6cd] pt-6 pb-20 bg-white">
+                        <div class="eh-productcardcontent product-card-content border-[1px] border-solid border-[#c6c6cd] pt-6 pb-8 bg-white flex flex-col">
                             <h3 class="px-8 eh-productcardtitle product-card-title text-xl mb-5"><?php echo esc_html($card_title); ?></h3>
-                            <p class="px-8 eh-productcarddescription text-[#444] mb-8 product-card-description"><?php echo esc_html($card_description); ?></p>
+                            <p class="px-8 eh-productcarddescription text-[#444] product-card-description mb-0"><?php echo esc_html($card_description); ?></p>
                             <?php if ($card_link) { ?>
                                 <?php if ($button_or_arrow_links == true) { ?>
-                                    <div class="px-8 flex justify-between items-center">
+                                    <div class="px-8 pt-8 mt-auto flex justify-between items-center">
                                         <div class="learn-more text-base uppercase font-semibold tracking-wider">
                                             <?php echo $card_link['title']; ?>
                                         </div>
@@ -112,7 +112,7 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                                         </div>
                                     </div>
                                 <?php } else { ?>
-                                    <div class="my-8 px-8">
+                                    <div class="pt-8 mt-auto px-8">
                                         <div class="cursor-pointer button w-full button-primary block"><?php echo $card_link['title']; ?></div>
                                     </div>
                                 <?php } ?>
