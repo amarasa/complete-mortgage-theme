@@ -56,11 +56,6 @@ if ($post_display_type === 1 && !empty($hand_selected_posts)) {
 
 // Query posts
 $recent_posts = new WP_Query($query_args);
-
-// DEBUG — remove after testing
-if (current_user_can('administrator')) {
-    echo '<!-- recent-posts debug: found_posts=' . $recent_posts->found_posts . ' post_display_type=' . $post_display_type . ' query=' . esc_html(print_r($query_args, true)) . ' -->';
-}
 ?>
 
 <section class="recent-posts <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
