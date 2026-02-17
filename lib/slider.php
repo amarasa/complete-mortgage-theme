@@ -1,5 +1,10 @@
 <?php
 add_action('wp_enqueue_scripts', function () {
+  // Only load Splide when a block that uses it is present
+  if (!has_block('acf/cms-trusted-by')) {
+    return;
+  }
+
   // Splide assets
   wp_enqueue_style(
     'splide-css',

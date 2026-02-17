@@ -17,7 +17,7 @@ $list_type = get_field('list_type');
 $display_numbers = get_field('numbers_displsy');
 
 if (!empty($block['className'])) {
-    $classes .= ' ' . $block['className'];
+    $classes .= ' ' . esc_attr($block['className']);
 }
 if (!empty($block['anchor'])) {
     $id = ' id="' . esc_attr($block['anchor']) . '"';
@@ -51,7 +51,7 @@ $button_class   = !$background_switch ? 'button-white !no-underline' : '';
 
             <?php if ($description): ?>
                 <div class="max-w-[1024px] mx-auto text-center mb-16">
-                    <?php echo $description; ?>
+                    <?php echo wp_kses_post($description); ?>
                 </div>
             <?php endif; ?>
 
@@ -87,9 +87,9 @@ $button_class   = !$background_switch ? 'button-white !no-underline' : '';
             <!-- Two Column Layout here -->
             <div class="grid grid-cols-12 lg:gap-x-16">
                 <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0">
-                    <h2 class="<?php echo $headline_class; ?>"><?php echo esc_html($headline); ?></h2>
+                    <h2 class="<?php echo esc_attr($headline_class); ?>"><?php echo esc_html($headline); ?></h2>
 
-                    <div class="mb-8"><?php echo $description; ?></div>
+                    <div class="mb-8"><?php echo wp_kses_post($description); ?></div>
 
                     <?php if ($left_cta): ?>
                         <a href="<?php echo esc_url($left_cta['url']); ?>" class="button <?php echo esc_attr($button_class); ?>" <?php echo cms_link_attributes($left_cta['target'] ?: '_self'); ?>>
@@ -101,7 +101,7 @@ $button_class   = !$background_switch ? 'button-white !no-underline' : '';
                     <div class="vertical-divider h-[100%] w-[1px] bg-[#ededed] mx-auto hidden md:block"></div>
                 </div>
                 <div class="col-span-12 lg:col-span-7">
-                    <p class="<?php echo $headline_class; ?> font-bold text-xl mt-0"><?php echo esc_html($sub_headline); ?></p>
+                    <p class="<?php echo esc_attr($headline_class); ?> font-bold text-xl mt-0"><?php echo esc_html($sub_headline); ?></p>
 
                     <?php if (!empty($list_items)): ?>
                         <div class="mb-8">

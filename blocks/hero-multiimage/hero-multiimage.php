@@ -36,7 +36,7 @@ $cornerClass = $rounded_image_corners ? 'rounded-md' : '';
                             <?php if (!empty($button['button'])): ?>
                                 <a class="button !no-underline !text-white !block sm:w-full mb-3"
                                     href="<?php echo esc_url($button['button']['url']); ?>"
-                                    target="<?php echo esc_attr($button['button']['target']); ?>">
+                                    <?php echo cms_link_attributes($button['button']['target'] ?: '_self'); ?>>
                                     <?php echo esc_html($button['button']['title']); ?>
                                 </a>
                             <?php endif; ?>

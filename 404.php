@@ -1,10 +1,10 @@
 <?php header_hub_get_custom_header(); ?>
-
+<main class="fourohfour-page">
 <section class="fourohfour-main pt-8 pb-8">
     <div class="container px-8">
         <div class="grid grid-cols-12">
             <div class="col-span-12 md:col-span-8 md:col-start-3 text-center">
-                <h2 class="text-secondary font-bold tracking-widest uppercase">404 Error</h2>
+                <p class="text-secondary font-bold tracking-widest uppercase">404 Error</p>
                 <h1 class="text-3xl font-bold md:text-4xl mb-8">Sorry, this page cannot be found.</h1>
 
                 <p class="text-xl">The page you are looking for may have been removed, had it's name changed or is temporarily unavailable.</p>
@@ -96,4 +96,5 @@
     </div>
 </section>
 
+</main>
 <?php footer_hub_get_custom_footer(); ?>

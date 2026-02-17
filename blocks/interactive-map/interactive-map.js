@@ -70,11 +70,15 @@
 
             mapElement.setAttribute('data-map-initialized', 'true');
 
-            // Recalculate dimensions on resize
+            // Recalculate dimensions on resize (debounced)
+            var resizeTimer;
             window.addEventListener('resize', function() {
-                if (window.myMap) {
-                    window.myMap.updateSize();
-                }
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    if (window.myMap) {
+                        window.myMap.updateSize();
+                    }
+                }, 150);
             });
         });
     }

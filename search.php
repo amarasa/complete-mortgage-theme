@@ -38,7 +38,7 @@
                             $i = 0;
                             foreach ($categories as $category) {
                                 if ($i == 0) {
-                                    echo '<a class="category-link transition-all duration-300 ease-in-out" href="' . get_category_link($category) . '">' . get_cat_name($category) . '</a>';
+                                    echo '<a class="category-link transition-all duration-300 ease-in-out" href="' . esc_url(get_category_link($category)) . '">' . esc_html(get_cat_name($category)) . '</a>';
                                 }
                                 $i++;
                             } ?>
@@ -48,7 +48,7 @@
                     <h2 class="text-xl md:text-2xl font-bold mb-4"><a class="transition-all duration-300 ease-in-out" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
                     <div class="text-sm mb-2">
-                        By <a href="<?php echo get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta('user_nicename')); ?>" class="transition-all duration-300 ease-in-out"><?php the_author(); ?></a>
+                        By <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta('user_nicename'))); ?>" class="transition-all duration-300 ease-in-out"><?php the_author(); ?></a>
                     </div>
                     <div class="text-sm">
                         <?php $id = get_the_id(); ?>

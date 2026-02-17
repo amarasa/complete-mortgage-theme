@@ -4,15 +4,15 @@ $id = '';
 $acfKey = 'group_67d87b5f039d3';
 
 if (!empty($block['className'])) {
-    $classes .= sprintf(' %s', $block['className']);
+    $classes .= sprintf(' %s', esc_attr($block['className']));
 }
 
 if (!empty($block['anchor'])) {
-    $id = sprintf(' id=%s', $block['anchor']);
+    $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 
 ?>
-<section class="blue-link<?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="blue-link<?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <?php
     // Retrieve the ACF link field
     $blue_link = get_field('blue_link');
@@ -28,7 +28,7 @@ if (!empty($block['anchor'])) {
 
         <a class="blue-link-anchor mb-8 block text-[20px] font-bold underline tracking-tight"
             href="<?php echo esc_url($blueLinkUrl); ?>"
-            target="<?php echo esc_attr($blueLinkTarget); ?>">
+            <?php echo cms_link_attributes($blueLinkTarget); ?>>
             <?php echo esc_html($blueLinkTitle); ?>
         </a>
 

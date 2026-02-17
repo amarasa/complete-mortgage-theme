@@ -3,10 +3,6 @@
     "title": "How it Works",
     "description": "A block to display how something works",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./how-it-works-editor.css"
-    ],
-    "script": "file:./how-it-works.js",
     "icon": "format-image",
     "keywords": [
         "how it works"
@@ -18,5 +14,8 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "style": [
+        "file:./how-it-works.css"
+    ]
 }

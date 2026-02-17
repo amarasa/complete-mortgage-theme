@@ -29,9 +29,9 @@ $acfKey = ''; // Set your ACF block name key if needed
                 }
                 ?>
                 <?php if ($link) : ?>
-                    <a href="<?php echo esc_url($link['url']); ?>" class="<?php echo $cardClasses; ?> !no-underline !font-normal">
+                    <a href="<?php echo esc_url($link['url']); ?>" class="<?php echo esc_attr($cardClasses); ?> !no-underline !font-normal">
                     <?php else : ?>
-                        <div class="<?php echo $cardClasses; ?>">
+                        <div class="<?php echo esc_attr($cardClasses); ?>">
                         <?php endif; ?>
 
                         <?php if ($icon) : ?>

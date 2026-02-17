@@ -3,10 +3,6 @@
     "title": "Branch Detail",
     "description": "This is a block that will contain branch detail information",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./branch-detail-editor.css"
-    ],
-    "script": "file:./branch-detail.js",
     "icon": "format-image",
     "keywords": [
         "branch",
@@ -19,5 +15,8 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "style": [
+        "file:./branch-detail.css"
+    ]
 }

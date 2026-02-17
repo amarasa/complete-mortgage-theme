@@ -19,7 +19,7 @@ if (!empty($block['anchor'])) {
 }
 ?>
 
-<section class="two-column-informational-block<?php echo esc_attr($classes); ?> pb-10" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="two-column-informational-block<?php echo esc_attr($classes); ?> pb-10" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container px-8">
 
         <div class="grid grid-cols-12 md:gap-x-16">
@@ -28,7 +28,7 @@ if (!empty($block['anchor'])) {
                     <h2 class="mb-5"><?php echo esc_html($headline); ?></h2>
                 <?php } ?>
                 <div class="mb-8">
-                    <?php echo $content; ?>
+                    <?php echo wp_kses_post($content); ?>
                 </div>
             </div>
             <div class="col-span-12 md:col-span-6">
@@ -45,7 +45,7 @@ if (!empty($block['anchor'])) {
                 <?php endif; ?>
                 <?php if (!empty($cta_button)): ?>
                     <div>
-                        <a class="button !block !bg-secondary hover:!bg-primary !no-underline !text-white" href="<?php echo $cta_button['url']; ?>"><?php echo esc_html($cta_button['title']); ?></a>
+                        <a class="button !block !bg-secondary hover:!bg-primary !no-underline !text-white" href="<?php echo esc_url($cta_button['url']); ?>"><?php echo esc_html($cta_button['title']); ?></a>
                     </div>
                 <?php endif; ?>
             </div>

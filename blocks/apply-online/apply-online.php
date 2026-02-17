@@ -13,15 +13,15 @@ $corners = get_field('corners');
 
 
 if (!empty($block['className'])) {
-    $classes .= sprintf(' %s', $block['className']);
+    $classes .= sprintf(' %s', esc_attr($block['className']));
 }
 
 if (!empty($block['anchor'])) {
-    $id = sprintf(' id=%s', $block['anchor']);
+    $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 ?>
 
-<section class="apply-online <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="apply-online <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="<?php if ($overlap) { ?>-mt-20 z-20 relative<?php } ?> sm:container bg-grey px-8 py-10 md:p-16 <?php if ($corners) { ?>sm:rounded-2xl<?php } ?>">
         <div class="grid grid-cols-12 md:gap-x-8 lg:gap-x-16">
             <div class="col-span-12 md:col-span-6 lg:col-span-7">

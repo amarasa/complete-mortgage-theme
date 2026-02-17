@@ -4,14 +4,14 @@ $id = '';
 $acfKey = 'group_67c0b8f891316';
 
 if (!empty($block['className'])) {
-    $classes .= sprintf(' %s', $block['className']);
+    $classes .= sprintf(' %s', esc_attr($block['className']));
 }
 
 if (!empty($block['anchor'])) {
     $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 ?>
-<section class="hero-with-circular-image<?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="hero-with-circular-image<?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <?php
     // Get ACF fields
     $headline = get_field('headline');
@@ -56,7 +56,7 @@ if (!empty($block['anchor'])) {
                         <?php foreach ($buttons as $button): ?>
                             <?php if (!empty($button['button'])): ?>
                                 <div class="flex-grow">
-                                    <a class="mb-4 button !no-underline !text-white !w-full text-center" href="<?= esc_url($button['button']['url']); ?>" target="<?= esc_attr($button['button']['target']); ?>">
+                                    <a class="mb-4 button !no-underline !text-white !w-full text-center" href="<?= esc_url($button['button']['url']); ?>" <?= cms_link_attributes($button['button']['target'] ?: '_self'); ?>>
                                         <?= esc_html($button['button']['title']); ?>
                                     </a>
                                 </div>

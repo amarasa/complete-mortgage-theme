@@ -14,14 +14,12 @@
 .faq-accordion .a-btn:before {
 	content: "\f055";
 	font-family: "FontAwesome", sans-serif;
-	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	height: fit-content;
 }
 .faq-accordion .a-container .a-panel {
 	width: 100%;
 	color: rgb(67, 67, 70);
-	-webkit-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 	opacity: 0;
 	height: auto;
@@ -36,10 +34,10 @@
 .faq-accordion .a-container.active .a-panel {
 	opacity: 1;
 	height: auto;
-	max-height: 9000px;
+	max-height: none;
 }
 .faq-accordion .a-container.active .a-btn:before {
-	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 	transform: rotate(45deg);
 	height: fit-content;
 }

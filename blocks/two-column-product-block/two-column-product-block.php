@@ -39,7 +39,7 @@ if (!empty($image) && is_array($image)) {
 }
 ?>
 
-<section class="two-column-product-block <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="two-column-product-block <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container px-8">
         <div class="grid grid-cols-12 md:gap-x-16 items-center">
             <!-- Image Column -->
@@ -56,7 +56,7 @@ if (!empty($image) && is_array($image)) {
             <!-- Content Column -->
             <div class="col-span-12 md:col-span-6 lg:col-span-5 mb-4 md:mb-0 <?php echo esc_attr($other_column_position); ?>">
                 <?php if ($eyebrow_headline): ?>
-                    <h4 class="eyebrow !mb-3"><?php echo esc_html($eyebrow_headline); ?></h4>
+                    <p class="eyebrow !mb-3"><?php echo esc_html($eyebrow_headline); ?></p>
                 <?php endif; ?>
 
                 <?php if ($headline): ?>
@@ -64,7 +64,7 @@ if (!empty($image) && is_array($image)) {
                 <?php endif; ?>
 
                 <?php if ($cta_content): ?>
-                    <?php echo $cta_content; ?>
+                    <?php echo wp_kses_post($cta_content); ?>
                 <?php endif; ?>
 
                 <?php if ($cta_button): ?>

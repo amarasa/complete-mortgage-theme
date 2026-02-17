@@ -58,11 +58,11 @@ if ($post_display_type === 1 && !empty($hand_selected_posts)) {
 $recent_posts = new WP_Query($query_args);
 ?>
 
-<section class="recent-posts <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="recent-posts <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container mx-auto px-8">
         <h2 class="font-bold text-center mb-8">
             <?php if (get_field('headline')) {
-                echo get_field('headline');
+                echo esc_html(get_field('headline'));
             } else { ?>
                 Recent Articles
             <?php } ?>

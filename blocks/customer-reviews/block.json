@@ -3,10 +3,6 @@
     "title": "Customer Reviews",
     "description": "A block displaying a customer reviews slider",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./customer-reviews-editor.css"
-    ],
-    "script": "file:./customer-reviews.js",
     "icon": "format-image",
     "keywords": [
         "reviews",
@@ -19,5 +15,8 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "style": [
+        "file:./customer-reviews.css"
+    ]
 }

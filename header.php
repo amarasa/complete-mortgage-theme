@@ -3,7 +3,7 @@
 <?php $header_alert_bar = get_field('header_alert_bar', 'option'); ?>
 <?php if ($header_alert_bar) { ?>
     <section class="header-alert-bar bg-secondary px-8 py-2 text-white text-center">
-        <?php echo get_field('alert_bar_content', 'option'); ?>
+        <?php echo wp_kses_post(get_field('alert_bar_content', 'option')); ?>
     </section>
 <?php } ?>
 <?php
@@ -14,7 +14,7 @@ $mobile_logo_id = get_theme_mod('mobile_logo');
 ?>
 <div class="relative">
     <header class="px-8 py-6">
-        <div class="container">
+        <div class="w-full max-w-[1375px] mx-auto">
             <div class="grid grid-cols-12 lg:gap-x-8 items-center">
                 <div class="col-span-6 lg:col-span-3">
                     <div class="header-logo transition-all duration-300 ease-in-out hover:opacity-70">
@@ -30,17 +30,21 @@ $mobile_logo_id = get_theme_mod('mobile_logo');
                 <div class="col-span-6 lg:col-span-9">
                     <?php if (!empty($menu_items)) { ?>
                         <div class="top-header-menu py-4 text-right hidden lg:block">
-                            <?php wp_nav_menu(array('menu' => 'Top Menu')); ?>
+                            <nav aria-label="Top menu">
+                                <?php wp_nav_menu(array('menu' => 'Top Menu')); ?>
+                            </nav>
                         </div>
                     <?php } ?>
 
                     <div class="flex items-center gap-x-4 justify-end">
                         <div class="header-desktop-menu">
-                            <?php wp_nav_menu(array('menu' => 'Primary Menu')); ?>
+                            <nav aria-label="Primary navigation">
+                                <?php wp_nav_menu(array('menu' => 'Primary Menu')); ?>
+                            </nav>
                         </div>
-                        <div class="open-menu-button lg:hidden">
+                        <button type="button" class="open-menu-button lg:hidden" aria-label="Open menu">
                             <i class="fa-solid fa-bars text-3xl text-secondary"></i>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -68,19 +72,21 @@ $mobile_logo_id = get_theme_mod('mobile_logo');
                 </div>
             </div>
             <div class="col-span-6">
-                <div class="close-menu-button lg:hidden text-right">
+                <button type="button" class="close-menu-button lg:hidden text-right" aria-label="Close menu">
                     <i class="fa-solid fa-close text-3xl text-white"></i>
-                </div>
+                </button>
             </div>
         </div>
     </div>
 
 
-    <?php
-    wp_nav_menu(array(
-        'menu'         => 'Mobile Menu',
-        'container_id' => 'cssmenu',
-        'walker'       => new CSS_Menu_Maker_Walker()
-    ));
-    ?>
+    <nav aria-label="Mobile navigation">
+        <?php
+        wp_nav_menu(array(
+            'menu'         => 'Mobile Menu',
+            'container_id' => 'cssmenu',
+            'walker'       => new CSS_Menu_Maker_Walker()
+        ));
+        ?>
+    </nav>
 </div>

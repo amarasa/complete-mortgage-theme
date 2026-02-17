@@ -16,7 +16,7 @@ if (!empty($block['anchor'])) {
     $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 ?>
-<section class="hyper-local-seo py-10 <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="hyper-local-seo py-10 <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container px-8">
         <?php if ($headline): ?>
             <h2 class="font-bold text-center mb-8"><?php echo esc_html($headline); ?></h2>
@@ -27,7 +27,7 @@ if (!empty($block['anchor'])) {
                 <?php foreach ($list as $item): ?>
                     <div class="mb-4">
                         <?php if ($use_hyperlinks && !empty($item['link_item'])): ?>
-                            <a href="<?php echo esc_url($item['link_item']['url']); ?>" target="<?php echo esc_attr($item['link_item']['target'] ?: '_self'); ?>" class="text-secondary !text-2xl font-bold hover:text-primary duration-300 ease-in-out transition-all !no-underline">
+                            <a href="<?php echo esc_url($item['link_item']['url']); ?>" <?php echo cms_link_attributes($item['link_item']['target'] ?: '_self'); ?> class="text-secondary !text-2xl font-bold hover:text-primary duration-300 ease-in-out transition-all !no-underline">
                                 <?php echo esc_html($item['link_item']['title']); ?>
                             </a>
                         <?php else: ?>

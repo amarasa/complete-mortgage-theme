@@ -73,7 +73,7 @@ if ($background_image_id) {
     $btn_color = '';
 }
 ?>
-<section class="hero-with-squared-image <?php echo $background_color; ?> relative lg:h-[575px] xl:h-[700px] w-full <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
+<section class="hero-with-squared-image <?php echo esc_attr($background_color); ?> relative lg:h-[575px] xl:h-[700px] w-full <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="hero-with-squared-image-background hidden lg:block absolute w-1/2 h-full right-0 overflow-hidden rounded-bl-[75px]">
         <?php if ($background_image_id) {
             echo wp_get_attachment_image($background_image_id, 'full', false, [
@@ -88,9 +88,9 @@ if ($background_image_id) {
     </div>
     <div class="max-w-[1400px] mx-auto h-full px-8 lg:absolute w-full left-0 right-0 bottom-0 z-10 lg:pt-[5%]">
         <div class="grid grid-cols-12 lg:gap-x-24 items-center">
-            <div class="col-span-12 lg:col-span-5 <?php echo $text_color; ?>">
-                <h1 class="<?php echo $text_color; ?>"><?= esc_html($headline); ?></h1>
-                <p class="<?php echo $text_color; ?>"><?= wp_kses_post($introduction_text); ?></p>
+            <div class="col-span-12 lg:col-span-5 <?php echo esc_attr($text_color); ?>">
+                <h1 class="<?php echo esc_attr($text_color); ?>"><?= esc_html($headline); ?></h1>
+                <p class="<?php echo esc_attr($text_color); ?>"><?= wp_kses_post($introduction_text); ?></p>
 
                 <?php $enable_banking_bridge_button = get_field('enable_banking_bridge_button');
                 if ($enable_banking_bridge_button) { ?>
@@ -98,7 +98,7 @@ if ($background_image_id) {
                     <script>
                         (function() {
                             function i() {
-                                if (window.BB) BB.init('<?php echo get_field('banking_bridge_id'); ?>', document.getElementById('bb-custom'), {
+                                if (window.BB) BB.init('<?php echo esc_js((string) get_field('banking_bridge_id')); ?>', document.getElementById('bb-custom'), {
                                     type: 'api'
                                 })
                             }
@@ -115,7 +115,7 @@ if ($background_image_id) {
                         })();
                     </script>
 
-                    <a class="button !text-white !no-underline !block <?php echo $btn_color; ?>" onclick="BB.api.openModal('leadWorkflow')" href="javascript:void(0);"><?php echo get_field('banking_bridge_button_text'); ?></a>
+                    <button type="button" class="button !text-white !no-underline !block <?php echo esc_attr($btn_color); ?>" onclick="BB.api.openModal('leadWorkflow')"><?php echo esc_html((string) get_field('banking_bridge_button_text')); ?></button>
 
                     <script>
                         function main(purpose) {
@@ -131,7 +131,7 @@ if ($background_image_id) {
                             <?php foreach ($buttons as $button): ?>
                                 <?php if (!empty($button['button'])): ?>
                                     <div class="flex-grow">
-                                        <a class="button mb-3 !no-underline !text-white !w-full text-center <?php echo $btn_color; ?>" href="<?= esc_url($button['button']['url']); ?>" <?= cms_link_attributes($button['button']['target'] ?: '_self'); ?>>
+                                        <a class="button mb-3 !no-underline !text-white !w-full text-center <?php echo esc_attr($btn_color); ?>" href="<?= esc_url($button['button']['url']); ?>" <?= cms_link_attributes($button['button']['target'] ?: '_self'); ?>>
                                             <?= esc_html($button['button']['title']); ?>
                                         </a>
                                     </div>
@@ -141,10 +141,10 @@ if ($background_image_id) {
                     <?php endif; ?>
                 <?php } ?>
 
-                <p class="<?php echo $text_color; ?>"><?= wp_kses_post($below_button_text); ?></p>
+                <p class="<?php echo esc_attr($text_color); ?>"><?= wp_kses_post($below_button_text); ?></p>
             </div>
             <div class="col-span-12 lg:col-span-7">
-                <div class="relative overflow-hidden rounded-md mb-8 lg:mb-0 pb-[50%] lg:pb-0 lg:h-[500px] <?= $foreground_image ? 'shadow-lg' : '' ?>">
+                <div class="relative overflow-hidden rounded-md mb-8 lg:mb-0 pb-[50%] lg:pb-0 lg:h-[500px] <?= esc_attr($foreground_image ? 'shadow-lg' : ''); ?>">
                     <?php if ($foreground_image_id) {
                         echo wp_get_attachment_image($foreground_image_id, 'large', false, [
                             'class' => 'absolute inset-0 w-full h-full object-cover',

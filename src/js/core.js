@@ -9,13 +9,6 @@ window.equalizeHeightsOptions = {
 import "equalize-heights/runtime";
 
 jQuery(document).ready(function ($) {
-	// Debug
-	console.log(
-		"Desktop menu items with children:",
-		$(".header-desktop-menu .menu li.menu-item-has-children").length,
-	);
-	console.log("Mobile menu items with sub:", $("#cssmenu li.has-sub").length);
-
 	// Helper: close all submenus
 	function closeAll() {
 		$(".sub-menu").slideUp();
@@ -164,12 +157,10 @@ jQuery(document).ready(function ($) {
 	});
 
 	$("#cssmenu li.has-sub > a").on("click", function (e) {
-		console.log("Mobile menu item clicked");
 		e.preventDefault();
 		e.stopPropagation();
 
 		var element = $(this).parent("li");
-		console.log("Mobile menu element:", element);
 
 		if (element.hasClass("open")) {
 			element.removeClass("open");
@@ -579,24 +570,23 @@ jQuery(document).ready(function ($) {
 										},
 									},
 									{
-										key: "getQueryString",
-										value: function (e) {
-											var t = "";
-											return (
-												Object.keys(e).forEach(
-													function (n) {
-														t +=
-															n +
-															"=" +
-															e[n] +
-															"&";
-													},
-												),
-												console.log(t),
-												t.substr(0, t.length - 1)
-											);
+											key: "getQueryString",
+											value: function (e) {
+												var t = "";
+												return (
+													Object.keys(e).forEach(
+														function (n) {
+															t +=
+																n +
+																"=" +
+																e[n] +
+																"&";
+														},
+													),
+													t.substr(0, t.length - 1)
+												);
+											},
 										},
-									},
 									{
 										key: "getVideoUrl",
 										value: function (e, t, n) {

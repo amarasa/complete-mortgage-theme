@@ -12,12 +12,12 @@ if (!empty($block['anchor'])) {
 }
 ?>
 
-<section class="customer-reviews <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="customer-reviews <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container mx-auto px-8">
         <h2 class="font-bold text-center mb-8">
             <?php $headline = get_field('headline'); ?>
             <?php if ($headline) {
-                echo $headline;
+                echo esc_html($headline);
             } else { ?>
                 Customer Reviews
             <?php } ?>

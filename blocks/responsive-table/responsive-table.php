@@ -12,7 +12,7 @@ if (!empty($block['anchor'])) {
 }
 
 ?>
-<section class="responsive-table-section cmt-block <?php echo esc_attr($classes); ?> px-8" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="responsive-table-section cmt-block <?php echo esc_attr($classes); ?> px-8" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <?php $table_builder_or_markdown = get_field('table_builder_or_markdown'); ?>
     <?php if ($table_builder_or_markdown) { ?>
         <?php $md = get_field('markdown'); // textarea, New Lines = None

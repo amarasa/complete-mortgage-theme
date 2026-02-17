@@ -3,10 +3,6 @@
     "title": "Apply Online",
     "description": "A block that will display the Apply Online form",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./apply-online-editor.css"
-    ],
-    "script": "file:./apply-online.js",
     "icon": "format-image",
     "keywords": [
         "apply online",
@@ -19,5 +15,8 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "style": [
+        "file:./apply-online.css"
+    ]
 }

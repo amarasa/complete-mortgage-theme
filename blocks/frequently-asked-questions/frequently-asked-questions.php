@@ -13,12 +13,12 @@ if (!empty($block['anchor'])) {
 
 
 ?>
-<section class="frequently-asked-questions cmt-block px-8 lg:px-0 max-w-[730px] mb-12 mx-auto <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
-    <h2><?php echo get_field('headline'); ?></h2>
+<section class="frequently-asked-questions cmt-block px-8 lg:px-0 max-w-[730px] mb-12 mx-auto <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
+    <h2><?php echo esc_html(get_field('headline')); ?></h2>
 
     <?php if (get_field('introduction_text')) { ?>
         <div class="mb-6 faq-intro-text">
-            <?php echo get_field('introduction_text'); ?>
+            <?php echo wp_kses_post(get_field('introduction_text')); ?>
         </div>
     <?php } ?>
 
@@ -40,13 +40,13 @@ if (!empty($block['anchor'])) {
                     tabindex="0"
                     aria-expanded="<?php echo $aria_expanded; ?>"
                     aria-controls="<?php echo esc_attr($panel_id); ?>">
-                    <?php echo get_sub_field("faq_question"); ?>
+                    <?php echo esc_html(get_sub_field("faq_question")); ?>
                 </div>
                 <div id="<?php echo esc_attr($panel_id); ?>"
                     class="a-panel <?php if (get_field('remove_default_gradient')) { ?>border-t border-solid border-t-[1px] <?php } else { ?>bg-gradient-to-b from-topGradient to-bottomGradient<?php } ?>"
                     role="region"
                     aria-labelledby="faq-btn-<?php echo esc_attr($faq_index); ?>">
-                    <div class="pb-3 mb-0"><?php echo get_sub_field("faq_answer"); ?></div>
+                    <div class="pb-3 mb-0"><?php echo wp_kses_post(get_sub_field("faq_answer")); ?></div>
                 </div>
             </div>
         <?php
@@ -67,7 +67,7 @@ if ($faq_items && is_array($faq_items)) :
     foreach ($faq_items as $item) {
         $faq_schema["mainEntity"][] = [
             "@type" => "Question",
-            "name" => $item['faq_question'] ?? '',
+            "name" => wp_strip_all_tags($item['faq_question'] ?? ''),
             "acceptedAnswer" => [
                 "@type" => "Answer",
                 "text" => wp_strip_all_tags($item['faq_answer'] ?? '')

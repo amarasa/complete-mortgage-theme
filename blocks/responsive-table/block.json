@@ -3,10 +3,6 @@
     "title": "Responsive Table",
     "description": "A responsive table",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./responsive-table-editor.css"
-    ],
-    "script": "file:./responsive-table.js",
     "icon": "editor-table",
     "keywords": [
         "table",

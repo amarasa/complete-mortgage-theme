@@ -60,7 +60,7 @@ foreach ($statistics as $index => $stat) {
             ?>
                 <div class="col-span-12 <?php echo esc_attr($col_class); ?> mb-12 last:mb-0">
                     <div class="stat-item text-center">
-                        <div class="big-stat text-secondary text-4xl md:text-6xl mb-5" id="stat-<?php echo esc_attr($index); ?>" data-animated="false">0</div>
+                        <div class="big-stat text-secondary text-4xl md:text-6xl mb-5" id="stat-<?php echo esc_attr($index); ?>" data-animated="false"><?php echo esc_html($stat['big_stat'] ?? '0'); ?></div>
                         <div class="sub-stat font-normal"><?php echo esc_html($stat['sub_stat'] ?? ''); ?></div>
                     </div>
                 </div>

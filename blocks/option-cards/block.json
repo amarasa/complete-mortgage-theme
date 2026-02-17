@@ -3,10 +3,6 @@
     "title": "Option Cards",
     "description": "A block that gives you option cards",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./option-cards-editor.css"
-    ],
-    "script": "file:./option-cards.js",
     "icon": "format-image",
     "keywords": [
         "options",

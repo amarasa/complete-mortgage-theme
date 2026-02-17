@@ -2,6 +2,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+    <?php $gtm_id = get_field("tag_manager_id", "option"); ?>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,7 +27,7 @@
     <!-- Delayed Google Tag Manager (fires on LCP) -->
     <script>
         (function() {
-            var gtmId = '<?php echo get_field("tag_manager_id", "option"); ?>';
+            var gtmId = '<?php echo esc_js((string) $gtm_id); ?>';
 
             function loadGTM() {
                 window.dataLayer = window.dataLayer || [];
@@ -63,6 +64,6 @@
 
     <!-- GTM noscript fallback -->
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo get_field("tag_manager_id", "option"); ?>"
+        <iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo rawurlencode((string) $gtm_id); ?>"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>

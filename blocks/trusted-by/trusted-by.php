@@ -3,7 +3,7 @@ $classes  = '';
 $id_attr  = '';
 $acfKey   = '';
 
-if (!empty($block['className'])) $classes .= ' ' . $block['className'];
+if (!empty($block['className'])) $classes .= ' ' . esc_attr($block['className']);
 if (!empty($block['anchor']))   $id_attr = ' id="' . esc_attr($block['anchor']) . '"';
 
 $is_slider        = get_field('enable_slider_version');
@@ -23,12 +23,12 @@ $top_gradient_overlay = get_field('top_gradient_overlay');
 $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
 ?>
 <span class="bg-grey sr-only border-primary"></span>
-<section class="trusted-by cmt-block relative px-8 <?php echo esc_attr($classes); ?> pt-12 pb-16 <?php echo $enable_bg_color ? 'bg-grey' : ''; ?> <?php echo $bg_url ? 'max-h-[500px] overflow-hidden' : ''; ?>" <?php echo $id_attr; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
+<section class="trusted-by cmt-block relative px-8 <?php echo esc_attr($classes); ?> pt-12 pb-16 <?php echo esc_attr($enable_bg_color ? 'bg-grey' : ''); ?> <?php echo esc_attr($bg_url ? 'max-h-[500px] overflow-hidden' : ''); ?>" <?php echo $id_attr; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <?php if ($bg_url) { ?>
         <?php if (get_field('enable_background_image_with_gradient')) { ?>
             <div class="trusted-by-gradient-background absolute z-20 h-full w-full left-0 top-0" style="background:
-    linear-gradient(to bottom, <?php echo $top_gradient_overlay; ?>, rgba(0,0,0,0)) top,
-    linear-gradient(to top, <?php echo $bottom_gradient_overlay; ?>, rgba(0,0,0,0)) bottom;"></div>
+    linear-gradient(to bottom, <?php echo esc_attr((string) $top_gradient_overlay); ?>, rgba(0,0,0,0)) top,
+    linear-gradient(to top, <?php echo esc_attr((string) $bottom_gradient_overlay); ?>, rgba(0,0,0,0)) bottom;"></div>
             <div class="trusted-by-background-image absolute inset-0 h-[500px]">
                 <?php echo wp_get_attachment_image($bg_id, 'full', false, [
                     'class'    => 'w-full h-full object-cover object-center',
@@ -52,7 +52,7 @@ $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
                     <?php endif; ?>
 
                     <?php if ($desc = get_field('description')): ?>
-                        <p class="mb-8 text-center <?php if ($bg_url) { ?>!text-white<?php } ?>"><?php echo wp_kses_post($desc); ?></p>
+                        <div class="mb-8 text-center wysiwyg <?php if ($bg_url) { ?>!text-white<?php } ?>"><?php echo wp_kses_post($desc); ?></div>
                     <?php endif; ?>
 
                     <?php if ($is_slider): ?>
@@ -61,7 +61,7 @@ $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
                                 <ul class="splide__list">
                                     <?php if (have_rows('logos')): while (have_rows('logos')): the_row(); ?>
                                             <li class="splide__slide">
-                                                <div class="logo-card bg-card bg-white <?php echo $enable_bg_color ? 'border-primary' : ''; ?> rounded-lg p-6 shadow-sm border hover:shadow-md transition-all duration-300 h-full flex items-center justify-center">
+                                                <div class="logo-card bg-card bg-white <?php echo esc_attr($enable_bg_color ? 'border-primary' : ''); ?> rounded-lg p-6 shadow-sm border hover:shadow-md transition-all duration-300 h-full flex items-center justify-center">
                                                     <?php
                                                     $logo    = get_sub_field('logo');
                                                     $logo_id = is_array($logo) ? ($logo['ID'] ?? 0) : (int)$logo;
@@ -88,7 +88,7 @@ $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
                     <?php else: ?>
                         <div class="logo-flex flex flex-wrap items-center justify-center gap-6">
                             <?php if (have_rows('logos')): while (have_rows('logos')): the_row(); ?>
-                                    <div class="eh-logo-card logo-card <?php echo $enable_bg_color ? 'border border-primary bg-white' : ''; ?> bg-card bg-white rounded-lg p-6 shadow-sm border hover:shadow-md transition-all duration-300 flex items-center justify-center md:max-w-[175px] w-full">
+                                    <div class="eh-logo-card logo-card <?php echo esc_attr($enable_bg_color ? 'border border-primary bg-white' : ''); ?> bg-card bg-white rounded-lg p-6 shadow-sm border hover:shadow-md transition-all duration-300 flex items-center justify-center md:max-w-[175px] w-full">
                                         <?php
                                         $logo    = get_sub_field('logo');
                                         $logo_id = is_array($logo) ? ($logo['ID'] ?? 0) : (int)$logo;

@@ -3,10 +3,6 @@
     "title": "Hyper Local SEO",
     "description": "This block lets you create a list of hyper local SEO links and lists",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./hyper-local-seo-editor.css"
-    ],
-    "script": "file:./hyper-local-seo.js",
     "icon": "format-image",
     "keywords": [
         "hyper local",

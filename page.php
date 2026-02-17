@@ -1,4 +1,5 @@
 <?php header_hub_get_custom_header(); ?>
+<main class="page-main">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <article class="page-article">
             <?php the_content(); ?>

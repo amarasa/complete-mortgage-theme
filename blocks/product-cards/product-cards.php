@@ -4,7 +4,7 @@ $id = '';
 $acfKey = '';
 
 if (!empty($block['className'])) {
-    $classes .= sprintf(' %s', $block['className']);
+    $classes .= sprintf(' %s', esc_attr($block['className']));
 }
 
 if (!empty($block['anchor'])) {
@@ -19,8 +19,8 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
 <span class="sr-only bg-primary"></span>
 <span class="sr-only bg-secondary"></span>
 <span class="sr-only bg-grey"></span>
-<div class="product-cards relative <?php if ($solid_color && !$solid_color_or_background_image) {
-                                        echo 'bg-' . $solid_color;
+    <div class="product-cards relative <?php if ($solid_color && !$solid_color_or_background_image) {
+                                        echo esc_attr('bg-' . $solid_color);
                                     } ?> bg-cover bg-center mb-12 pb-[20%] <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>" <?php if ($solid_color_or_background_image) { ?>style="background-image: url(<?php echo esc_url($background_image['url']); ?>);" <?php } ?>>
     <?php if ($solid_color_or_background_image) { ?>
         <div class="absolute inset-0 bg-black/50"></div>
@@ -80,9 +80,9 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                 $schema_products[] = $product_schema_item;
             ?>
                 <?php if ($card_link) { ?>
-                    <a class="block mb-8 <?php echo $width_class; ?> !no-underline !font-normal product-card relative bottom-0 transition-all duration-500 lg:hover:bottom-4 lg:hover:shadow-xl" href="<?php echo esc_url($card_link['url']); ?>">
+                    <a class="block mb-8 <?php echo esc_attr($width_class); ?> !no-underline !font-normal product-card relative bottom-0 transition-all duration-500 lg:hover:bottom-4 lg:hover:shadow-xl" href="<?php echo esc_url($card_link['url']); ?>">
                     <?php } else { ?>
-                        <div class="block mb-8 <?php echo $width_class; ?> !no-underline !font-normal product-card relative bottom-0">
+                        <div class="block mb-8 <?php echo esc_attr($width_class); ?> !no-underline !font-normal product-card relative bottom-0">
                         <?php } ?>
                         <div class="product-card-image relative pb-[80%] md:pb-[65%] lg:pb-[70%] w-full overflow-hidden">
                             <?php if (!empty($card_image['id'])) {
@@ -108,7 +108,7 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                                 <?php if ($button_or_arrow_links == true) { ?>
                                     <div class="px-8 pt-8 mt-auto flex justify-between items-center">
                                         <div class="learn-more text-base uppercase font-semibold tracking-wider">
-                                            <?php echo $card_link['title']; ?>
+                                            <?php echo esc_html($card_link['title']); ?>
                                         </div>
                                         <div class="arrow">
                                             <i class="fa fa-arrow-right"></i>
@@ -116,7 +116,7 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                                     </div>
                                 <?php } else { ?>
                                     <div class="pt-8 mt-auto px-8">
-                                        <div class="cursor-pointer button w-full button-primary block"><?php echo $card_link['title']; ?></div>
+                                        <div class="cursor-pointer button w-full button-primary block"><?php echo esc_html($card_link['title']); ?></div>
                                     </div>
                                 <?php } ?>
                             <?php } ?>

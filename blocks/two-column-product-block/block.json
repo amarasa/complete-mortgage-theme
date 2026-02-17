@@ -3,10 +3,6 @@
     "title": "Two Column Product Block",
     "description": "A two column block for products",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./two-column-product-block-editor.css"
-    ],
-    "script": "file:./two-column-product-block.js",
     "icon": "format-image",
     "keywords": [
         "product",

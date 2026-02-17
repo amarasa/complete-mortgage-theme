@@ -3,10 +3,6 @@
     "title": "Mission Statement",
     "description": "A mission statement block featuring optional overlap, WYSIWYG editor and optional headline and buttons.",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./mission-statement-editor.css"
-    ],
-    "script": "file:./mission-statement.js",
     "icon": "format-image",
     "keywords": [
         "mission statement",

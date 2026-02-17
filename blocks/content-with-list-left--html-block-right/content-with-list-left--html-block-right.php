@@ -8,7 +8,7 @@ if (!empty($block['className'])) {
 }
 
 if (!empty($block['anchor'])) {
-    $id = sprintf(' id=%s', $block['anchor']);
+    $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 
 $headline = get_field('headline');
@@ -26,15 +26,15 @@ $html_content = get_field('html_content');
         height: 20px;
     }
 </style>
-<section class="content-with-list-left--html-block-right<?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="content-with-list-left--html-block-right<?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container px-8">
         <div class="grid grid-cols-12 items-center md:gap-x-8">
             <div class="col-span-12 lg:col-span-6 mb-4">
                 <?php if ($headline) { ?>
-                    <h2><?php echo $headline; ?></h2>
+                    <h2><?php echo esc_html($headline); ?></h2>
                 <?php } ?>
                 <?php if ($description) { ?>
-                    <p class="mb-8"><?php echo $description; ?></p>
+                    <div class="mb-8 wysiwyg"><?php echo esc_html($description); ?></div>
                 <?php } ?>
                 <?php
 
@@ -47,7 +47,7 @@ $html_content = get_field('html_content');
                                 <svg class="w-6 h-6 text-secondary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
                                     <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z" />
                                 </svg>
-                                <span><?php echo get_sub_field('list_item'); ?></span>
+                                <span><?php echo esc_html(get_sub_field('list_item')); ?></span>
                             </li>
                         <?php endwhile; ?>
                     </ul>
@@ -57,7 +57,7 @@ $html_content = get_field('html_content');
             <div class="col-span-12 lg:col-span-6">
                 <?php if ($html_content) { ?>
                     <div class="shadow-lg p-8">
-                        <?php echo $html_content; ?>
+                        <?php echo wp_kses_post($html_content); ?>
                     </div>
                 <?php } ?>
             </div>

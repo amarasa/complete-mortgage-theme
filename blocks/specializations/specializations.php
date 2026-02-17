@@ -8,7 +8,7 @@ if (!empty($block['className'])) {
 }
 
 if (!empty($block['anchor'])) {
-    $id = sprintf(' id=%s', $block['anchor']);
+    $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 
 ?>
@@ -54,54 +54,54 @@ if (!empty($background_image) && is_array($background_image)) {
 }
 ?>
 
-<section class="specializations relative py-20 <?php echo esc_attr($edge_to_edge ? 'w-full px-0' : 'xl:container'); ?> <?php echo esc_attr(!$edge_to_edge ? $corners : ''); ?> <?php if ($extend_container) { ?>extend-container<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>"
-    style="<?php if ($background_image_url) { ?>background-image: url('<?php echo esc_url($background_image_url); ?>'); background-position: <?php echo esc_attr($background_position); ?>; background-size: cover !important;<?php } else { ?>background-color: #f5f5f5;<?php } ?>"
+<section class="specializations relative py-20 <?php echo esc_attr($edge_to_edge ? 'w-full px-0' : 'xl:container'); ?> <?php echo esc_attr(!$edge_to_edge ? $corners : ''); ?> <?php if ($extend_container) { ?>extend-container<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>"
+    style="<?php if ($background_image_url) { ?>background-image: url('<?php echo esc_url($background_image_url); ?>'); background-position: <?php echo esc_attr($background_position); ?>; background-size: cover !important;<?php } else { ?>background-color: #f5f5f5;<?php } ?>">
 
     <?php if ($background_image_url) { ?>
-    <div class="overlay h-full w-full absolute top-0 z-10 <?php if ($corners) { ?>md:rounded-xl<?php } ?>" style="background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);">
-    </div>
-<?php } ?>
+        <div class="overlay h-full w-full absolute top-0 z-10 <?php if ($corners) { ?>md:rounded-xl<?php } ?>" style="background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);">
+        </div>
+    <?php } ?>
 
-<div class="relative z-30">
-    <div class="px-10">
-        <?php if ($headline) { ?>
-            <h2 class="<?php echo $background_image_url ? '!text-white' : '!text-primary'; ?> text-center"><?php echo $headline; ?></h2>
-        <?php } ?>
-        <?php if ($description) { ?>
-            <p class="max-w-[576px] mx-auto text-center pb-8 <?php echo $background_image_url ? 'text-white' : 'text-black'; ?> mb-12"><?php echo $description; ?></p>
-        <?php } ?>
-        <?php // Check rows exists.
-        if (have_rows('specializations')): ?>
-            <div class="container">
-                <div class="flex flex-wrap gap-8 mb-12">
-                    <?php while (have_rows('specializations')) : the_row(); ?>
-                        <div class="flex w-full sm:w-[48%] md:w-[30%] lg:w-[23%] gap-2">
-                            <?php $link = get_sub_field('link'); ?>
-                            <?php if ($link) { ?>
-                                <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="!no-underline duration-300 transition-opacity ease-in-out hover:opacity-80">
-                                <?php } ?>
-                                <span class="!no-underline <?php echo $background_image_url ? 'text-white' : 'text-secondary'; ?> text-2xl <?php echo get_sub_field('icon'); ?>"></span>
-                                <span class="!no-underline font-bold <?php echo $background_image_url ? 'text-white' : 'text-secondary'; ?>">
-                                    <?php echo get_sub_field('specialization'); ?>
-                                </span>
+    <div class="relative z-30">
+        <div class="px-10">
+            <?php if ($headline) { ?>
+                <h2 class="<?php echo esc_attr($background_image_url ? '!text-white' : '!text-primary'); ?> text-center"><?php echo esc_html($headline); ?></h2>
+            <?php } ?>
+            <?php if ($description) { ?>
+                <div class="max-w-[576px] mx-auto text-center pb-8 <?php echo esc_attr($background_image_url ? 'text-white' : 'text-black'); ?> mb-12 wysiwyg"><?php echo esc_html($description); ?></div>
+            <?php } ?>
+            <?php // Check rows exists.
+            if (have_rows('specializations')): ?>
+                <div class="container">
+                    <div class="flex flex-wrap gap-8 mb-12">
+                        <?php while (have_rows('specializations')) : the_row(); ?>
+                            <div class="flex w-full sm:w-[48%] md:w-[30%] lg:w-[23%] gap-2">
+                                <?php $link = get_sub_field('link'); ?>
                                 <?php if ($link) { ?>
-                                </a>
-                            <?php } ?>
-                        </div>
-                <?php
-                    endwhile;
-                endif; ?>
-                </div>
+                                    <a href="<?php echo esc_url($link['url']); ?>" <?php echo cms_link_attributes($link['target'] ?: '_self'); ?> class="!no-underline duration-300 transition-opacity ease-in-out hover:opacity-80">
+                                    <?php } ?>
+                                    <span class="!no-underline <?php echo esc_attr($background_image_url ? 'text-white' : 'text-secondary'); ?> text-2xl <?php echo esc_attr((string) get_sub_field('icon')); ?>"></span>
+                                    <span class="!no-underline font-bold <?php echo esc_attr($background_image_url ? 'text-white' : 'text-secondary'); ?>">
+                                        <?php echo esc_html(get_sub_field('specialization')); ?>
+                                    </span>
+                                    <?php if ($link) { ?>
+                                    </a>
+                                <?php } ?>
+                            </div>
+                    <?php
+                        endwhile;
+                    endif; ?>
+                    </div>
 
-                <div class="sm:flex justify-center sm:gap-4">
-                    <?php if ($button_1) { ?>
-                        <a class="button !no-underline <?php if ($background_image_url) { ?>!bg-white hover:!bg-transparent border-white !text-primary hover:!text-white<?php } else { ?>!bg-primary hover:!bg-secondary !text-white<?php } ?> border-[1px] border-solid mb-6 sm:mb-0" href="<?php echo $button_1['url']; ?>" target="<?php echo $button_1['target']; ?>"><?php echo $button_1['title']; ?></a>
-                    <?php } ?>
-                    <?php if ($button_2) { ?>
-                        <a class="button !no-underline <?php if ($background_image_url) { ?>!text-white !bg-transparent hover:!bg-white hover:!text-primary border-white<?php } else { ?>!text-primary !bg-transparent hover:!bg-primary hover:!text-white border-primary<?php } ?> border-[1px] border-solid" href="<?php echo $button_2['url']; ?>" target="<?php echo $button_2['target']; ?>"><?php echo $button_2['title']; ?></a>
-                    <?php } ?>
+                    <div class="sm:flex justify-center sm:gap-4">
+                        <?php if ($button_1) { ?>
+                            <a class="button !no-underline <?php if ($background_image_url) { ?>!bg-white hover:!bg-transparent border-white !text-primary hover:!text-white<?php } else { ?>!bg-primary hover:!bg-secondary !text-white<?php } ?> border-[1px] border-solid mb-6 sm:mb-0" href="<?php echo esc_url($button_1['url']); ?>" <?php echo cms_link_attributes($button_1['target'] ?: '_self'); ?>><?php echo esc_html($button_1['title']); ?></a>
+                        <?php } ?>
+                        <?php if ($button_2) { ?>
+                            <a class="button !no-underline <?php if ($background_image_url) { ?>!text-white !bg-transparent hover:!bg-white hover:!text-primary border-white<?php } else { ?>!text-primary !bg-transparent hover:!bg-primary hover:!text-white border-primary<?php } ?> border-[1px] border-solid" href="<?php echo esc_url($button_2['url']); ?>" <?php echo cms_link_attributes($button_2['target'] ?: '_self'); ?>><?php echo esc_html($button_2['title']); ?></a>
+                        <?php } ?>
+                    </div>
                 </div>
-            </div>
+        </div>
     </div>
-</div>
 </section>

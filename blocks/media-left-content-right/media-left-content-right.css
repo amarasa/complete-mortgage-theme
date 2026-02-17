@@ -27,20 +27,12 @@
 	animation-timing-function: ease-out;
 	animation-duration: 0.3s;
 	animation-name: modal-video;
-	-webkit-transition: opacity 0.3s ease-out;
-	-moz-transition: opacity 0.3s ease-out;
-	-ms-transition: opacity 0.3s ease-out;
-	-o-transition: opacity 0.3s ease-out;
 	transition: opacity 0.3s ease-out;
 }
 .modal-video-close {
 	opacity: 0;
 }
 .modal-video-close .modal-video-movie-wrap {
-	-webkit-transform: translate(0, 100px);
-	-moz-transform: translate(0, 100px);
-	-ms-transform: translate(0, 100px);
-	-o-transform: translate(0, 100px);
 	transform: translate(0, 100px);
 }
 .modal-video-body {
@@ -75,15 +67,7 @@
 	animation-timing-function: ease-out;
 	animation-duration: 0.3s;
 	animation-name: modal-video-inner;
-	-webkit-transform: translate(0, 0);
-	-moz-transform: translate(0, 0);
-	-ms-transform: translate(0, 0);
-	-o-transform: translate(0, 0);
 	transform: translate(0, 0);
-	-webkit-transition: -webkit-transform 0.3s ease-out;
-	-moz-transition: -moz-transform 0.3s ease-out;
-	-ms-transition: -ms-transform 0.3s ease-out;
-	-o-transition: -o-transform 0.3s ease-out;
 	transition: transform 0.3s ease-out;
 }
 .modal-video-movie-wrap iframe {

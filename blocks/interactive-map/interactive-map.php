@@ -4,7 +4,7 @@ $id = '';
 $acfKey = 'group_67dc00d2b6ff3';
 
 if (!empty($block['className'])) {
-    $classes .= sprintf(' %s', $block['className']);
+    $classes .= sprintf(' %s', esc_attr($block['className']));
 }
 
 if (!empty($block['anchor'])) {
@@ -28,7 +28,7 @@ if ($states_selector) {
 // Convert the PHP array into a JS array.
 $js_states = wp_json_encode($highlighted_states);
 ?>
-<section class="interactive-map<?php echo esc_attr($classes); ?> md:pb-10" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>" data-highlighted-states="<?php echo esc_attr($js_states); ?>">
+<section class="interactive-map<?php echo esc_attr($classes); ?> md:pb-10" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>" data-highlighted-states="<?php echo esc_attr($js_states); ?>">
     <div class="container px-8">
         <?php $display_style = get_field('display_style');
         if ($display_style) { ?>
@@ -36,7 +36,7 @@ $js_states = wp_json_encode($highlighted_states);
             <div class="grid grid-cols-12 lg:gap-x-8 items-center">
                 <div class="col-span-12 lg:col-span-7 xl:col-span-6 mb-8">
                     <?php if ($content) {
-                        echo $content;
+                        echo wp_kses_post($content);
                     }
                     ?>
 

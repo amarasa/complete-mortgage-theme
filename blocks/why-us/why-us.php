@@ -24,7 +24,7 @@ if (!empty($block['anchor'])) {
     <div class="container mx-auto px-8">
         <?php if (get_field('main_headline')) { ?>
             <div class="py-4 text-center">
-                <h2><?php echo get_field('main_headline'); ?></h2>
+                <h2><?php echo esc_html(get_field('main_headline')); ?></h2>
             </div>
         <?php } ?>
         <div class="grid grid-cols-12 md:gap-x-8 lg:gap-x-16">
@@ -78,7 +78,7 @@ if (!empty($block['anchor'])) {
                             </div>
                             <div>
                                 <h3 class="text-lg text-secondary tracking-[1px] font-bold uppercase"><?php echo esc_html($item['headline']); ?></h3>
-                                <p class="text-gray-700"><?php echo esc_html($item['content']); ?></p>
+                                <div class="text-gray-700 wysiwyg"><?php echo esc_html($item['content']); ?></div>
                             </div>
                         </div>
                     <?php endforeach; ?>

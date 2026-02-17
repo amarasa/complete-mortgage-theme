@@ -41,7 +41,7 @@ if (get_field('enable_blog_post_auto_cta', 'option')) {
             $blog_post_auto_cta_icon = get_field('blog_post_auto_cta_icon', 'option'); ?>
             <?php if ($blog_post_auto_cta_icon) { ?>
                 <div class="text-center mb-3">
-                    <i class="<?php echo $blog_post_auto_cta_icon; ?> text-6xl text-secondary" aria-hidden="true"></i>
+                    <i class="<?php echo esc_attr($blog_post_auto_cta_icon); ?> text-6xl text-secondary" aria-hidden="true"></i>
                 </div>
             <?php } ?>
 
@@ -64,10 +64,9 @@ if (get_field('enable_blog_post_auto_cta', 'option')) {
 
                         $label  = $link['title'] ?: 'Learn more';
                         $url    = $link['url'];
-                        $target = !empty($link['target']) ? ' target="_' . esc_attr(ltrim($link['target'], '_')) . '"' : '';
                     ?>
                         <a class="button bg-primary !no-underline !text-white hover:bg-secondary"
-                            href="<?php echo esc_url($url); ?>" <?php echo $target; ?>>
+                            href="<?php echo esc_url($url); ?>" <?php echo cms_link_attributes($link['target'] ?: '_self'); ?>>
                             <?php echo esc_html($label); ?>
                         </a>
                     <?php endwhile; ?>

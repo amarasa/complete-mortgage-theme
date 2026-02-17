@@ -44,7 +44,7 @@ if ($display_type === 'Hand-Select Members' && !empty($hand_selected_members)) {
 $team_members = new WP_Query($query_args);
 ?>
 
-<section class="meet-the-team <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="meet-the-team <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container px-8 py-12">
         <?php if ($headline): ?>
             <h2 class="font-bold text-center"><?php echo esc_html($headline); ?></h2>
@@ -144,7 +144,7 @@ $team_members = new WP_Query($query_args);
                         <!-- Phone Number -->
                         <?php if ($phone_number): ?>
                             <div>
-                                <a href="tel:<?php echo esc_attr($phone_number); ?>" class="text-sm font-bold text-secondary !no-underline tracking-[0.88px] hover:text-primary">
+                                <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="text-sm font-bold text-secondary !no-underline tracking-[0.88px] hover:text-primary">
                                     <?php echo esc_html($phone_number); ?>
                                 </a>
                             </div>

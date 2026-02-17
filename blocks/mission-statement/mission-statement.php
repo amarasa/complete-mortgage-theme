@@ -20,15 +20,15 @@ $buttons = get_field('buttons');
 
 
 ?>
-<section class="mission-statement cmt-block <?php echo esc_attr($classes); ?> <?php if ($overlap_previous_block) { ?>lg:-mt-20 z-20 relative<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="mission-statement cmt-block <?php echo esc_attr($classes); ?> <?php if ($overlap_previous_block) { ?>lg:-mt-20 z-20 relative<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container max-w-[991px] mx-auto text-center <?php if ($enable_rounded_edges) { ?>lg:rounded-xl<?php } ?> <?php if ($enable_background_color) {
                                                                                                                             ?>bg-grey p-8<?php } ?>">
         <?php if ($headline) { ?>
-            <h2><?php echo $headline; ?></h2>
+            <h2><?php echo esc_html($headline); ?></h2>
         <?php } ?>
         <?php if ($content) { ?>
             <div class="max-w-[767px] mx-auto">
-                <?php echo $content; ?>
+                <?php echo wp_kses_post($content); ?>
             </div>
         <?php } ?>
         <?php if ($buttons) { ?>
@@ -37,7 +37,7 @@ $buttons = get_field('buttons');
                 while (have_rows('buttons')) : the_row();
                 ?>
                     <?php $button = get_sub_field('button'); ?>
-                    <a href="<?php echo $button['url']; ?>" class="button mb-4 !no-underline !text-white"><?php echo $button['title']; ?></a>
+                    <a href="<?php echo esc_url($button['url']); ?>" class="button mb-4 !no-underline !text-white"><?php echo esc_html($button['title']); ?></a>
                 <?php endwhile; ?>
             </div>
         <?php } ?>

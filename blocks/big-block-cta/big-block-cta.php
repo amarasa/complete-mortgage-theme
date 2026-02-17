@@ -19,7 +19,7 @@ if (!empty($block['anchor'])) {
     $block_id = $block['anchor'];
 }
 ?>
-<section id="<?php echo esc_attr($block_id); ?>" class="big-block-cta overflow-hidden relative <?php echo esc_attr($edge_to_edge ? 'w-full' : 'md:container mx-auto'); ?> <?php echo esc_attr(!$edge_to_edge ? $corners : ''); ?> p-12 bg-primary text-white text-center" data-block-name="<?php echo $acfKey; ?>">
+<section id="<?php echo esc_attr($block_id); ?>" class="big-block-cta overflow-hidden relative <?php echo esc_attr($edge_to_edge ? 'w-full' : 'md:container mx-auto'); ?> <?php echo esc_attr(!$edge_to_edge ? $corners : ''); ?> p-12 bg-primary text-white text-center" data-block-name="<?php echo esc_attr($acfKey); ?>">
     <?php if ($optional_image): ?>
         <?php echo wp_get_attachment_image($optional_image['ID'], 'full', false, [
             'class' => 'absolute inset-0 w-full !h-full object-cover object-center ' . esc_attr($corners),

@@ -36,13 +36,13 @@ if (!empty($block['anchor'])) {
 $overlap_class = !empty($overlap) ? 'lg:-mt-20 z-20 relative' : '';
 ?>
 
-<section class="branch-detail <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="branch-detail <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="xl:container mx-auto items-center px-8 py-12 bg-[#ededed] lg:px-20 lg:pt-16 lg:pb-8 <?php echo esc_attr($corners . ' ' . $overlap_class); ?>">
         <h2 class="font-bold text-primary"><?php echo esc_html($branch_name); ?></h2>
         <div class="grid grid-cols-12 lg:gap-x-16">
             <div class="col-span-12 lg:col-span-6 mb-8">
                 <?php if (!empty($branch_info)): ?>
-                    <p class="mt-4 mb-8"><?php echo esc_html($branch_info); ?></p>
+                    <div class="mt-4 mb-8 wysiwyg"><?php echo esc_html($branch_info); ?></div>
                 <?php endif; ?>
 
                 <!-- Contact Information -->
@@ -58,7 +58,7 @@ $overlap_class = !empty($overlap) ? 'lg:-mt-20 z-20 relative' : '';
                     <?php if (!empty($contact_info['phone'])): ?>
                         <div class="mt-2 mb-1">
                             Phone:
-                            <a href="tel:<?php echo esc_attr($contact_info['phone']); ?>" class="text-secondary hover:text-tertiary !no-underline !font-normal">
+                            <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $contact_info['phone'])); ?>" class="text-secondary hover:text-tertiary !no-underline !font-normal">
                                 <?php echo esc_html($contact_info['phone']); ?>
                             </a>
                         </div>
@@ -72,7 +72,7 @@ $overlap_class = !empty($overlap) ? 'lg:-mt-20 z-20 relative' : '';
                     <?php endif; ?>
 
                     <?php if (!empty($contact_info['email'])): ?>
-                        <a href="mailto:<?php echo esc_attr($contact_info['email']); ?>" class="text-secondary hover:text-primary !no-underline !font-normal">
+                        <a href="mailto:<?php echo esc_attr(sanitize_email($contact_info['email'])); ?>" class="text-secondary hover:text-primary !no-underline !font-normal">
                             <?php echo esc_html($contact_info['email']); ?>
                         </a>
                     <?php endif; ?>
@@ -123,7 +123,7 @@ $overlap_class = !empty($overlap) ? 'lg:-mt-20 z-20 relative' : '';
                     <?php foreach ($cta_buttons as $button): ?>
                         <?php if (!empty($button['cta_button'])): ?>
                             <a href="<?php echo esc_url($button['cta_button']['url']); ?>"
-                                target="<?php echo esc_attr($button['cta_button']['target'] ?: '_self'); ?>"
+                                <?php echo cms_link_attributes($button['cta_button']['target'] ?: '_self'); ?>
                                 class="button bg-secondary hover:bg-tertiary !block !w-full mb-4 !no-underline !text-white">
                                 <?php echo esc_html($button['cta_button']['title']); ?>
                             </a>

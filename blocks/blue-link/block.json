@@ -3,10 +3,6 @@
     "title": "Blue Link",
     "description": "A block that creates a blue link",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./blue-link-editor.css"
-    ],
-    "script": "file:./blue-link.js",
     "icon": "format-image",
     "keywords": [
         "blue link",
@@ -19,5 +15,8 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "style": [
+        "file:./blue-link.css"
+    ]
 }

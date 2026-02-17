@@ -3,10 +3,6 @@
     "title": "Meet the Team",
     "description": "A block for displaying team members",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./meet-the-team-editor.css"
-    ],
-    "script": "file:./meet-the-team.js",
     "icon": "format-image",
     "keywords": [
         "team",

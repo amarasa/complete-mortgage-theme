@@ -3,10 +3,6 @@
     "title": "Statistics",
     "description": "A block showing stats",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./statistics-editor.css"
-    ],
-    "script": "file:./statistics.js",
     "icon": "format-image",
     "keywords": [
         "stats",
@@ -19,5 +15,9 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "viewScript": "file:./statistics.js",
+    "style": [
+        "file:./statistics.css"
+    ]
 }

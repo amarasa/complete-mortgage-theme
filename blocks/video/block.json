@@ -3,10 +3,6 @@
     "title": "Video",
     "description": "YouTube Video Block",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./video-editor.css"
-    ],
-    "script": "file:./video.js",
     "icon": "format-image",
     "keywords": [
         "video",
@@ -19,5 +15,9 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "viewScript": "file:./video.js",
+    "style": [
+        "file:./video.css"
+    ]
 }

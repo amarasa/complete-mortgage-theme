@@ -3,10 +3,6 @@
     "title": "Hero with Image Only",
     "description": "A hero block that is just a background image",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./hero-with-image-only-editor.css"
-    ],
-    "script": "file:./hero-with-image-only.js",
     "icon": "format-image",
     "keywords": [
         "hero",
@@ -19,5 +15,8 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "style": [
+        "file:./hero-with-image-only.css"
+    ]
 }

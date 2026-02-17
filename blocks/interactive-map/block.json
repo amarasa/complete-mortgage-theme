@@ -3,10 +3,6 @@
     "title": "Interactive Map",
     "description": "A block that allows you to load up states into an interactive map",
     "category": "Complete Marketing",
-    "editorStyle": [
-        "file:./interactive-map-editor.css"
-    ],
-    "script": "file:./interactive-map.js",
     "icon": "format-image",
     "keywords": [
         "map",
@@ -21,5 +17,9 @@
     "supports": {
         "anchor": "true"
     },
-    "align": "full"
+    "align": "full",
+    "viewScript": "file:./interactive-map.js",
+    "style": [
+        "file:./interactive-map.css"
+    ]
 }

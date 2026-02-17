@@ -33,6 +33,6 @@ if (!empty($hero_image) && is_array($hero_image)) {
 }
 ?>
 
-<section class="hero-with-image-only <?php echo esc_attr($edge_to_edge ? 'w-full px-0' : 'xl:container'); ?> <?php echo esc_attr(!$edge_to_edge ? $corners : ''); ?> <?php if ($extend_container) { ?>extend-container<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>"
+<section class="hero-with-image-only <?php echo esc_attr($edge_to_edge ? 'w-full px-0' : 'xl:container'); ?> <?php echo esc_attr(!$edge_to_edge ? $corners : ''); ?> <?php if ($extend_container) { ?>extend-container<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>"
     style="background-image: url('<?php echo esc_url($hero_image_url); ?>'); background-position: <?php echo esc_attr($background_position); ?>; background-size: cover !important;">
 </section>

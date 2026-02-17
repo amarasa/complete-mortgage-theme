@@ -17,14 +17,14 @@ if (!empty($block['anchor'])) {
 }
 ?>
 
-<section class="option-cards <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo $acfKey; ?>">
+<section class="option-cards <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container px-8">
         <?php if ($headline): ?>
             <h2 class="lg:text-center mb-8"><?php echo esc_html($headline); ?></h2>
         <?php endif; ?>
         <?php if (get_field('description')) : ?>
             <div class="text-center mb-8">
-                <?php the_field('description'); ?>
+                <?php echo wp_kses_post(get_field('description')); ?>
             </div>
         <?php endif; ?>
 

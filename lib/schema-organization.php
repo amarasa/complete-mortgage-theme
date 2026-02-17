@@ -51,16 +51,14 @@ add_action('wp_footer', function() {
         }
     }
 
-    // Get logo URL
+    // Get logo URL (prefer custom logo over site icon)
     $logo_url = '';
-    if (function_exists('get_site_icon_url')) {
-        $logo_url = get_site_icon_url();
+    $custom_logo_id = get_theme_mod('custom_logo');
+    if ($custom_logo_id) {
+        $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
     }
-    if (empty($logo_url)) {
-        $custom_logo_id = get_theme_mod('custom_logo');
-        if ($custom_logo_id) {
-            $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
-        }
+    if (empty($logo_url) && function_exists('get_site_icon_url')) {
+        $logo_url = get_site_icon_url();
     }
 
     // Build the schema
