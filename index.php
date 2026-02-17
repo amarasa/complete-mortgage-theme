@@ -35,8 +35,9 @@
                                         <span class="bg-white text-secondary font-semibold px-6 py-2 rounded-lg">Read More</span>
                                     </span>
                                     <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large', false, [
-                                        'class' => 'w-full h-full object-cover rounded-lg',
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
                                         'loading' => 'lazy',
+                                        'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
                                     ]); ?>
                                 </a>
                             <?php elseif ($fallback_image_url): ?>
@@ -46,9 +47,10 @@
                                         <span class="bg-white text-secondary font-semibold px-6 py-2 rounded-lg">Read More</span>
                                     </span>
                                     <?php echo wp_get_attachment_image($fallback_image['id'], 'large', false, [
-                                        'class' => 'w-full h-full object-cover rounded-lg',
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
                                         'style' => 'object-position: ' . esc_attr($fallback_position) . ';',
                                         'loading' => 'lazy',
+                                        'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
                                     ]); ?>
                                 </a>
                             <?php endif; ?>

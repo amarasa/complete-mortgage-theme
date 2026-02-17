@@ -6,15 +6,22 @@
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <div class="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-4 mb-20 ">
                     <?php
-                    $feature_img_src = wp_get_attachment_image_url(get_post_thumbnail_id($post->ID), 'large');
-                    $feature_img_srcset = wp_get_attachment_image_srcset(get_post_thumbnail_id($post->ID), 'large');
+                    $feature_img_id = get_post_thumbnail_id($post->ID);
                     $fallback_img = get_field('fallback_image', 'option');
                     ?>
-                    <a href="<?php the_permalink(); ?>" style="background: url(<?php if ($feature_img_src) {
-                                                                                    echo $feature_img_src;
-                                                                                } else {
-                                                                                    echo $fallback_img;
-                                                                                } ?>);" class="relative  bg-cover w-100 block bg-center mb-4 overflow-y-hidden  blog-entry-thumbnail">
+                    <a href="<?php the_permalink(); ?>" class="relative block mb-4 overflow-hidden blog-entry-thumbnail">
+                        <?php if ($feature_img_id): ?>
+                            <?php echo wp_get_attachment_image($feature_img_id, 'large', false, [
+                                'class' => 'w-full !h-full object-cover',
+                                'loading' => 'lazy',
+                                'sizes' => '(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw',
+                            ]); ?>
+                        <?php elseif ($fallback_img): ?>
+                            <img src="<?php echo esc_url(is_array($fallback_img) ? $fallback_img['url'] : $fallback_img); ?>"
+                                 alt="<?php the_title_attribute(); ?>"
+                                 class="w-full !h-full object-cover"
+                                 loading="lazy">
+                        <?php endif; ?>
                         <div class="read-more absolute -bottom-16 w-full text-white p-4 text-center uppercase left-0 transition-all duration-300 ease-in-out blog-entry-read-more font-semibold">
                             Read More
                         </div>

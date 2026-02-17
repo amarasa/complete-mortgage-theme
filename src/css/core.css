@@ -1,3 +1,6 @@
+[data-block-name]:not(.hero-full-width):not(.hero-with-squared-image):not(.hero-with-circular-image):not(.hero-with-image-only):not(.multiimage-hero) {
+	@apply py-[30px] md:py-[60px];
+}
 .cards {
 	@apply grid grid-cols-12 gap-8;
 }

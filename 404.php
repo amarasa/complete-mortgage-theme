@@ -57,14 +57,18 @@
                             <!-- Featured Image or Fallback -->
                             <div class="w-full h-64 mb-2">
                                 <?php if (has_post_thumbnail()): ?>
-                                    <a href="<?php the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"
-                                            alt="<?php the_title_attribute(); ?>"
-                                            class="w-full h-full object-cover rounded-lg"></a>
-                                <?php elseif ($fallback_image_url): ?>
-                                    <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url($fallback_image_url); ?>"
-                                            alt="Fallback Image"
-                                            class="w-full h-full object-cover rounded-lg"
-                                            style="object-position: <?php echo esc_attr($fallback_position); ?>;"></a>
+                                    <a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large', false, [
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
+                                        'loading' => 'lazy',
+                                        'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+                                    ]); ?></a>
+                                <?php elseif (!empty($fallback_image['id'])): ?>
+                                    <a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image($fallback_image['id'], 'large', false, [
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
+                                        'style' => 'object-position: ' . esc_attr($fallback_position) . ';',
+                                        'loading' => 'lazy',
+                                        'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+                                    ]); ?></a>
                                 <?php endif; ?>
                             </div>
 

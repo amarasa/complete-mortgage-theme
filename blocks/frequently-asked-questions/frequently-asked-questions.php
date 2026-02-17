@@ -46,7 +46,7 @@ if (!empty($block['anchor'])) {
                     class="a-panel <?php if (get_field('remove_default_gradient')) { ?>border-t border-solid border-t-[1px] <?php } else { ?>bg-gradient-to-b from-topGradient to-bottomGradient<?php } ?>"
                     role="region"
                     aria-labelledby="faq-btn-<?php echo esc_attr($faq_index); ?>">
-                    <div class="py-8 mb-0"><?php echo get_sub_field("faq_answer"); ?></div>
+                    <div class="pb-3 mb-0"><?php echo get_sub_field("faq_answer"); ?></div>
                 </div>
             </div>
         <?php

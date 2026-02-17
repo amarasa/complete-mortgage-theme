@@ -10,36 +10,37 @@
 $menu = wp_get_nav_menu_object('Top Menu');
 $menu_items = wp_get_nav_menu_items($menu->term_id);
 $mobile_logo_id = get_theme_mod('mobile_logo');
-$mobile_logo    = wp_get_attachment_image_url($mobile_logo_id, 'large');
 
 ?>
 <div class="relative">
     <header class="px-8 py-6">
-        <div class="grid grid-cols-12 lg:gap-x-8 items-center">
-            <div class="col-span-6 lg:col-span-3">
-                <div class="header-logo transition-all duration-300 ease-in-out hover:opacity-70">
-                    <?php
-                    if (function_exists('the_custom_logo')) {
-                        the_custom_logo();
-                    } else {
-                        echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html(get_bloginfo('name')) . '</a>';
-                    }
-                    ?>
+        <div class="container">
+            <div class="grid grid-cols-12 lg:gap-x-8 items-center">
+                <div class="col-span-6 lg:col-span-3">
+                    <div class="header-logo transition-all duration-300 ease-in-out hover:opacity-70">
+                        <?php
+                        if (function_exists('the_custom_logo')) {
+                            the_custom_logo();
+                        } else {
+                            echo '<a href="' . esc_url(home_url('/')) . '">' . esc_html(get_bloginfo('name')) . '</a>';
+                        }
+                        ?>
+                    </div>
                 </div>
-            </div>
-            <div class="col-span-6 lg:col-span-9">
-                <?php if (!empty($menu_items)) { ?>
-                    <div class="top-header-menu py-4 text-right hidden lg:block">
-                        <?php wp_nav_menu(array('menu' => 'Top Menu')); ?>
-                    </div>
-                <?php } ?>
+                <div class="col-span-6 lg:col-span-9">
+                    <?php if (!empty($menu_items)) { ?>
+                        <div class="top-header-menu py-4 text-right hidden lg:block">
+                            <?php wp_nav_menu(array('menu' => 'Top Menu')); ?>
+                        </div>
+                    <?php } ?>
 
-                <div class="flex items-center gap-x-4 justify-end">
-                    <div class="header-desktop-menu">
-                        <?php wp_nav_menu(array('menu' => 'Primary Menu')); ?>
-                    </div>
-                    <div class="open-menu-button lg:hidden">
-                        <i class="fa-solid fa-bars text-3xl text-secondary"></i>
+                    <div class="flex items-center gap-x-4 justify-end">
+                        <div class="header-desktop-menu">
+                            <?php wp_nav_menu(array('menu' => 'Primary Menu')); ?>
+                        </div>
+                        <div class="open-menu-button lg:hidden">
+                            <i class="fa-solid fa-bars text-3xl text-secondary"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,8 +58,11 @@ $mobile_logo    = wp_get_attachment_image_url($mobile_logo_id, 'large');
             <div class="col-span-6">
                 <div class="mobile-menu-logo">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-                        <?php if ($mobile_logo) : ?>
-                            <img src="<?php echo esc_url($mobile_logo); ?>" alt="<?php bloginfo('name'); ?>" class="logo-mobile">
+                        <?php if ($mobile_logo_id) : ?>
+                            <?php echo wp_get_attachment_image($mobile_logo_id, 'medium', false, [
+                                'class' => 'logo-mobile',
+                                'alt' => get_bloginfo('name'),
+                            ]); ?>
                         <?php endif; ?>
                     </a>
                 </div>

@@ -31,17 +31,21 @@
                             <?php if (has_post_thumbnail()): ?>
                                 <a href="<?php the_permalink(); ?>" class="relative">
                                     <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out"></div>
-                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>"
-                                        alt="<?php the_title_attribute(); ?>"
-                                        class="w-full h-full object-cover rounded-lg">
+                                    <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large', false, [
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
+                                        'loading' => 'lazy',
+                                        'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+                                    ]); ?>
                                 </a>
-                            <?php elseif ($fallback_image_url): ?>
+                            <?php elseif (!empty($fallback_image['id'])): ?>
                                 <a href="<?php the_permalink(); ?>" class="relative">
                                     <div class="bg-black absolute top-0 right-0 bottom-0 left-0 rounded-lg opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out"></div>
-                                    <img src="<?php echo esc_url($fallback_image_url); ?>"
-                                        alt="Fallback Image"
-                                        class="w-full h-full object-cover rounded-lg"
-                                        style="object-position: <?php echo esc_attr($fallback_position); ?>;">
+                                    <?php echo wp_get_attachment_image($fallback_image['id'], 'large', false, [
+                                        'class' => 'w-full !h-full object-cover rounded-lg',
+                                        'style' => 'object-position: ' . esc_attr($fallback_position) . ';',
+                                        'loading' => 'lazy',
+                                        'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+                                    ]); ?>
                                 </a>
                             <?php endif; ?>
                         </div>

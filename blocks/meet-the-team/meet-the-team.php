@@ -64,6 +64,7 @@ $team_members = new WP_Query($query_args);
                     $nmls_number = get_field('nmls_number', $loan_officer_id);
                     $phone = get_field('phone_number', $loan_officer_id);
                     $cell = get_field('cell', $loan_officer_id);
+                    $image_id = get_post_thumbnail_id($loan_officer_id);
                     $image = get_the_post_thumbnail_url($loan_officer_id, 'large') ?: 'https://via.placeholder.com/150';
                     $profile_url = get_permalink($loan_officer_id);
 
@@ -99,11 +100,21 @@ $team_members = new WP_Query($query_args);
                     <div class="md:w-1/3 lg:w-[20%] mb-12">
                         <?php if ($clickable): ?><a href="<?php echo esc_url($profile_url); ?>" class="block relative"><?php endif; ?>
                             <div class="w-full relative aspect-[4/4] overflow-hidden <?php echo esc_attr($corners); ?>">
-                                <img src="<?php echo esc_url($image); ?>"
-                                    alt="<?php echo esc_attr($first_name . ' ' . $last_name); ?>"
-                                    class="absolute inset-0 w-full !h-full object-cover object-top"
-                                    loading="lazy"
-                                    decoding="async">
+                                <?php if ($image_id): ?>
+                                    <?php echo wp_get_attachment_image($image_id, 'large', false, [
+                                        'class' => 'absolute inset-0 w-full !h-full object-cover object-top',
+                                        'alt' => esc_attr($first_name . ' ' . $last_name),
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async',
+                                        'sizes' => '(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 20vw',
+                                    ]); ?>
+                                <?php else: ?>
+                                    <img src="https://via.placeholder.com/150"
+                                        alt="<?php echo esc_attr($first_name . ' ' . $last_name); ?>"
+                                        class="absolute inset-0 w-full !h-full object-cover object-top"
+                                        loading="lazy"
+                                        decoding="async">
+                                <?php endif; ?>
                                 <div class="bg-black absolute inset-0 <?php echo esc_attr($corners); ?> opacity-0 hover:opacity-40 transition-all duration-300 ease-in-out"></div>
                             </div>
                             <?php if ($clickable): ?>

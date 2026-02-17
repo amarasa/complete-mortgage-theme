@@ -8,6 +8,7 @@ if (!empty($block['anchor']))   $id_attr = ' id="' . esc_attr($block['anchor']) 
 
 $is_slider        = get_field('enable_slider_version');
 $enable_bg_color  = get_field('enable_grey_background_color');
+$show_color_logos = get_field('display_logos_in_color');
 $background_image = get_field('background_image');
 $bg_id            = 0;
 
@@ -70,7 +71,7 @@ $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
                                                             'medium',
                                                             false,
                                                             [
-                                                                'class'    => 'logo-img h-16 w-full mx-auto grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition duration-300 h-auto',
+                                                                'class'    => 'logo-img h-16 w-full mx-auto h-auto transition duration-300' . ($show_color_logos ? '' : ' grayscale hover:grayscale-0 opacity-80 hover:opacity-100'),
                                                                 'loading'  => 'lazy',
                                                                 'decoding' => 'async',
                                                             ]
@@ -97,7 +98,7 @@ $bottom_gradient_overlay = get_field('bottom_gradient_overlay');
                                                 'medium',
                                                 false,
                                                 [
-                                                    'class'    => 'logo-img h-16 w-full h-auto mx-auto grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition duration-300',
+                                                    'class'    => 'logo-img h-16 w-full h-auto mx-auto transition duration-300' . ($show_color_logos ? '' : ' grayscale hover:grayscale-0 opacity-80 hover:opacity-100'),
                                                     'loading'  => 'lazy',
                                                     'decoding' => 'async',
                                                 ]
