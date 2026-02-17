@@ -6,9 +6,13 @@ function complete_theme_add_editor_styles()
 }
 add_action('after_setup_theme', 'complete_theme_add_editor_styles');
 
-// Enqueue front-end styles in the block editor for WYSIWYG
-function complete_theme_enqueue_block_editor_assets()
+// Enqueue front-end styles inside the editor iframe for WYSIWYG block previews
+function complete_theme_enqueue_block_assets()
 {
+    if (!is_admin()) {
+        return;
+    }
+
     // Brand styles
     $upload_dir = wp_upload_dir();
     wp_enqueue_style(
@@ -26,4 +30,4 @@ function complete_theme_enqueue_block_editor_assets()
         COMPLETE_THEME_VERSION
     );
 }
-add_action('enqueue_block_editor_assets', 'complete_theme_enqueue_block_editor_assets');
+add_action('enqueue_block_assets', 'complete_theme_enqueue_block_assets');

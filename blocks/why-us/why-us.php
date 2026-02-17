@@ -83,9 +83,8 @@ if (!empty($block['anchor'])) {
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
-        </div>
-    </div>
-<?php endif; ?>
-</div>
-</div>
+
+            <?php endif; ?>
+        </div><!-- end grid -->
+    </div><!-- end container -->
 </section>

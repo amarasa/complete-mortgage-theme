@@ -19,11 +19,14 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
 <span class="sr-only bg-primary"></span>
 <span class="sr-only bg-secondary"></span>
 <span class="sr-only bg-grey"></span>
-<div class="product-cards <?php if ($solid_color) {
-                                echo 'bg-' . $solid_color;
-                            } ?> bg-cover bg-center mb-12 pb-[20%] <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>" <?php if ($solid_color_or_background_image) { ?>style="background-image: url(<?php echo esc_url($background_image['url']); ?>);" <?php } ?>>
-    <div class="px-8 pt-[72px]">
-        <h2 class="<?php if ($solid_color == 'grey') { ?>text-primary<?php } else { ?> text-white<?php } ?> text-center lg:mb-0"><?php echo esc_html(get_field('headline')); ?></h2>
+<div class="product-cards relative <?php if ($solid_color && !$solid_color_or_background_image) {
+                                        echo 'bg-' . $solid_color;
+                                    } ?> bg-cover bg-center mb-12 pb-[20%] <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>" <?php if ($solid_color_or_background_image) { ?>style="background-image: url(<?php echo esc_url($background_image['url']); ?>);" <?php } ?>>
+    <?php if ($solid_color_or_background_image) { ?>
+        <div class="absolute inset-0 bg-black/50"></div>
+    <?php } ?>
+    <div class="relative z-10 px-8 pb-[18%]">
+        <h2 class="<?php if ($solid_color_or_background_image) { ?>!text-white<?php } elseif ($solid_color == 'grey') { ?>text-primary<?php } else { ?>!text-white<?php } ?> text-center lg:mb-0"><?php echo esc_html(get_field('headline')); ?></h2>
     </div>
 </div>
 <?php if (have_rows('product_cards')): ?>
@@ -92,14 +95,14 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                                 ]);
                             } elseif (!empty($card_image['url'])) { ?>
                                 <img src="<?php echo esc_url($card_image['url']); ?>"
-                                     alt="<?php echo esc_attr($card_title); ?>"
-                                     class="absolute inset-0 w-full h-full object-cover"
-                                     loading="lazy"
-                                     decoding="async">
+                                    alt="<?php echo esc_attr($card_title); ?>"
+                                    class="absolute inset-0 w-full h-full object-cover"
+                                    loading="lazy"
+                                    decoding="async">
                             <?php } ?>
                         </div>
                         <div class="eh-productcardcontent product-card-content border-[1px] border-solid border-[#c6c6cd] pt-6 pb-8 bg-white flex flex-col">
-                            <h3 class="px-8 eh-productcardtitle product-card-title text-xl mb-5"><?php echo esc_html($card_title); ?></h3>
+                            <h3 class="px-8 !pb-0 eh-productcardtitle product-card-title text-xl"><?php echo esc_html($card_title); ?></h3>
                             <p class="px-8 eh-productcarddescription text-[#444] product-card-description mb-0"><?php echo esc_html($card_description); ?></p>
                             <?php if ($card_link) { ?>
                                 <?php if ($button_or_arrow_links == true) { ?>
@@ -136,9 +139,9 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
             "itemListElement" => $schema_products
         ];
     ?>
-    <script type="application/ld+json">
-    <?php echo wp_json_encode($products_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
-    </script>
+        <script type="application/ld+json">
+            <?php echo wp_json_encode($products_schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES); ?>
+        </script>
     <?php endif; ?>
 <?php endif; ?>
 <?php if ($cta_button) : ?>
