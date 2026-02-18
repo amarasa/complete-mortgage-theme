@@ -15,17 +15,18 @@ $solid_color = get_field('solid_color');
 $background_image = get_field('background_image');
 $cta_button = get_field('cta_button');
 $button_or_arrow_links = get_field('button_or_arrow_links');
+$rounded_corners = get_field('rounded_corners');
 ?>
 <span class="sr-only bg-primary"></span>
 <span class="sr-only bg-secondary"></span>
 <span class="sr-only bg-grey"></span>
-    <div class="product-cards relative <?php if ($solid_color && !$solid_color_or_background_image) {
+<div class="product-cards relative <?php if ($solid_color && !$solid_color_or_background_image) {
                                         echo esc_attr('bg-' . $solid_color);
-                                    } ?> bg-cover bg-center mb-12 pb-[20%] <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>" <?php if ($solid_color_or_background_image) { ?>style="background-image: url(<?php echo esc_url($background_image['url']); ?>);" <?php } ?>>
+                                    } ?> bg-cover bg-center h-[300px] md:h-[450px] mb-12 <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>" <?php if ($solid_color_or_background_image) { ?>style="background-image: url(<?php echo esc_url($background_image['url']); ?>);" <?php } ?>>
     <?php if ($solid_color_or_background_image) { ?>
         <div class="absolute inset-0 bg-black/50"></div>
     <?php } ?>
-    <div class="relative z-10 px-8 pb-[18%]">
+    <div class="relative z-10 px-8 pb-6 md:pb-8 lg:pb-10">
         <h2 class="<?php if ($solid_color_or_background_image) { ?>!text-white<?php } elseif ($solid_color == 'grey') { ?>text-primary<?php } else { ?>!text-white<?php } ?> text-center lg:mb-0"><?php echo esc_html(get_field('headline')); ?></h2>
     </div>
 </div>
@@ -48,7 +49,7 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
         $width_class = 'w-full lg:w-1/2';
     }
     ?>
-    <div class="relative -mt-[20%]">
+    <div class="relative -mt-[200px] md:-mt-[330px]">
         <div class="xl:max-w-[1365px] px-8 mx-auto product-cards-loop lg:flex lg:gap-x-8 justify-center">
             <?php while (have_rows('product_cards')) : the_row();
                 // Get card data for schema
@@ -84,7 +85,7 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                     <?php } else { ?>
                         <div class="block mb-8 <?php echo esc_attr($width_class); ?> !no-underline !font-normal product-card relative bottom-0">
                         <?php } ?>
-                        <div class="product-card-image relative pb-[80%] md:pb-[65%] lg:pb-[70%] w-full overflow-hidden">
+                        <div class="product-card-image relative pb-[80%] md:pb-[65%] lg:pb-[70%] w-full overflow-hidden <?php if ($rounded_corners == true) { ?>rounded-t-md<?php } ?>">
                             <?php if (!empty($card_image['id'])) {
                                 echo wp_get_attachment_image($card_image['id'], 'large', false, [
                                     'class' => 'absolute inset-0 w-full h-full object-cover',
@@ -101,7 +102,7 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
                                     decoding="async">
                             <?php } ?>
                         </div>
-                        <div class="eh-productcardcontent product-card-content border-[1px] border-solid border-[#c6c6cd] pt-6 pb-8 bg-white flex flex-col">
+                        <div class="eh-productcardcontent product-card-content border-[1px] border-solid border-[#c6c6cd] pt-6 pb-8 bg-white flex flex-col <?php if ($rounded_corners == true) { ?>rounded-b-md<?php } ?>">
                             <h3 class="px-8 !pb-0 eh-productcardtitle product-card-title text-xl"><?php echo esc_html($card_title); ?></h3>
                             <p class="px-8 eh-productcarddescription text-[#444] product-card-description mb-0"><?php echo esc_html($card_description); ?></p>
                             <?php if ($card_link) { ?>
@@ -145,11 +146,10 @@ $button_or_arrow_links = get_field('button_or_arrow_links');
     <?php endif; ?>
 <?php endif; ?>
 <?php if ($cta_button) : ?>
-    <div class="container px-8">
+    <div class="container px-8 mb-[175px] lg:mb-[125px]">
         <div class="relative">
             <hr class="absolute top-1/2 -translate-y-1/2 w-full" />
             <a class="cursor-pointer button button-primary  !text-white !no-underline w-full max-w-[650px] mx-auto absolute left-1/2 -translate-x-1/2 top-4 tracking-wider !text-base" href="<?php echo esc_url($cta_button['url']); ?>"><?php echo esc_html($cta_button['title']); ?></a>
         </div>
     </div>
 <?php endif; ?>
-<div class="pb-[15vh]"></div>

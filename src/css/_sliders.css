@@ -51,7 +51,7 @@ button.slickwprev-arrow {
 button.slickwprev-prev {
 	background: transparent !important;
 
-	@media (max-width: 767px) {
+	@media (max-width: 575px) {
 		display: none !important;
 	}
 
@@ -71,7 +71,7 @@ button.slickwprev-prev {
 button.slickwprev-next {
 	background: transparent !important;
 
-	@media (max-width: 767px) {
+	@media (max-width: 575px) {
 		display: none !important;
 	}
 

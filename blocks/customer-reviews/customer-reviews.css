@@ -5,18 +5,20 @@
 .wpproslider_t8_DIV_3_logo {
 	@apply bottom-[10px]! right-[10px]!;
 }
-@media (max-width: 1399px) {
-	.slickwprev-next::before,
-	.slickwprev-prev:before {
-		display: none !important;
-	}
-}
 .slickwprev-next:before:hover,
 .slickwprev-prev:before:hover {
 	@apply text-primary!;
 }
 .slickwprev-prev {
 	left: -30px !important;
+}
+@media (max-width: 1399px) {
+	.slickwprev-prev {
+		left: -10px !important;
+	}
+	.slickwprev-next {
+		right: -10px !important;
+	}
 }
 .divwprsrdmore {
 	margin-top: 16px !important;

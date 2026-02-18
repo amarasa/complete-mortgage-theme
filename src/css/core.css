@@ -1,4 +1,6 @@
-[data-block-name]:not(.hero-full-width):not(.hero-with-squared-image):not(.hero-with-circular-image):not(.hero-with-image-only):not(.multiimage-hero) {
+[data-block-name]:not(.hero-full-width):not(.hero-with-squared-image):not(
+		.hero-with-circular-image
+	):not(.hero-with-image-only):not(.multiimage-hero) {
 	@apply py-[30px] md:py-[60px];
 }
 .cards {
@@ -131,6 +133,9 @@ ul.checklist {
 			@apply left-2;
 		}
 	}
+}
+.wysiwyg p:last-child() {
+	margin-bottom: 0;
 }
 .wp-block-pullquote {
 	@apply text-left border-l-4 border-primary border-solid py-4 pl-8 italic;

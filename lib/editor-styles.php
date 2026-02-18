@@ -22,12 +22,7 @@ function complete_theme_enqueue_block_assets()
         COMPLETE_THEME_VERSION
     );
 
-    // Compiled front-end styles
-    wp_enqueue_style(
-        'complete-mortgage-frontend-editor',
-        get_stylesheet_directory_uri() . '/dist/style.css',
-        ['complete-mortgage-brand-editor'],
-        COMPLETE_THEME_VERSION
-    );
+    // Intentionally do not enqueue dist/style.css in admin.
+    // The frontend stylesheet can interfere with wp-admin/customizer UI.
 }
 add_action('enqueue_block_assets', 'complete_theme_enqueue_block_assets');

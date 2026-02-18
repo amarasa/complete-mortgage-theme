@@ -22,7 +22,7 @@ if (!empty($block['anchor'])) {
                 Customer Reviews
             <?php } ?>
         </h2>
-
-        <?php echo do_shortcode('[wprevpro_usetemplate tid="4"]'); ?>
+        <?php $review_slider_id_number = get_field('review_slider_id_number');
+        echo do_shortcode('[wprevpro_usetemplate tid="' . $review_slider_id_number . '"]'); ?>
     </div>
 </section>

@@ -11,6 +11,16 @@ if (!empty($block['anchor'])) {
     $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 
+$gradient_background_top_raw = trim((string) get_field('gradient_background_top'));
+$gradient_background_bottom_raw = trim((string) get_field('gradient_background_bottom'));
+$rgba_pattern = '/^rgba?\(\s*(\d{1,3}\s*,\s*){2}\d{1,3}(?:\s*,\s*(0|1|0?\.\d+))?\s*\)$/i';
+$gradient_background_top = preg_match($rgba_pattern, $gradient_background_top_raw) ? $gradient_background_top_raw : 'rgba(255,255,255,1)';
+$gradient_background_bottom = preg_match($rgba_pattern, $gradient_background_bottom_raw) ? $gradient_background_bottom_raw : $gradient_background_top;
+$panel_gradient_style = sprintf(
+    'background: linear-gradient(180deg, %1$s 0%%, %2$s 100%%);',
+    $gradient_background_top,
+    $gradient_background_bottom
+);
 
 ?>
 <section class="frequently-asked-questions cmt-block px-8 lg:px-0 max-w-[730px] mb-12 mx-auto <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
@@ -43,10 +53,11 @@ if (!empty($block['anchor'])) {
                     <?php echo esc_html(get_sub_field("faq_question")); ?>
                 </div>
                 <div id="<?php echo esc_attr($panel_id); ?>"
-                    class="a-panel <?php if (get_field('remove_default_gradient')) { ?>border-t border-solid border-t-[1px] <?php } else { ?>bg-gradient-to-b from-topGradient to-bottomGradient<?php } ?>"
+                    class="a-panel"
                     role="region"
-                    aria-labelledby="faq-btn-<?php echo esc_attr($faq_index); ?>">
-                    <div class="pb-3 mb-0"><?php echo wp_kses_post(get_sub_field("faq_answer")); ?></div>
+                    aria-labelledby="faq-btn-<?php echo esc_attr($faq_index); ?>"
+                    style="<?php echo esc_attr($panel_gradient_style); ?>">
+                    <div class="pb-3 pt-8 mb-0"><?php echo wp_kses_post(get_sub_field("faq_answer")); ?></div>
                 </div>
             </div>
         <?php
