@@ -1,36 +1,23 @@
-.top-footer {
-	.menu {
-		@apply list-none ml-0;
+.footer-logo {
+	&:hover {
+		@apply opacity-70;
+	}
+}
+.footer-menu-row {
+	ul {
+		@apply list-none ml-0 text-sm;
 
 		a {
-			@apply text-white hover:opacity-70 text-base font-bold transition-all duration-300 ease-in-out;
-		}
-	}
-	.footer-column-5 {
-		.textwidget {
-			@apply text-white text-base;
-		}
-		a {
-			@apply transition-all duration-300 ease-in-out font-bold;
+			@apply duration-300 transition-all ease-in-out;
 
 			&:hover {
 				@apply opacity-70;
 			}
 		}
 	}
-	.social-icons {
-		@apply flex gap-x-3 pb-8;
-
-		a {
-			@apply hover:opacity-70 duration-300 ease-in-out transition-all text-white;
-		}
-	}
-	li {
-		@apply mb-4 lg:mb-2;
-	}
 }
 .bottom-footer {
-	@apply text-xs text-[#c7c7c7];
+	@apply text-xs;
 
 	a {
 		@apply text-white font-bold hover:opacity-70 ease-in-out duration-300 transition-all;
@@ -65,5 +52,86 @@
 				}
 			}
 		}
+	}
+}
+
+/* ── Logo image constraint ────────────────────────────────────────────── */
+footer .custom-logo-link img {
+	max-height: 44px;
+	width: auto;
+	display: block;
+}
+
+/* ── Footer styles ─────────────────────────────────────────────────────── */
+.contact-link {
+	@apply flex items-center gap-2 text-sm no-underline;
+	color: rgba(255, 255, 255, 0.75);
+	transition: color 0.15s;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+.nav-grid {
+	display: grid;
+	gap: 2rem;
+}
+
+.col-title {
+	@apply text-xs font-bold uppercase tracking-widest mb-4;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.static-list {
+	@apply list-none p-0 m-0;
+
+	li {
+		@apply mb-2;
+	}
+
+	a {
+		@apply text-sm no-underline;
+		color: rgba(255, 255, 255, 0.75);
+		transition: color 0.15s;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+.rule {
+	border: none;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	margin: 0;
+}
+
+.logo-badge {
+	@apply flex flex-col items-center gap-1 no-underline;
+	opacity: 0.6;
+	transition: opacity 0.2s;
+
+	span {
+		@apply text-xs;
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.social {
+	@apply flex items-center justify-center w-9 h-9 rounded-full;
+	color: rgba(255, 255, 255, 0.75);
+	background: rgba(255, 255, 255, 0.08);
+	transition:
+		background 0.15s,
+		color 0.15s;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.18);
+		color: #fff;
 	}
 }

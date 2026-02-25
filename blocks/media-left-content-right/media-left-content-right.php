@@ -17,14 +17,30 @@ if (!empty($block['anchor'])) {
         <div class="grid grid-cols-12 md:gap-x-8">
             <div class="col-span-12 md:col-span-6 lg:col-span-7 mb-6 md:mb-0 ">
                 <?php $image_or_video = get_field('image_or_video');
-                $image_or_video_thumbnail = get_field('image_or_video_thumbnail'); ?>
+                $image_or_video_thumbnail = get_field('image_or_video_thumbnail');
+                $thumbnail_id = !empty($image_or_video_thumbnail['ID']) ? (int) $image_or_video_thumbnail['ID'] : (!empty($image_or_video_thumbnail['id']) ? (int) $image_or_video_thumbnail['id'] : 0);
+                $thumbnail_url = !empty($image_or_video_thumbnail['url']) ? $image_or_video_thumbnail['url'] : '';
+                $thumbnail_alt = !empty($image_or_video_thumbnail['alt']) ? $image_or_video_thumbnail['alt'] : (get_field('headline') ?: 'Media thumbnail');
+                $thumbnail_sizes = '(min-width: 1024px) 58vw, (min-width: 768px) 50vw, 100vw';
+                ?>
                 <?php if ($image_or_video) {
                     $video_title = get_field('headline') ?: 'video';
                 ?>
-                    <div class="video relative pb-[56%] w-full bg-cover bg-center" style="background-image: url(<?php echo esc_url($image_or_video_thumbnail['url']); ?>);">
+                    <div class="video rounded-lg relative pb-[56%] w-full overflow-hidden">
+                        <?php if ($thumbnail_id) {
+                            echo wp_get_attachment_image($thumbnail_id, 'large', false, [
+                                'class' => 'absolute inset-0 h-full w-full object-cover',
+                                'sizes' => $thumbnail_sizes,
+                                'loading' => 'lazy',
+                                'decoding' => 'async',
+                                'alt' => $thumbnail_alt,
+                            ]);
+                        } elseif ($thumbnail_url) { ?>
+                            <img class="absolute inset-0 h-full w-full object-cover" src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($thumbnail_alt); ?>" loading="lazy" decoding="async">
+                        <?php } ?>
                         <button type="button"
                             class="js-modal-btn cursor-pointer transition-all duration-300 ease-in-out hover:opacity-70 top-1/2 left-1/2 absolute -translate-x-1/2 -translate-y-1/2 bg-transparent border-0 p-0"
-                            data-video-id="<?php echo esc_attr(get_field('youtube_video_id')); ?>"
+                            data-video-id="<?php echo get_field('youtube_video_id'); ?>"
                             aria-label="Play video: <?php echo esc_attr($video_title); ?>">
                             <svg width="73" height="51" viewBox="0 0 73 51" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <g fill="none" fill-rule="evenodd">
@@ -35,7 +51,19 @@ if (!empty($block['anchor'])) {
                         </button>
                     </div>
                 <?php } else { ?>
-                    <div class="image mb-8 pb-[56%] w-full bg-cover bg-center" style="background: url(<?php echo esc_url($image_or_video_thumbnail['url']); ?>);"></div>
+                    <div class="image rounded-lg mb-8 pb-[56%] w-full relative overflow-hidden">
+                        <?php if ($thumbnail_id) {
+                            echo wp_get_attachment_image($thumbnail_id, 'large', false, [
+                                'class' => 'absolute inset-0 h-full w-full object-cover',
+                                'sizes' => $thumbnail_sizes,
+                                'loading' => 'lazy',
+                                'decoding' => 'async',
+                                'alt' => $thumbnail_alt,
+                            ]);
+                        } elseif ($thumbnail_url) { ?>
+                            <img class="absolute inset-0 h-full w-full object-cover" src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($thumbnail_alt); ?>" loading="lazy" decoding="async">
+                        <?php } ?>
+                    </div>
                 <?php } ?>
             </div>
             <div class="col-span-12 md:col-span-6 lg:col-span-5">
