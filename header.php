@@ -9,8 +9,6 @@
 <?php
 $menu = wp_get_nav_menu_object('Top Menu');
 $menu_items = wp_get_nav_menu_items($menu->term_id);
-$mobile_logo_id = get_theme_mod('mobile_logo');
-
 ?>
 <div class="relative">
     <header class="px-8 py-6">
@@ -42,8 +40,12 @@ $mobile_logo_id = get_theme_mod('mobile_logo');
                                 <?php wp_nav_menu(array('menu' => 'Primary Menu')); ?>
                             </nav>
                         </div>
-                        <button type="button" class="open-menu-button lg:hidden" aria-label="Open menu">
-                            <i class="fa-solid fa-bars text-3xl text-secondary"></i>
+                        <button type="button" class="mobile-menu-toggle lg:hidden" aria-label="Toggle menu">
+                            <span class="hamburger-box">
+                                <span class="hamburger-line"></span>
+                                <span class="hamburger-line"></span>
+                                <span class="hamburger-line"></span>
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -56,36 +58,18 @@ $mobile_logo_id = get_theme_mod('mobile_logo');
     <?php endif; ?>
 </div>
 
-<div id="mobile-menu" class="lg:hidden">
-    <div class="container">
-        <div class="grid grid-cols-12 items-center mb-8">
-            <div class="col-span-6">
-                <div class="mobile-menu-logo">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-                        <?php if ($mobile_logo_id) : ?>
-                            <?php echo wp_get_attachment_image($mobile_logo_id, 'medium', false, [
-                                'class' => 'logo-mobile',
-                                'alt' => get_bloginfo('name'),
-                            ]); ?>
-                        <?php endif; ?>
-                    </a>
-                </div>
-            </div>
-            <div class="col-span-6">
-                <button type="button" class="close-menu-button lg:hidden text-right" aria-label="Close menu">
-                    <i class="fa-solid fa-close text-3xl text-white"></i>
-                </button>
-            </div>
+<div id="mobile-menu">
+    <?php if (!empty($menu_items)) { ?>
+        <div class="mobile-top-menu">
+            <nav aria-label="Top menu mobile">
+                <?php wp_nav_menu(array('menu' => 'Top Menu')); ?>
+            </nav>
         </div>
-    </div>
-
-
+    <?php } ?>
     <nav aria-label="Mobile navigation">
         <?php
         wp_nav_menu(array(
-            'menu'         => 'Mobile Menu',
-            'container_id' => 'cssmenu',
-            'walker'       => new CSS_Menu_Maker_Walker()
+            'menu' => 'Primary Menu',
         ));
         ?>
     </nav>

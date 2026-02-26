@@ -57,7 +57,7 @@ $panel_gradient_style = sprintf(
                     role="region"
                     aria-labelledby="faq-btn-<?php echo esc_attr($faq_index); ?>"
                     style="<?php echo esc_attr($panel_gradient_style); ?>">
-                    <div class="pb-3 pt-8 mb-0"><?php echo wp_kses_post(get_sub_field("faq_answer")); ?></div>
+                    <div class="pb-3 pt-2 mb-0"><?php echo wp_kses_post(get_sub_field("faq_answer")); ?></div>
                 </div>
             </div>
         <?php

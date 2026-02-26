@@ -1,0 +1,9 @@
+section.two-column-informational-block {
+	padding-bottom: 4rem !important;
+}
+
+@media (min-width: 768px) {
+	section.two-column-informational-block {
+		padding-bottom: 2.5rem !important;
+	}
+}

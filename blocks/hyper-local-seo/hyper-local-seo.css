@@ -1,0 +1,11 @@
+section.hyper-local-seo {
+	padding-top: 3rem !important;
+	padding-bottom: 3rem !important;
+}
+
+@media (min-width: 768px) {
+	section.hyper-local-seo {
+		padding-top: 2.5rem !important;
+		padding-bottom: 2.5rem !important;
+	}
+}

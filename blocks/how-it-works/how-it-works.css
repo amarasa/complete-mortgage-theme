@@ -5,3 +5,15 @@
 .how-it-works.bg-primary a:not(.button):hover {
 	opacity: 0.6;
 }
+
+section.how-it-works {
+	padding-top: 3rem !important;
+	padding-bottom: 4rem !important;
+}
+
+@media (min-width: 768px) {
+	section.how-it-works {
+		padding-top: 5rem !important;
+		padding-bottom: 5rem !important;
+	}
+}

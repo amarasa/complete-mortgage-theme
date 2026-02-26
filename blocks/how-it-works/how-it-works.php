@@ -25,13 +25,11 @@ if (!empty($block['anchor'])) {
 
 if ($extra_spacing) {
     $space = 'pb-40';
-} elseif ($display_style) {
-    $space = 'pb-12';
 } else {
-    $space = 'pb-20';
+    $space = '';
 }
 
-$section_classes = "how-it-works pt-20 $space $classes";
+$section_classes = "how-it-works $space $classes";
 if (!$background_switch) {
     $section_classes .= " text-white bg-primary";
 }

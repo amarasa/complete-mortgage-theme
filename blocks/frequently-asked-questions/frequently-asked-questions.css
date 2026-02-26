@@ -20,9 +20,8 @@
 .faq-accordion .a-container .a-panel {
 	width: 100%;
 	color: rgb(67, 67, 70);
-	transition: all 0.5s ease-in-out;
+	transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
 	opacity: 0;
-	height: auto;
 	max-height: 0;
 	overflow: hidden;
 	padding: 0px 36px;
@@ -33,8 +32,7 @@
 /* Panel style when active */
 .faq-accordion .a-container.active .a-panel {
 	opacity: 1;
-	height: auto;
-	max-height: none;
+	max-height: 2000px;
 }
 .faq-accordion .a-container.active .a-btn:before {
 	transition: all 0.3s ease-in-out;

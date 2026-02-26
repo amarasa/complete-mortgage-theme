@@ -145,18 +145,16 @@ jQuery(document).ready(function ($) {
 	});
 
 	// Mobile Menu
-	$(".open-menu-button").click(function () {
-		$("#mobile-menu").slideDown();
-		$("body").css("overflow-y", "hidden");
-		$("body").css("position", "fixed");
-	});
-	$(".close-menu-button").click(function () {
-		$("#mobile-menu").slideUp();
-		$("body").css("overflow-y", "auto");
-		$("body").css("position", "relative");
+	$(".mobile-menu-toggle").click(function () {
+		var header = $("header")[0];
+		var headerBottom = header.getBoundingClientRect().bottom;
+		document.documentElement.style.setProperty("--mobile-menu-top", headerBottom + "px");
+		$(this).toggleClass("is-active");
+		$("#mobile-menu").slideToggle();
+		$("body").toggleClass("mobile-menu-open");
 	});
 
-	$("#cssmenu li.has-sub > a").on("click", function (e) {
+	$("#mobile-menu li.menu-item-has-children > a").on("click", function (e) {
 		e.preventDefault();
 		e.stopPropagation();
 

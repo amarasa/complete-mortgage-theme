@@ -28,18 +28,20 @@
         <?php if ($has_widgets) : ?>
             <?php
             $widget_count = count($footer_sidebars);
-            $md_width_class = 'md:w-1/2';
+            $grid_class = 'md:grid-cols-2';
             if ($widget_count === 2) {
-                $md_width_class = 'md:w-1/2';
+                $grid_class = 'md:grid-cols-2';
             } elseif ($widget_count === 3) {
-                $md_width_class = 'md:w-1/3';
-            } elseif ($widget_count === 4 || $widget_count === 5) {
-                $md_width_class = 'md:w-1/2';
+                $grid_class = 'md:grid-cols-3';
+            } elseif ($widget_count === 4) {
+                $grid_class = 'md:grid-cols-2 lg:grid-cols-4';
+            } elseif ($widget_count === 5) {
+                $grid_class = 'md:grid-cols-3 lg:grid-cols-5';
             }
             ?>
-            <div class="sm:flex sm:flex-wrap lg:justify-between md:justify-evenly gap-8 [&_.menu]:list-none [&_.col-title]:mb-4 [&_.col-title]:text-xs [&_.col-title]:font-bold [&_.col-title]:uppercase [&_.col-title]:tracking-widest [&_.col-title]:text-white/50">
+            <div class="grid grid-cols-1 <?php echo esc_attr($grid_class); ?> gap-8 [&_.menu]:list-none [&_.col-title]:mb-4 [&_.col-title]:text-xs [&_.col-title]:font-bold [&_.col-title]:uppercase [&_.col-title]:tracking-widest [&_.col-title]:text-white/50">
                 <?php foreach ($footer_sidebars as $sid) : ?>
-                    <div class="footer-menu w-full <?php echo esc_attr($md_width_class); ?> lg:w-auto">
+                    <div class="footer-menu">
                         <?php dynamic_sidebar($sid); ?>
                     </div>
                 <?php endforeach; ?>
@@ -47,13 +49,13 @@
         <?php endif; ?>
     </div>
     <div class="container px-8 pb-6">
-        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-6">
             <?php if ($footer_data['disclaimer']) : ?>
-                <div class="text-sm m-0 leading-[1.6] md:flex-1">
+                <div class="text-sm m-0 leading-[1.6] lg:flex-1">
                     <?php echo wp_kses_post($footer_data['disclaimer']); ?>
                 </div>
             <?php endif; ?>
-            <div class="flex items-center justify-center gap-6 flex-wrap md:justify-end md:ml-6">
+            <div class="flex items-center justify-center gap-6 flex-wrap lg:justify-end lg:ml-6 pt-[30px] lg:pt-0">
                 <?php if (! empty($comp_logos)) : ?>
                     <?php foreach ($comp_logos as $logo) : ?>
                         <a href="<?php echo esc_url($logo['url']); ?>" class="flex flex-col items-center gap-1 no-underline opacity-60 transition-opacity duration-200 hover:opacity-100"
