@@ -1,0 +1,301 @@
+{
+  "key": "group_67ec22fed5745",
+  "title": "DSCR Calculator Default Options",
+  "fields": [
+    {
+      "key": "field_67ec22ffe376e",
+      "label": "Default Values",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_67ec22ffe37b9",
+      "label": "Property Value / Purchase Price",
+      "name": "property_value__purchase_price",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 320000,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec244799021",
+      "label": "Average Rent per Unit (Monthly)",
+      "name": "average_rent_per_unit_monthly",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 5000,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec245b99022",
+      "label": "Annual Property Taxes",
+      "name": "annual_property_taxes",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 5000,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec246d99023",
+      "label": "Annual Insurance",
+      "name": "annual_insurance",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 5000,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec247c99024",
+      "label": "Monthly HOA Fee",
+      "name": "monthly_hoa_fee",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 200,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec249399025",
+      "label": "Annual Repairs & Maintenance",
+      "name": "annual_repairs_and_maintenance",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 500,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec24a799026",
+      "label": "Annual Utilities",
+      "name": "annual_utilities",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 5000,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec24b399027",
+      "label": "Closing Costs",
+      "name": "closing_costs",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 6500,
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 1,
+      "placeholder": "",
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67ec22ffe37de",
+      "label": "CTA Button",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_67ec22ffe37e7",
+      "label": "CTA Button",
+      "name": "dscr_calc_cta_button",
+      "aria-label": "",
+      "type": "link",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "allow_in_bindings": 1
+    },
+    {
+      "key": "field_67ec22ffe37f0",
+      "label": "Disclaimer",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_67ec22ffe37f9",
+      "label": "Disclaimer Text",
+      "name": "dscr_calc_disclaimer_text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 1,
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 0,
+      "delay": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "dscr-calculator-options-settings"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

@@ -1,0 +1,275 @@
+{
+  "key": "group_68caf0e91aeb9",
+  "title": "CMS Block: Trusted By",
+  "fields": [
+    {
+      "key": "field_68cb049588142",
+      "label": "Enable Grey Background Color",
+      "name": "enable_grey_background_color",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "",
+      "ui_off_text": "",
+      "ui": 1
+    },
+    {
+      "key": "field_68cc05b92166b",
+      "label": "Enable Background Image with Gradient",
+      "name": "enable_background_image_with_gradient",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "This will override the grey background color by default.",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "",
+      "ui_off_text": "",
+      "ui": 1
+    },
+    {
+      "key": "field_68cc05d92166c",
+      "label": "Background Image",
+      "name": "background_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68cc05b92166b",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "allow_in_bindings": 0,
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_68cc2aabe109b",
+      "label": "Top Gradient Overlay",
+      "name": "top_gradient_overlay",
+      "aria-label": "",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68cc05b92166b",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 1,
+      "return_format": "string",
+      "allow_in_bindings": 0,
+      "custom_palette_source": "",
+      "palette_colors": "",
+      "show_color_wheel": true
+    },
+    {
+      "key": "field_68cc2ae2e109c",
+      "label": "Bottom Gradient Overlay",
+      "name": "bottom_gradient_overlay",
+      "aria-label": "",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68cc05b92166b",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 1,
+      "return_format": "string",
+      "allow_in_bindings": 0,
+      "custom_palette_source": "",
+      "palette_colors": "",
+      "show_color_wheel": true
+    },
+    {
+      "key": "field_68caf0e99a88d",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_68caf0f99a88e",
+      "label": "Description",
+      "name": "description",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "delay": 0
+    },
+    {
+      "key": "field_68caf3d0b4b51",
+      "label": "Enable Slider Version",
+      "name": "enable_slider_version",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "",
+      "ui_off_text": "",
+      "ui": 1
+    },
+    {
+      "key": "field_68caf1079a88f",
+      "label": "Logos",
+      "name": "logos",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Row",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_68caf1189a890",
+          "label": "Logo",
+          "name": "logo",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "",
+          "allow_in_bindings": 0,
+          "preview_size": "medium",
+          "parent_repeater": "field_68caf1079a88f"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-trusted-by"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

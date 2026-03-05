@@ -1,0 +1,323 @@
+{
+  "key": "group_67d821b17adbe",
+  "title": "CMS Block: Meet the Team",
+  "fields": [
+    {
+      "key": "field_67d8234eb8de9",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67d821b1705f6",
+      "label": "What would you like to display?",
+      "name": "display_type",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "All Members": "All Members",
+        "Branch Specific Members": "Branch Specific Members",
+        "Hand-Select Members": "Hand-Select Members"
+      },
+      "default_value": false,
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "allow_in_bindings": 1,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": "",
+      "create_options": 0,
+      "save_options": 0
+    },
+    {
+      "key": "field_67d822505cc73",
+      "label": "Display Members For Specific Branch",
+      "name": "display_members_for_specific_branch",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67d821b1705f6",
+            "operator": "==",
+            "value": "Branch Specific Members"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "branch_location",
+      "add_term": 0,
+      "save_terms": 1,
+      "load_terms": 0,
+      "return_format": "id",
+      "field_type": "select",
+      "allow_null": 0,
+      "allow_in_bindings": 0,
+      "bidirectional": 0,
+      "multiple": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_67d822b85cc74",
+      "label": "Hand Select Members",
+      "name": "hand_select_members",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67d821b1705f6",
+            "operator": "==",
+            "value": "Hand-Select Members"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "kal_loan_officers"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "return_format": "object",
+      "min": "",
+      "max": "",
+      "allow_in_bindings": 0,
+      "elements": "",
+      "bidirectional": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_67d823b37a34a",
+      "label": "Additional Settings",
+      "name": "additional_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_67d823c17a34b",
+          "label": "Corners",
+          "name": "corners",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "allow_in_bindings": 0,
+          "ui_on_text": "Rounded",
+          "ui_off_text": "Squared",
+          "ui": 1
+        },
+        {
+          "key": "field_67d823d77a34c",
+          "label": "Name",
+          "name": "name",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "allow_in_bindings": 0,
+          "ui_on_text": "Display First and Last Name",
+          "ui_off_text": "Display First Name Only",
+          "ui": 1
+        },
+        {
+          "key": "field_67d823fb7a34d",
+          "label": "Display Title",
+          "name": "display_title",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "allow_in_bindings": 0,
+          "ui_on_text": "Yes",
+          "ui_off_text": "No",
+          "ui": 1
+        },
+        {
+          "key": "field_67d8243f7a34e",
+          "label": "Display NMLS Number",
+          "name": "display_nmls_number",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "allow_in_bindings": 0,
+          "ui_on_text": "Yes",
+          "ui_off_text": "No",
+          "ui": 1
+        },
+        {
+          "key": "field_67d824527a34f",
+          "label": "Display Phone",
+          "name": "display_phone",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "allow_in_bindings": 0,
+          "ui_on_text": "Yes",
+          "ui_off_text": "No",
+          "ui": 1
+        },
+        {
+          "key": "field_67d824f680060",
+          "label": "Which Phone Field?",
+          "name": "which_phone",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_67d824527a34f",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "allow_in_bindings": 0,
+          "ui_on_text": "Phone",
+          "ui_off_text": "Cell",
+          "ui": 1
+        },
+        {
+          "key": "field_67d8246a7a350",
+          "label": "Clickable to Bio",
+          "name": "clickable_to_bio",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "allow_in_bindings": 0,
+          "ui_on_text": "Yes",
+          "ui_off_text": "No",
+          "ui": 1
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-meet-the-team"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

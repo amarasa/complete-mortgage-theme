@@ -1,0 +1,6 @@
+.apply-online input[type="text"] {
+	@apply border-0!;
+}
+.apply-online .gfield_required_text {
+	@apply sr-only;
+}

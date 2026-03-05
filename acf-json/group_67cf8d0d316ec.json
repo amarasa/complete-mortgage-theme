@@ -1,0 +1,205 @@
+{
+  "key": "group_67cf8d0d316ec",
+  "title": "CMS Block: Option Cards",
+  "fields": [
+    {
+      "key": "field_67cf8d0db9c54",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_68596651f1ae6",
+      "label": "Description",
+      "name": "description",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "rows": 2,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_67cf8d82e38ff",
+      "label": "Option Cards",
+      "name": "option_cards",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 2,
+      "max": 3,
+      "collapsed": "",
+      "button_label": "Add Row",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_67cf8da8e3900",
+          "label": "Icon",
+          "name": "icon",
+          "aria-label": "",
+          "type": "font-awesome",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "icon_sets": [
+            "solid",
+            "regular",
+            "brands"
+          ],
+          "custom_icon_set": "",
+          "default_label": "",
+          "default_value": "",
+          "save_format": "element",
+          "allow_null": 0,
+          "show_preview": 1,
+          "enqueue_fa": 0,
+          "allow_in_bindings": 0,
+          "fa_live_preview": "",
+          "choices": [],
+          "parent_repeater": "field_67cf8d82e38ff"
+        },
+        {
+          "key": "field_67cf8dcbe3901",
+          "label": "Headline",
+          "name": "headline",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "allow_in_bindings": 0,
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_67cf8d82e38ff"
+        },
+        {
+          "key": "field_67cf8dd7e3902",
+          "label": "Card Content",
+          "name": "card_content",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "allow_in_bindings": 0,
+          "rows": 3,
+          "placeholder": "",
+          "new_lines": "",
+          "parent_repeater": "field_67cf8d82e38ff"
+        },
+        {
+          "key": "field_67cf8df2e3903",
+          "label": "CTA Link",
+          "name": "cta_link",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "allow_in_bindings": 0,
+          "parent_repeater": "field_67cf8d82e38ff"
+        }
+      ]
+    },
+    {
+      "key": "field_67cf8e0be3904",
+      "label": "Card Corners",
+      "name": "card_corners",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Rounded",
+      "ui_off_text": "Squared",
+      "ui": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-option-cards"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

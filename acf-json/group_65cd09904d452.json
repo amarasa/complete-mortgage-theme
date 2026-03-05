@@ -1,0 +1,43 @@
+{
+  "key": "group_65cd09904d452",
+  "title": "Kaleidico Calculators Settings",
+  "fields": [
+    {
+      "key": "field_65cd09903cc5c",
+      "label": "Gravity Form Selection",
+      "name": "gravity_form_selection_kaleidico_calculators",
+      "aria-label": "",
+      "type": "forms",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "allow_null": 0,
+      "multiple": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "kaleidico-custom-calculators"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

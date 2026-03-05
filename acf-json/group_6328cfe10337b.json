@@ -1,0 +1,174 @@
+{
+  "key": "group_6328cfe10337b",
+  "title": "CMS Block: FAQ",
+  "fields": [
+    {
+      "key": "field_6328cfef174a0",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_6328cff5174a1",
+      "label": "Introduction Text",
+      "name": "introduction_text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "delay": 0
+    },
+    {
+      "key": "field_67d1805c211d1",
+      "label": "Gradient Background (Top)",
+      "name": "gradient_background_top",
+      "aria-label": "",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 1,
+      "return_format": "string",
+      "allow_in_bindings": 0,
+      "custom_palette_source": "",
+      "palette_colors": "",
+      "show_color_wheel": true
+    },
+    {
+      "key": "field_67d180d75cf87",
+      "label": "Gradient Background (Bottom)",
+      "name": "gradient_background_bottom",
+      "aria-label": "",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 1,
+      "return_format": "string",
+      "allow_in_bindings": 0,
+      "custom_palette_source": "",
+      "palette_colors": "",
+      "show_color_wheel": true
+    },
+    {
+      "key": "field_6328d004174a2",
+      "label": "FAQ",
+      "name": "faq_section",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 1,
+      "max": 0,
+      "layout": "row",
+      "button_label": "Add FAQ Item",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_6328d016174a3",
+          "label": "Question",
+          "name": "faq_question",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": "",
+          "parent_repeater": "field_6328d004174a2"
+        },
+        {
+          "key": "field_6328d037174a4",
+          "label": "Answer",
+          "name": "faq_answer",
+          "aria-label": "",
+          "type": "wysiwyg",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "tabs": "all",
+          "toolbar": "full",
+          "media_upload": 1,
+          "delay": 0,
+          "parent_repeater": "field_6328d004174a2"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-frequently-asked-questions"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

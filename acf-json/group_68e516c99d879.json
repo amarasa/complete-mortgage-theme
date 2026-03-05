@@ -1,0 +1,115 @@
+{
+  "key": "group_68e516c99d879",
+  "title": "Widget: Social Media",
+  "fields": [
+    {
+      "key": "field_68e516c9d2d8d",
+      "label": "Facebook URL",
+      "name": "facebook_url",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_68e516e543114",
+      "label": "Twitter (X) URL",
+      "name": "twitter_x_url",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_68e5170f43115",
+      "label": "Instagram URL",
+      "name": "instagram_url",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_68e5173643116",
+      "label": "LinkedIn URL",
+      "name": "linkedin_url",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_68e5173f43117",
+      "label": "YouTube URL",
+      "name": "youtube_url",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "placeholder": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "widget",
+        "operator": "==",
+        "value": "acf_widget_3914"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

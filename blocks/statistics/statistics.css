@@ -1,0 +1,8 @@
+.stat-item {
+	text-align: center;
+	font-weight: bold;
+}
+
+.big-stat {
+	@apply text-secondary;
+}

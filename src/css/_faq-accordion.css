@@ -1,0 +1,3 @@
+.faq-accordion .a-btn::before {
+	@apply text-secondary;
+}

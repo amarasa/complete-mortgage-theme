@@ -1,0 +1,205 @@
+{
+  "key": "group_table_wysiwyg",
+  "title": "CMS Block - Responsive Table",
+  "fields": [
+    {
+      "key": "field_68c03dab8b2fe",
+      "label": "Table Builder or Markdown",
+      "name": "table_builder_or_markdown",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Markdown",
+      "ui_off_text": "Table Builder",
+      "ui": 1
+    },
+    {
+      "key": "field_68c03d9c8b2fd",
+      "label": "Markdown",
+      "name": "markdown",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68c03dab8b2fe",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "rows": "",
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_table_headers",
+      "label": "Headers",
+      "name": "table_headers",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Add column headers in order.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68c03dab8b2fe",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Header",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_table_header_text",
+          "label": "Header",
+          "name": "text",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_table_headers"
+        }
+      ]
+    },
+    {
+      "key": "field_table_rows",
+      "label": "Rows",
+      "name": "table_rows",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Add table rows. Each row contains multiple cells.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68c03dab8b2fe",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "row",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Row",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_table_row_cells",
+          "label": "Cells",
+          "name": "cells",
+          "aria-label": "",
+          "type": "repeater",
+          "instructions": "Add cells left to right. One per column.",
+          "required": 0,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "layout": "table",
+          "button_label": "Add Cell",
+          "min": 0,
+          "max": 0,
+          "rows_per_page": 20,
+          "collapsed": "",
+          "parent_repeater": "field_table_rows",
+          "sub_fields": [
+            {
+              "key": "field_table_cell_content",
+              "label": "Content",
+              "name": "content",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "Rich content allowed. Links, bold, images, etc.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0,
+              "default_value": "",
+              "parent_repeater": "field_table_row_cells"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-responsive-table"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "A table powered by ACF repeaters with WYSIWYG cells.",
+  "show_in_rest": 0,
+  "display_title": ""
+}

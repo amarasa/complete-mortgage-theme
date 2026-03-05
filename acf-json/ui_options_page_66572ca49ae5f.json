@@ -1,0 +1,22 @@
+{
+  "key": "ui_options_page_66572ca49ae5f",
+  "title": "Affordability Calculator Options Settings",
+  "active": true,
+  "menu_order": 0,
+  "page_title": "Affordability Calculator Options Settings",
+  "menu_slug": "affordability-calculator-options-settings",
+  "parent_slug": "kaleidico-custom-calculators",
+  "advanced_configuration": 0,
+  "icon_url": "",
+  "menu_title": "",
+  "position": "",
+  "redirect": false,
+  "description": "",
+  "menu_icon": [],
+  "update_button": "Update",
+  "updated_message": "Options Updated",
+  "capability": "edit_posts",
+  "data_storage": "options",
+  "post_id": "",
+  "autoload": 0
+}

@@ -1,0 +1,22 @@
+{
+    "name": "acf/cms-branch-detail",
+    "title": "Branch Detail",
+    "description": "This is a block that will contain branch detail information",
+    "category": "Complete Marketing",
+    "icon": "format-image",
+    "keywords": [
+        "branch",
+        "branch details"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "branch-detail.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full",
+    "style": [
+        "file:./branch-detail.css"
+    ]
+}

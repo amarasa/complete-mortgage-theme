@@ -1,0 +1,215 @@
+{
+  "key": "group_67c74f1292042",
+  "title": "CMS Block: Hero with Multi-images",
+  "fields": [
+    {
+      "key": "field_67c74f1298309",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67c74f1298316",
+      "label": "Introduction Text",
+      "name": "introduction_text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "tabs": "all",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "delay": 0
+    },
+    {
+      "key": "field_67c74f1298321",
+      "label": "Buttons",
+      "name": "buttons",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 2,
+      "collapsed": "",
+      "button_label": "Add Button",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_67c74f129db47",
+          "label": "Button",
+          "name": "button",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "parent_repeater": "field_67c74f1298321"
+        }
+      ]
+    },
+    {
+      "key": "field_67c74f129832c",
+      "label": "Below Button Text",
+      "name": "below_button_text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "tabs": "all",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "delay": 0
+    },
+    {
+      "key": "field_67c9aefceacf6",
+      "label": "",
+      "name": "",
+      "aria-label": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "The image order is: Top left, bottom left, top right, bottom right",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_67c74f1298344",
+      "label": "Multi-image Set",
+      "name": "multi-image_set",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "row",
+      "pagination": 0,
+      "min": 4,
+      "max": 4,
+      "collapsed": "",
+      "button_label": "Add Image",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_67c74f12a49a1",
+          "label": "Image",
+          "name": "image",
+          "aria-label": "",
+          "type": "focuspoint",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "preview_size": "large",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "",
+          "allow_in_bindings": 0,
+          "parent_repeater": "field_67c74f1298344"
+        }
+      ]
+    },
+    {
+      "key": "field_67c87516f5dee",
+      "label": "Image Corner Style",
+      "name": "image_corner_style",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Rounded Corners",
+      "ui_off_text": "Square Corners",
+      "ui": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-hero-multiimage"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

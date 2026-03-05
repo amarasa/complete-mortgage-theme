@@ -1,0 +1,198 @@
+{
+  "key": "group_68472d082a7e3",
+  "title": "CMS Block: Info Cards",
+  "fields": [
+    {
+      "key": "field_68472d08b4d5c",
+      "label": "Info Cards",
+      "name": "info_cards",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "row",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Row",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_685b018f181ca",
+          "label": "Icon",
+          "name": "icon",
+          "aria-label": "",
+          "type": "font-awesome",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "icon_sets": [
+            "solid",
+            "regular",
+            "brands"
+          ],
+          "custom_icon_set": "",
+          "default_label": "",
+          "default_value": "",
+          "save_format": "class",
+          "allow_null": 0,
+          "show_preview": 1,
+          "enqueue_fa": 0,
+          "allow_in_bindings": 0,
+          "fa_live_preview": "",
+          "choices": [],
+          "parent_repeater": "field_68472d08b4d5c"
+        },
+        {
+          "key": "field_68472dd2b4d5e",
+          "label": "Headline",
+          "name": "headline",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "allow_in_bindings": 0,
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_68472d08b4d5c"
+        },
+        {
+          "key": "field_68472de5b4d5f",
+          "label": "Description",
+          "name": "description",
+          "aria-label": "",
+          "type": "wysiwyg",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "allow_in_bindings": 0,
+          "tabs": "all",
+          "toolbar": "basic",
+          "media_upload": 0,
+          "delay": 0,
+          "parent_repeater": "field_68472d08b4d5c"
+        },
+        {
+          "key": "field_68472df9b4d60",
+          "label": "Optional Link",
+          "name": "optional_link",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "allow_in_bindings": 0,
+          "parent_repeater": "field_68472d08b4d5c"
+        }
+      ]
+    },
+    {
+      "key": "field_68472e0fb4d61",
+      "label": "Corners",
+      "name": "corners",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Rounded",
+      "ui_off_text": "Squared",
+      "ui": 1
+    },
+    {
+      "key": "field_68472e50b4d62",
+      "label": "Drop Shadow Size",
+      "name": "drop_shadow_size",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "None",
+        "2xs": "Extra Extra Small",
+        "xs": "Extra Small",
+        "sm": "Small",
+        "md": "Medium",
+        "lg": "Large",
+        "xl": "Extra Large",
+        "2xl": "Extra Extra Large"
+      },
+      "default_value": false,
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "allow_in_bindings": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": "",
+      "create_options": 0,
+      "save_options": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-info-cards-with-icons"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

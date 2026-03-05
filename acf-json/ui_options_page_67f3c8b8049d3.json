@@ -1,0 +1,22 @@
+{
+  "key": "ui_options_page_67f3c8b8049d3",
+  "title": "HELOC Calculator Options Settings",
+  "active": true,
+  "menu_order": 0,
+  "page_title": "HELOC Calculator Options Settings",
+  "menu_slug": "heloc-calculator-options-settings",
+  "parent_slug": "kaleidico-custom-calculators",
+  "advanced_configuration": 0,
+  "icon_url": "",
+  "menu_title": "",
+  "position": "",
+  "redirect": false,
+  "description": "",
+  "menu_icon": [],
+  "update_button": "Update",
+  "updated_message": "Options Updated",
+  "capability": "edit_posts",
+  "data_storage": "options",
+  "post_id": "",
+  "autoload": 0
+}

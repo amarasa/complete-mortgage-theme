@@ -1,0 +1,129 @@
+{
+  "key": "group_67d319924ffa6",
+  "title": "CMS Block: Hero with Image Only",
+  "fields": [
+    {
+      "key": "field_67d319921629a",
+      "label": "Hero Image",
+      "name": "hero_image",
+      "aria-label": "",
+      "type": "focuspoint",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "preview_size": "large",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "allow_in_bindings": 0
+    },
+    {
+      "key": "field_67d319b91629b",
+      "label": "Edge to Edge",
+      "name": "edge_to_edge",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "True",
+      "ui_off_text": "False",
+      "ui": 1
+    },
+    {
+      "key": "field_67d98e27211fa",
+      "label": "Extend Container to almost Full Width",
+      "name": "extend_container",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67d319b91629b",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No",
+      "ui": 1
+    },
+    {
+      "key": "field_67d319df1629c",
+      "label": "Corners",
+      "name": "corners",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67d319b91629b",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Rounded",
+      "ui_off_text": "Squared",
+      "ui": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-hero-with-image-only"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

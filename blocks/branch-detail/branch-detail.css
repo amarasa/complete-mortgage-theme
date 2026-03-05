@@ -1,0 +1,12 @@
+.rounded {
+	border-radius: 25px;
+}
+
+.squared {
+	border-radius: 0;
+}
+
+.branch-info-content > p:first-child {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+}
