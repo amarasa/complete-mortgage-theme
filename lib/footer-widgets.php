@@ -40,6 +40,23 @@ function complete_theme_footer_setup()
             'title' => 'Footer Settings',
             'priority' => 100,
         ]);
+
+        $wp_customize->add_setting('footer_layout_style', [
+            'default' => 'new',
+            'sanitize_callback' => function ($value) {
+                return in_array($value, ['original', 'new'], true) ? $value : 'new';
+            },
+        ]);
+        $wp_customize->add_control('footer_layout_style', [
+            'label' => 'Footer Layout',
+            'section' => 'complete_theme_footer',
+            'type' => 'radio',
+            'choices' => [
+                'original' => 'Original Footer',
+                'new' => 'New Footer',
+            ],
+        ]);
+
         $fields = [
             'footer_tagline'    => ['label' => 'Tagline',          'default' => ''],
             'footer_address'    => ['label' => 'Address',          'default' => ''],
@@ -59,6 +76,18 @@ function complete_theme_footer_setup()
         $wp_customize->add_setting('footer_disclaimer', ['default' => '', 'sanitize_callback' => 'wp_kses_post']);
         $wp_customize->add_control(new Complete_Theme_Wysiwyg_Control($wp_customize, 'footer_disclaimer', [
             'label'   => 'Disclaimer Text',
+            'section' => 'complete_theme_footer',
+        ]));
+
+        $wp_customize->add_setting('old_footer_legal_left', ['default' => '', 'sanitize_callback' => 'wp_kses_post']);
+        $wp_customize->add_control(new Complete_Theme_Wysiwyg_Control($wp_customize, 'old_footer_legal_left', [
+            'label'   => 'Old Footer: Legal Left Content',
+            'section' => 'complete_theme_footer',
+        ]));
+
+        $wp_customize->add_setting('old_footer_legal_right', ['default' => '', 'sanitize_callback' => 'wp_kses_post']);
+        $wp_customize->add_control(new Complete_Theme_Wysiwyg_Control($wp_customize, 'old_footer_legal_right', [
+            'label'   => 'Site Created By Content',
             'section' => 'complete_theme_footer',
         ]));
 
@@ -155,6 +184,7 @@ add_action('customize_controls_print_footer_scripts', function () {
 function complete_theme_footer_data()
 {
     $footer_data = [
+        'layout'      => get_theme_mod('footer_layout_style', 'new'),
         'tagline'     => get_theme_mod('footer_tagline',     ''),
         'address'     => get_theme_mod('footer_address',     ''),
         'address_url' => get_theme_mod('footer_address_url', ''),
@@ -165,6 +195,8 @@ function complete_theme_footer_data()
         'instagram'   => get_theme_mod('footer_instagram',   ''),
         'linkedin'    => get_theme_mod('footer_linkedin',    ''),
         'disclaimer'  => get_theme_mod('footer_disclaimer',  ''),
+        'old_footer_legal_left'    => get_theme_mod('old_footer_legal_left', ''),
+        'old_footer_legal_right'   => get_theme_mod('old_footer_legal_right', ''),
     ];
 
     $phone_href = 'tel:+1' . preg_replace('/\D/', '', $footer_data['phone']);

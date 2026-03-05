@@ -32,7 +32,7 @@ if (is_user_logged_in() && current_user_can('manage_options')) {
     echo "\n<!-- product-hero-focus: x={$focus_x}, y={$focus_y}, post_id={$post_id} -->\n";
 }
 ?>
-<section class="product-hero lg:px-8 mt-8">
+<section class="product-hero lg:px-8">
     <div class="product-hero-media relative pb-[45%] md:pb-[35%] lg:pb-[25%] mb-8 md:mb-16 lg:rounded-md extend-container mx-auto overflow-hidden">
         <?php
         if ($hero_image_id) {
@@ -52,15 +52,15 @@ if (is_user_logged_in() && current_user_can('manage_options')) {
     </div>
 </section>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    var heroImg = document.querySelector('.product-hero-media img[data-focus-x][data-focus-y]');
-    if (!heroImg) return;
-    var x = heroImg.getAttribute('data-focus-x');
-    var y = heroImg.getAttribute('data-focus-y');
-    if (!x || !y) return;
-    heroImg.style.setProperty('object-fit', 'cover', 'important');
-    heroImg.style.setProperty('object-position', x + '% ' + y + '%', 'important');
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        var heroImg = document.querySelector('.product-hero-media img[data-focus-x][data-focus-y]');
+        if (!heroImg) return;
+        var x = heroImg.getAttribute('data-focus-x');
+        var y = heroImg.getAttribute('data-focus-y');
+        if (!x || !y) return;
+        heroImg.style.setProperty('object-fit', 'cover', 'important');
+        heroImg.style.setProperty('object-position', x + '% ' + y + '%', 'important');
+    });
 </script>
 <main class="product-content pb-12">
     <div class="container px-8">

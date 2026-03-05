@@ -12,7 +12,7 @@ if (!empty($block['anchor'])) {
 }
 
 $overlap_previous_block = get_field('overlap_previous_block');
-$enable_background_color = get_field('enable_background_color');
+$background_color = get_field('background_color');
 $enable_rounded_edges = get_field('enable_rounded_edges');
 $headline = get_field('headline');
 $content = get_field('content');
@@ -21,8 +21,7 @@ $buttons = get_field('buttons');
 
 ?>
 <section class="mission-statement cmt-block <?php echo esc_attr($classes); ?> <?php if ($overlap_previous_block) { ?>overlap<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
-    <div class="container max-w-[991px] mx-auto text-center <?php if ($enable_rounded_edges) { ?>lg:rounded-xl<?php } ?> <?php if ($enable_background_color) {
-                                                                                                                            ?>bg-grey p-8<?php } ?>">
+    <div class="container max-w-[991px] mx-auto text-center <?php if ($enable_rounded_edges) { ?>lg:rounded-xl<?php } ?> <?php if ($background_color === 'bg-white') { ?>bg-white p-8<?php } else { ?>bg-grey p-8<?php } ?>">
         <?php if ($headline) { ?>
             <h2><?php echo esc_html($headline); ?></h2>
         <?php } ?>

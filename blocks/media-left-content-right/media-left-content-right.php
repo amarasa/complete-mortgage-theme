@@ -11,6 +11,8 @@ if (!empty($block['anchor'])) {
     $id = sprintf(' id="%s"', esc_attr($block['anchor']));
 }
 
+$corners = get_field('corners') ? 'rounded' : 'squared';
+
 ?>
 <section class="media-left-content-right <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
     <div class="container px-8">
@@ -26,7 +28,7 @@ if (!empty($block['anchor'])) {
                 <?php if ($image_or_video) {
                     $video_title = get_field('headline') ?: 'video';
                 ?>
-                    <div class="video rounded-lg relative pb-[56%] w-full overflow-hidden">
+                    <div class="video <?php echo esc_attr($corners); ?> relative pb-[56%] w-full overflow-hidden">
                         <?php if ($thumbnail_id) {
                             echo wp_get_attachment_image($thumbnail_id, 'large', false, [
                                 'class' => 'absolute inset-0 h-full w-full object-cover',
@@ -51,7 +53,7 @@ if (!empty($block['anchor'])) {
                         </button>
                     </div>
                 <?php } else { ?>
-                    <div class="image rounded-lg mb-8 pb-[56%] w-full relative overflow-hidden">
+                    <div class="image <?php echo esc_attr($corners); ?> mb-8 pb-[56%] w-full relative overflow-hidden">
                         <?php if ($thumbnail_id) {
                             echo wp_get_attachment_image($thumbnail_id, 'large', false, [
                                 'class' => 'absolute inset-0 h-full w-full object-cover',

@@ -25,10 +25,10 @@
     },
     {
       "key": "field_6994bc7cae4b8",
-      "label": "Review Slider ID Number",
+      "label": "Review Slider Type",
       "name": "review_slider_id_number",
       "aria-label": "",
-      "type": "number",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "conditional_logic": 0,
@@ -37,14 +37,19 @@
         "class": "",
         "id": ""
       },
-      "default_value": "",
-      "min": "",
-      "max": "",
+      "choices": {
+        "1": "Grid",
+        "2": "Single Testimonial Slider",
+        "4": "Multiple Testimonial Slider"
+      },
+      "default_value": "1",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "vertical",
       "allow_in_bindings": 0,
-      "placeholder": "",
-      "step": "",
-      "prepend": "",
-      "append": ""
+      "placeholder": ""
     }
   ],
   "location": [

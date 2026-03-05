@@ -108,11 +108,11 @@
       "ui": 1
     },
     {
-      "key": "field_68e6038b7e657",
-      "label": "Enable Grey Background Color",
-      "name": "enable_background_color",
+      "key": "field_68e6038b7e657_background_choice",
+      "label": "Background Color",
+      "name": "background_color",
       "aria-label": "",
-      "type": "true_false",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "conditional_logic": 0,
@@ -121,12 +121,17 @@
         "class": "",
         "id": ""
       },
-      "message": "",
-      "default_value": 0,
-      "allow_in_bindings": 0,
-      "ui_on_text": "",
-      "ui_off_text": "",
-      "ui": 1
+      "choices": {
+        "bg-grey": "Grey",
+        "bg-white": "White"
+      },
+      "default_value": "bg-grey",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal",
+      "allow_in_bindings": 0
     },
     {
       "key": "field_68e604b3a9209",

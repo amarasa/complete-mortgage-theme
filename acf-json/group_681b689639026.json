@@ -97,6 +97,27 @@
       "append": ""
     },
     {
+      "key": "field_681b6aebed0d4_corners",
+      "label": "Corners",
+      "name": "corners",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Rounded",
+      "ui_off_text": "Squared",
+      "ui": 1
+    },
+    {
       "key": "field_681b6a93d0298",
       "label": "Right Column Content",
       "name": "",
