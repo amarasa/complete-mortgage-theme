@@ -1,0 +1,36 @@
+.kaleidico-calculator,
+.kaleidico-calculator-disclaimer {
+	max-width: 768px;
+	@apply md:mx-auto my-8 md:rounded-lg;
+}
+.kaleidico-calculator .radio-label {
+	@apply py-4;
+}
+.calculator-white-section {
+	@apply md:rounded-lg border-solid border-black;
+}
+.text-primary-color {
+	@apply text-primary;
+}
+.monthly-payment {
+	@apply text-secondary;
+}
+.calculator-results-simple {
+	h3 {
+		@apply mb-5;
+	}
+}
+.calculator-cta {
+	.button {
+		@apply block;
+	}
+}
+.calculator-results-simple .rc {
+	@apply lg:text-right mb-8 lg:mb-0;
+}
+.kaleidico-calculator .calculator-results-advanced .advanced-label {
+	max-width: 300px;
+}
+.kaleidico-calculator-disclaimer-text {
+	@apply text-sm leading-normal;
+}

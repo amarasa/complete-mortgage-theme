@@ -1,0 +1,286 @@
+{
+  "key": "group_63a5bd05b1bdb",
+  "title": "CMS Block: Full Width Hero",
+  "fields": [
+    {
+      "key": "field_698e097eb3a2f",
+      "label": "Default Background Color",
+      "name": "default_background_color",
+      "aria-label": "",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "bg-primary": "Primary",
+        "bg-secondary": "Secondary",
+        "bg-grey": "Light Grey",
+        "bg-white": "White"
+      },
+      "default_value": "",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "allow_in_bindings": 0,
+      "layout": "vertical",
+      "save_other_choice": 0
+    },
+    {
+      "key": "field_63a5bd918af58",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_63a5bd988af59",
+      "label": "Introduction Text",
+      "name": "introduction_text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "tabs": "all",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "delay": 0
+    },
+    {
+      "key": "field_63a5bda98af5a",
+      "label": "Buttons",
+      "name": "buttons",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 3,
+      "collapsed": "",
+      "button_label": "Add Button",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_63a5ca2f5717d",
+          "label": "Button",
+          "name": "button",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "parent_repeater": "field_63a5bda98af5a"
+        }
+      ]
+    },
+    {
+      "key": "field_63a5bdec8af5c",
+      "label": "Below Button Text",
+      "name": "below_button_text",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "tabs": "all",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "delay": 0
+    },
+    {
+      "key": "field_68e5381d9bd00",
+      "label": "Background Images",
+      "name": "background_images",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "row",
+      "pagination": 0,
+      "min": 0,
+      "max": 3,
+      "collapsed": "",
+      "button_label": "Add Background Image",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_68e538439bd01",
+          "label": "Background Image",
+          "name": "background_image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "",
+          "allow_in_bindings": 0,
+          "preview_size": "medium",
+          "parent_repeater": "field_68e5381d9bd00"
+        }
+      ]
+    },
+    {
+      "key": "field_68eherooverlay001",
+      "label": "Turn On Gradient Overlay",
+      "name": "turn_on_overlay",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Enable a gradient overlay on top of the background image.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "",
+      "ui_off_text": "",
+      "ui": 1
+    },
+    {
+      "key": "field_68eherooverlay002",
+      "label": "Top Gradient Overlay",
+      "name": "top_gradient_overlay",
+      "aria-label": "",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68eherooverlay001",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "rgba(0,0,0,0.8)",
+      "enable_opacity": 1,
+      "return_format": "string",
+      "allow_in_bindings": 0,
+      "custom_palette_source": "",
+      "palette_colors": "",
+      "show_color_wheel": true
+    },
+    {
+      "key": "field_68eherooverlay003",
+      "label": "Bottom Gradient Overlay",
+      "name": "bottom_gradient_overlay",
+      "aria-label": "",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_68eherooverlay001",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "rgba(0,0,0,0.4)",
+      "enable_opacity": 1,
+      "return_format": "string",
+      "allow_in_bindings": 0,
+      "custom_palette_source": "",
+      "palette_colors": "",
+      "show_color_wheel": true
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-hero-full-width"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

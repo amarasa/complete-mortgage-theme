@@ -1,0 +1,12 @@
+{
+	"name": "acf/cms-container",
+	"title": "Container",
+	"description": "A contained non-full width section for adding other blocks in.",
+	"icon": "",
+	"keywords": ["container"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "container.php"
+	},
+	"align": "full"
+}

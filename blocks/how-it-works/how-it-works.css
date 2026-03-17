@@ -1,0 +1,63 @@
+.how-it-works.bg-primary a:not(.button) {
+	color: white !important;
+}
+
+.how-it-works.bg-primary a:not(.button):hover {
+	opacity: 0.6;
+}
+
+.how-it-works__copy > :first-child {
+	margin-top: 0 !important;
+}
+
+.how-it-works__copy > :last-child {
+	margin-bottom: 0 !important;
+}
+
+.how-it-works__list > :first-child {
+	margin-top: 0 !important;
+}
+
+.how-it-works__list > :last-child {
+	margin-bottom: 0 !important;
+}
+
+.how-it-works__list ul,
+.how-it-works__list ol {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.how-it-works__list--stacked {
+	max-width: 1024px;
+}
+
+.how-it-works__list li {
+	margin-bottom: 1rem;
+}
+
+.how-it-works__list li:last-child {
+	margin-bottom: 0;
+}
+
+.how-it-works__list li > ul,
+.how-it-works__list li > ol {
+	padding-top: 0.5rem;
+}
+
+.how-it-works__list ul li::marker,
+.how-it-works__list ol li::marker {
+	color: #fff;
+	font-weight: 700;
+}
+
+.how-it-works__list--stacked ul,
+.how-it-works__list--stacked ol {
+	max-width: 48rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.how-it-works__list--stacked li {
+	text-align: left;
+}

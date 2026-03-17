@@ -1,0 +1,50 @@
+{
+  "key": "group_68e9f0f0producthero",
+  "title": "CMS Products: Featured Image Focal Point",
+  "fields": [
+    {
+      "key": "field_68ea0a03featuredfocuspoint",
+      "label": "Featured Image Focal Point",
+      "name": "featured_image_focuspoint",
+      "aria-label": "",
+      "type": "focuspoint",
+      "instructions": "Choose the same image as the Featured Image and set the focal point.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "preview_size": "large",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "allow_in_bindings": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "cms_products"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": false,
+  "description": "Deprecated. Replaced by custom Featured Image Focal Point metabox in theme code.",
+  "show_in_rest": 0,
+  "display_title": ""
+}

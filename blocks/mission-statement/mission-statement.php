@@ -1,0 +1,44 @@
+<?php
+$classes = '';
+$id = '';
+$acfKey = '';
+
+if (!empty($block['className'])) {
+    $classes .= sprintf(' %s', $block['className']);
+}
+
+if (!empty($block['anchor'])) {
+    $id = sprintf(' id="%s"', esc_attr($block['anchor']));
+}
+
+$overlap_previous_block = get_field('overlap_previous_block');
+$background_color = get_field('background_color');
+$enable_rounded_edges = get_field('enable_rounded_edges');
+$headline = get_field('headline');
+$content = get_field('content');
+$buttons = get_field('buttons');
+
+
+?>
+<section class="mission-statement cmt-block <?php echo esc_attr($classes); ?> <?php if ($overlap_previous_block) { ?>overlap<?php } ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
+    <div class="container max-w-[991px] mx-auto text-center <?php if ($enable_rounded_edges) { ?>lg:rounded-xl<?php } ?> <?php if ($background_color === 'bg-white') { ?>bg-white border-2 border-solid border-primary px-8 py-12 lg:py-16<?php } else { ?>bg-grey px-8 py-12 lg:py-16<?php } ?>">
+        <?php if ($headline) { ?>
+            <h2><?php echo esc_html($headline); ?></h2>
+        <?php } ?>
+        <?php if ($content) { ?>
+            <div class="max-w-[767px] mx-auto">
+                <?php echo wp_kses_post($content); ?>
+            </div>
+        <?php } ?>
+        <?php if ($buttons) { ?>
+            <div class="md:flex md:gap-x-4 justify-center">
+                <?php
+                while (have_rows('buttons')) : the_row();
+                ?>
+                    <?php $button = get_sub_field('button'); ?>
+                    <a href="<?php echo esc_url($button['url']); ?>" class="button mb-4 !no-underline !text-white"><?php echo esc_html($button['title']); ?></a>
+                <?php endwhile; ?>
+            </div>
+        <?php } ?>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+{
+    "name": "acf/cms-video",
+    "title": "Video",
+    "description": "YouTube Video Block",
+    "category": "Complete Marketing",
+    "icon": "format-image",
+    "keywords": [
+        "video",
+        "youtube"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "video.php"
+    },
+    "supports": {
+        "anchor": "true"
+    },
+    "align": "full",
+    "viewScript": "file:./video.js",
+    "style": [
+        "file:./video.css"
+    ]
+}

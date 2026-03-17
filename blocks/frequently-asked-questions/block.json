@@ -1,0 +1,19 @@
+{
+	"name": "acf/cms-frequently-asked-questions",
+	"title": "Frequently Asked Questions",
+	"description": "A block for FAQs",
+	"category": "Complete Marketing",
+	"editorStyle": ["file:./frequently-asked-questions-editor.css"],
+	"style": ["file:./frequently-asked-questions.css"],
+	"viewScript": "file:./frequently-asked-questions.js",
+	"icon": "format-image",
+	"keywords": ["faq", "frequently asked questions"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "frequently-asked-questions.php"
+	},
+	"supports": {
+		"anchor": "true"
+	},
+	"align": "full"
+}

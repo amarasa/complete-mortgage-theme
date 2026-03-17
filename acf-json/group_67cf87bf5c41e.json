@@ -1,0 +1,153 @@
+{
+  "key": "group_67cf87bf5c41e",
+  "title": "CMS Block: Statistics",
+  "fields": [
+    {
+      "key": "field_67cf87bfa3ee7",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67cf87dfa3ee8",
+      "label": "Statistics",
+      "name": "statistics",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 1,
+      "max": 3,
+      "collapsed": "",
+      "button_label": "Add Statistic",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_67cf8820a3ee9",
+          "label": "Big Stat",
+          "name": "big_stat",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "allow_in_bindings": 0,
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_67cf87dfa3ee8"
+        },
+        {
+          "key": "field_67cf882da3eea",
+          "label": "Sub Stat",
+          "name": "sub_stat",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "allow_in_bindings": 0,
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "parent_repeater": "field_67cf87dfa3ee8"
+        }
+      ]
+    },
+    {
+      "key": "field_67cf896e490d1",
+      "label": "Seconds to Animate",
+      "name": "seconds_to_animate",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "This field takes how many seconds you would like the animation to be from start to finish. By default, it's set to 2 seconds.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 2,
+      "min": 1,
+      "max": 10,
+      "allow_in_bindings": 0,
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67cf8a9279bce",
+      "label": "CTA Link",
+      "name": "cta_link",
+      "aria-label": "",
+      "type": "link",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "allow_in_bindings": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-statistics"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}

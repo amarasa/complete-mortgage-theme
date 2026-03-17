@@ -1,0 +1,6 @@
+.blue-link-anchor {
+	color: #0000ff !important;
+}
+.blue-link-anchor:hover {
+	color: var(--color-secondary) !important;
+}

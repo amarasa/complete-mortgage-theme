@@ -1,0 +1,95 @@
+/**
+ * Theme Name: Complete Mortgage Theme
+ * Theme URI: https://kaleidico.com
+ * Author: Angelo Marasa & Robert Baker
+ * Author URI: https://kaleidico.com
+ * Description: A custom WordPress theme built with Tailwind CSS.
+ * Version: 3.0
+ * License: GNU General Public License v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: complete-mortgage-theme
+ */
+
+@import "tailwindcss";
+@import "@uploads/brand.css";
+/* Source paths for plugin directories outside theme root */
+@source "../../../plugins/kal-social-share/**/*.{php,js,css,html}";
+@source "../../../plugins/kaleidico-custom-calculators/**/*.{php,js,css,html}";
+@source "../../../plugins/kal_testimonials_for_loan_officers/**/*.{php,js,css,html}";
+@source "../../../plugins/querycraft/**/*.{php,js,css,html}";
+
+/* Container centering (replaces v3 container.center: true) */
+@utility container {
+	margin-inline: auto;
+}
+
+/* elevation-3 (only level used, in querycraft/templates/cards.php) */
+@utility elevation-3 {
+	box-shadow:
+		0 3px 3px -2px rgba(0, 0, 0, 0.14),
+		0 3px 4px 0 rgba(0, 0, 0, 0.12),
+		0 1px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* animate-fadeIn (replaces tailwindcss-animate plugin) */
+@utility animate-fadeIn {
+	animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@import "./css/core.css";
+@import "./css/_header.css";
+@import "./css/_contact.css";
+@import "./css/_single.css";
+@import "./css/_footer.css";
+@import "./css/_forms.css";
+@import "./css/_calculators.css";
+@import "./css/_tables.css";
+@import "./css/_sliders.css";
+@import "./css/_thank-you.css";
+@import "./css/_faq-accordion.css";
+@import "./css/_interactive-map.css";
+@import "./css/_customer-reviews.css";
+
+/* Block frontend styles */
+@import "../blocks/apply-online/apply-online.css";
+@import "../blocks/big-block-cta/big-block-cta.css";
+@import "../blocks/blue-link/blue-link.css";
+@import "../blocks/branch-detail/branch-detail.css";
+@import "../blocks/container/container.css";
+@import "../blocks/content-with-list-left--html-block-right/content-with-list-left--html-block-right.css";
+@import "../blocks/customer-reviews/customer-reviews.css";
+@import "../blocks/disclaimer/disclaimer.css";
+@import "../blocks/frequently-asked-questions/frequently-asked-questions.css";
+@import "../blocks/hero-full-width/hero-full-width.css";
+@import "../blocks/hero-multiimage/hero-multiimage.css";
+@import "../blocks/hero-with-circular-image/hero-with-circular-image.css";
+@import "../blocks/hero-with-image-only/hero-with-image-only.css";
+@import "../blocks/hero-with-squared-image/hero-with-squared-image.css";
+@import "../blocks/how-it-works/how-it-works.css";
+@import "../blocks/hyper-local-seo/hyper-local-seo.css";
+@import "../blocks/info-cards-with-icons/info-cards-with-icons.css";
+@import "../blocks/interactive-map/interactive-map.css";
+@import "../blocks/media-left-content-right/media-left-content-right.css";
+@import "../blocks/meet-the-team/meet-the-team.css";
+@import "../blocks/mission-statement/mission-statement.css";
+@import "../blocks/narrow-container/narrow-container.css";
+@import "../blocks/newsletter/newsletter.css";
+@import "../blocks/option-cards/option-cards.css";
+@import "../blocks/product-cards/product-cards.css";
+@import "../blocks/recent-posts/recent-posts.css";
+@import "../blocks/responsive-table/responsive-table.css";
+@import "../blocks/specializations/specializations.css";
+@import "../blocks/statistics/statistics.css";
+@import "../blocks/trusted-by/trusted-by.css";
+@import "../blocks/two-column-informational-block/two-column-informational-block.css";
+@import "../blocks/two-column-product-block/two-column-product-block.css";
+@import "../blocks/video/video.css";
+@import "../blocks/why-us/why-us.css";

@@ -1,0 +1,280 @@
+{
+  "key": "group_67c9ba97ad294",
+  "title": "CMS Block: How it Works",
+  "fields": [
+    {
+      "key": "field_67c9bd3be4386",
+      "label": "Display Style",
+      "name": "display_style",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "One column full width",
+      "ui_off_text": "Two columns full width",
+      "ui": 1
+    },
+    {
+      "key": "field_67c9ba9876d1f",
+      "label": "Headline",
+      "name": "headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67c9baa776d20",
+      "label": "Description",
+      "name": "description",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 0,
+      "delay": 0
+    },
+    {
+      "key": "field_67c9bbcf2ab49",
+      "label": "Left Column CTA Button",
+      "name": "optional_buttonleft_column_cta_button",
+      "aria-label": "",
+      "type": "link",
+      "instructions": "This is an optional CTA button that will display in the left column of the 2 column style, or one column full width.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "allow_in_bindings": 0
+    },
+    {
+      "key": "field_67c9bab276d21",
+      "label": "Right Column Content",
+      "name": "list_items",
+      "aria-label": "",
+      "type": "wysiwyg",
+      "instructions": "Use rich text content, including bulleted or numbered lists.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 0,
+      "delay": 0
+    },
+    {
+      "key": "field_67c9bc0e2ab4a",
+      "label": "Right Column CTA Button",
+      "name": "right_column_cta_button",
+      "aria-label": "",
+      "type": "link",
+      "instructions": "This is an optional CTA button that will display in the right column.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67c9bd3be4386",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "allow_in_bindings": 0
+    },
+    {
+      "key": "field_67d32e1dfa2e3",
+      "label": "Sub Headline",
+      "name": "sub_headline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67c9bd3be4386",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67d330ff087f6",
+      "label": "List Type",
+      "name": "list_type",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67c9bd3be4386",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Numbered List",
+      "ui_off_text": "Check List",
+      "ui": 1
+    },
+    {
+      "key": "field_67d17c70863dd",
+      "label": "Background Color Switch",
+      "name": "background_color_switch",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Background Off",
+      "ui_off_text": "Background On",
+      "ui": 1
+    },
+    {
+      "key": "field_67d17df5724e7",
+      "label": "Extra Spacing",
+      "name": "extra_spacing",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Certain blocks, such as the \"Apply Online\" block allows you to overlap the block above it. In the case of this block, if the block below overlaps, it'll hide the button. So we need to add additional spacing below the button, so it doesn't get hidden.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Add Extra Spacing",
+      "ui_off_text": "Don't Add Extra Spacing",
+      "ui": 1
+    },
+    {
+      "key": "field_67d33151f6ba3",
+      "label": "Numbers Displsy",
+      "name": "numbers_displsy",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_67c9bd3be4386",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "Numbers Visible",
+      "ui_off_text": "Numbers Hidden",
+      "ui": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/cms-how-it-works"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": ""
+}
