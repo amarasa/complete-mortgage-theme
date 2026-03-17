@@ -1,162 +1,67 @@
-.lead-path {
+.progressive-form {
+	.gform_fields {
+		@apply gap-y-4!;
+	}
+	.question {
+		@apply text-xl mb-6;
+	}
+	legend,
 	.gf_progressbar_wrapper {
-		position: absolute;
-		left: 0;
-		width: 100%;
-		top: 0;
+		@apply sr-only;
+	}
+	.gfield_radio {
+		@apply block relative;
 
-		.gf_progressbar_title {
-			@apply sr-only;
+		.gchoice {
+			@apply max-w-full! block!;
 		}
-		.gf_progressbar_percentage {
-			border-radius: 0 !important;
-			@apply relative bg-secondary!;
+		input[type="radio"] {
+			@apply hidden;
 
-			span {
-				@apply block h-full w-full text-right relative top-4 pl-4 pr-0 pb-8 text-xs font-bold text-primary!;
+			&:checked + label {
+				@apply block!;
+
+				&:before {
+					mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/></svg>')
+						no-repeat center / contain;
+					-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/></svg>')
+						no-repeat center / contain;
+				}
 			}
 		}
-		.gf_progressbar {
-			@apply bg-transparent;
+		label {
+			@apply border border-solid rounded-md ml-0 p-4 border-primary w-full block text-base bg-white relative cursor-pointer transition-all duration-300 ease-in-out hover:bg-gray-100!;
+
+			&:before {
+				content: "";
+				@apply inline-block mr-2 bg-secondary align-middle;
+				width: 1.5rem;
+				height: 1.5rem;
+				mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/></svg>')
+					no-repeat center / contain;
+				-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/></svg>')
+					no-repeat center / contain;
+			}
 		}
 	}
-
-	.lead-path-disclaimer {
-		a {
-			@apply text-secondary hover:text-tertiary;
+	.gform-theme-button {
+		@apply bg-primary! rounded-md! w-full! block! transition-all duration-300 ease-in-out hover:bg-secondary! font-bold! text-lg! p-2! shadow-none!;
+	}
+	.gform-theme-button.gform_previous_button {
+		@apply bg-transparent! order-2! border-0!;
+	}
+	.gfield--type-textarea {
+		.gfield_label {
+			@apply sr-only;
 		}
 	}
-	.gform-body {
-		@apply pt-10 pb-4 max-w-[580px] px-8 mx-auto;
-	}
-	.lead-path-disclaimer {
-		@apply max-w-[580px] px-8 mx-auto;
-	}
-
 }
 
-.lead-path,
-.lead-form,
-.apply-online {
-	.gfield_radio {
-		@apply space-y-3;
-	}
-
-	.gchoice {
-		@apply relative mb-0!;
-	}
-
-	.gchoice input[type="radio"] {
-		appearance: none !important;
-		-webkit-appearance: none !important;
-		@apply absolute top-1/2 left-5 z-40 block! size-6 -translate-y-1/2 rounded-full border-[4px] border-[#2b6fb6] bg-white shadow-none!;
-	}
-
-	.gchoice input[type="radio"] + label {
-		@apply mb-0! min-h-[56px]! rounded-[4px]! border-[1px]! border-solid! border-[#9aa3af]! bg-white! py-4! pl-14! pr-4! text-[18px]! font-normal! normal-case! tracking-normal! text-[#3f3f46]! hover:bg-white!;
-	}
-
-	.gchoice input[type="radio"]:checked {
-		box-shadow: inset 0 0 0 6px #fff;
-		background-color: #2b6fb6 !important;
-	}
-
-	.gchoice input[type="radio"]:checked + label {
-		@apply border-[#2b6fb6]! bg-white!;
-	}
+h2.gform_submission_error {
+	@apply mb-0;
 }
-form {
-	.question {
-		@apply text-3xl font-bold text-primary;
-	}
-	label,
-	legend {
-		@apply block font-bold! text-secondary! tracking-widest! uppercase!;
-	}
-	.hidden-label {
-		label,
-		legend {
-			@apply sr-only!;
-		}
-	}
-	input:not(input[type="radio"], input[type="checkbox"]),
-	textarea {
-		@apply border-solid! focus:outline-none! focus:border-secondary! border-[1px]! border-[#8e8e95]! h-[56px]! rounded-[4px]! text-lg!;
-	}
-	.gform-page-footer {
-		@apply gap-x-8! sm:flex-nowrap!;
-	}
-	.gform_previous_button {
-		@apply order-2! sm:order-1!;
-	}
-	input[type="submit"],
-	.gform_next_button {
-		@apply order-1! sm:order-2!;
-	}
-	input[type="button"],
-	input[type="submit"] {
-		@apply w-full! bg-secondary! shadow-none! outline-none! border-0! hover:bg-primary! text-lg! text-white! font-bold!;
-	}
-	input[type="button"].gform_previous_button {
-		@apply bg-primary! hover:bg-secondary!;
-	}
-	.gfield_radio,
-	.gchoice {
-		@apply block! relative! w-full!;
-
-		input[type="checkbox"],
-		input[type="radio"] {
-			@apply absolute top-1/2 -translate-y-1/2 z-40 left-3 text-secondary border-2 border-secondary rounded-md focus:outline-none;
-		}
-		input[type="checkbox"] {
-			@apply top-[42%];
-		}
-	}
-	.gfield_checkbox {
-		gap: 0px !important;
-	}
-	input[type="radio"] + label,
-	input[type="checkbox"] + label {
-		position: relative;
-		@apply border-[1px]! flex! items-center! border-solid! rounded-md! border-[#8e8e95]! ml-0! w-full! min-h-[56px]! py-4! pl-10! pr-4! mb-3! text-base! font-normal! tracking-normal! text-[#515151]! transition-all! duration-300! ease-in-out! hover:bg-[#efefef]! cursor-pointer!;
-	}
-	input[type="radio"]:checked + label,
-	input[type="checkbox"]:checked + label {
-		@apply bg-[#eee]!;
-		content: "";
-	}
-	input[type="radio"] {
-		@apply rounded-full!;
-	}
-	.gform-field-label--type-sub {
-		@apply capitalize! font-normal! tracking-normal! text-[#515151]!;
-	}
-}
-form.horizontal-form {
-	@apply lg:flex gap-x-8 items-end justify-between;
-
-	.gform_body {
-		@apply w-full;
-	}
-	.gform_fields {
-		@apply lg:flex! flex-grow!;
-		row-gap: 10px !important;
-
-		.gfield {
-			@apply flex-grow!;
-		}
-	}
-
-	.validation_message {
-		@apply lg:absolute;
-	}
-}
-.gform_validation_errors {
-	@apply hidden!;
-}
-.gform-theme--framework .gf_progressbar .percentbar_blue {
-	@apply bg-secondary!;
-}
-.gform-theme--framework {
-	--gf-ctrl-choice-check-color: var(--color-secondary) !important;
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+	@apply border-[1px]! border-solid! border-primary!;
 }
