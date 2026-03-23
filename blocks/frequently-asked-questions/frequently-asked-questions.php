@@ -23,47 +23,47 @@ $panel_gradient_style = sprintf(
 );
 
 ?>
-<section class="frequently-asked-questions cmt-block my-12 <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
-    <div class="container max-w-[730px] mx-auto px-8">
-    <h2><?php echo esc_html(get_field('headline')); ?></h2>
+<section class="frequently-asked-questions cmt-block py-4! <?php echo esc_attr($classes); ?>" <?php echo $id; ?> data-block-name="<?php echo esc_attr($acfKey); ?>">
+    <div class="max-w-[730px] mx-auto">
+        <h2><?php echo esc_html(get_field('headline')); ?></h2>
 
-    <?php if (get_field('introduction_text')) { ?>
-        <div class="mb-6 faq-intro-text">
-            <?php echo wp_kses_post(get_field('introduction_text')); ?>
-        </div>
-    <?php } ?>
-
-    <div class="accordion faq-accordion" role="presentation">
-        <?php
-        $faq_index = 0;
-        while (have_rows("faq_section")) :
-            the_row();
-            $faq_index++;
-            $is_first = ($faq_index === 1);
-            $is_active = $is_first ? 'active' : '';
-            $aria_expanded = $is_first ? 'true' : 'false';
-            $panel_id = 'faq-panel-' . $acfKey . '-' . $faq_index;
-        ?>
-            <div class="a-container <?php echo $is_active; ?>">
-                <div class="a-btn"
-                    id="faq-btn-<?php echo esc_attr($faq_index); ?>"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="<?php echo $aria_expanded; ?>"
-                    aria-controls="<?php echo esc_attr($panel_id); ?>">
-                    <?php echo esc_html(get_sub_field("faq_question")); ?>
-                </div>
-                <div id="<?php echo esc_attr($panel_id); ?>"
-                    class="a-panel"
-                    role="region"
-                    aria-labelledby="faq-btn-<?php echo esc_attr($faq_index); ?>"
-                    style="<?php echo esc_attr($panel_gradient_style); ?>">
-                    <div class="py-6 mb-0"><?php echo wp_kses_post(get_sub_field("faq_answer")); ?></div>
-                </div>
+        <?php if (get_field('introduction_text')) { ?>
+            <div class="mb-6 faq-intro-text">
+                <?php echo wp_kses_post(get_field('introduction_text')); ?>
             </div>
-        <?php
-        endwhile; ?>
-    </div>
+        <?php } ?>
+
+        <div class="accordion faq-accordion" role="presentation">
+            <?php
+            $faq_index = 0;
+            while (have_rows("faq_section")) :
+                the_row();
+                $faq_index++;
+                $is_first = ($faq_index === 1);
+                $is_active = $is_first ? 'active' : '';
+                $aria_expanded = $is_first ? 'true' : 'false';
+                $panel_id = 'faq-panel-' . $acfKey . '-' . $faq_index;
+            ?>
+                <div class="a-container <?php echo $is_active; ?>">
+                    <div class="a-btn"
+                        id="faq-btn-<?php echo esc_attr($faq_index); ?>"
+                        role="button"
+                        tabindex="0"
+                        aria-expanded="<?php echo $aria_expanded; ?>"
+                        aria-controls="<?php echo esc_attr($panel_id); ?>">
+                        <?php echo esc_html(get_sub_field("faq_question")); ?>
+                    </div>
+                    <div id="<?php echo esc_attr($panel_id); ?>"
+                        class="a-panel"
+                        role="region"
+                        aria-labelledby="faq-btn-<?php echo esc_attr($faq_index); ?>"
+                        style="<?php echo esc_attr($panel_gradient_style); ?>">
+                        <div class="py-6 mb-0"><?php echo wp_kses_post(get_sub_field("faq_answer")); ?></div>
+                    </div>
+                </div>
+            <?php
+            endwhile; ?>
+        </div>
     </div>
 </section>
 

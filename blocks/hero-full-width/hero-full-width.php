@@ -90,7 +90,7 @@ if (have_rows('background_images')) {
         }
     }
     ?>
-    <div class="hero-full-width-content relative px-8 z-20 <?php echo esc_attr($content_text_color); ?> mx-auto text-center container py-16">
+    <div class="hero-full-width-content relative px-8 z-20 <?php echo esc_attr($content_text_color); ?> mx-auto text-center container pt-16">
 
         <h1 class="<?php echo esc_attr($content_text_color); ?>"><?php echo esc_html($headline); ?></h1>
         <div class="max-w-3xl mx-auto mb-5 <?php echo esc_attr($content_text_color); ?>"><?php echo wp_kses_post($introduction_text); ?></div>

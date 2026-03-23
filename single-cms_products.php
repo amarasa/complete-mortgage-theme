@@ -29,7 +29,7 @@ if (is_user_logged_in() && current_user_can('manage_options')) {
     echo "\n<!-- product-hero-focus: x={$focus_x}, y={$focus_y}, post_id={$post_id} -->\n";
 }
 ?>
-<section class="product-hero lg:px-8">
+<section class="product-hero !py-0">
     <div class="product-hero-media relative pb-[45%] md:pb-[35%] lg:pb-[25%] mb-8 md:mb-16 lg:rounded-md extend-container mx-auto overflow-hidden">
         <?php
         if ($hero_image_id) {

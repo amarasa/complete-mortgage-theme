@@ -11,6 +11,6 @@ if (!empty($block['anchor'])) {
 }
 ?>
 
-<article class="container mx-auto px-8 py-12 lg:py-16 <?php echo esc_attr($classes); ?>" <?php echo $id; ?>>
+<article class="container mx-auto px-8 py-6 lg:py-8 <?php echo esc_attr($classes); ?>" <?php echo $id; ?>>
     <InnerBlocks />
 </article>
