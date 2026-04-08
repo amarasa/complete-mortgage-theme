@@ -96,6 +96,7 @@ $legal_footer_sidebars = [
     })();
 </script>
 <?php wp_footer(); ?>
+<?php echo get_field('footer_scripts', 'option'); ?>
 <script>
     jQuery("a[href ^= 'tel']").html(function(i, html) {
         return "<span data-calltrk-noswap>" + html + "</span>";
